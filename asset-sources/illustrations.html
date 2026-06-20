@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      :root {
+        --paper: #dbeaf1;
+        --ink: #17304a;
+        --blue: #0a9ed8;
+        --blue-soft: #bde8f7;
+        --green: #32aa76;
+        --green-soft: #ccefdc;
+        --cream: #fff7df;
+        --yellow: #ffd65a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        font-family: system-ui, sans-serif;
+        overflow: hidden;
+      }
+
+      .asset {
+        position: relative;
+        overflow: hidden;
+        background: var(--paper);
+      }
+
+      #hero {
+        width: 1440px;
+        height: 960px;
+      }
+
+      .card {
+        width: 720px;
+        height: 360px;
+      }
+
+      #guide {
+        width: 820px;
+        height: 280px;
+      }
+
+      .obj {
+        position: absolute;
+        width: var(--w);
+        transform: rotate(var(--r, 0deg));
+      }
+
+      svg {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+      }
+
+      .line {
+        fill: #fff8e5;
+        stroke: var(--ink);
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .blue {
+        fill: var(--blue-soft);
+      }
+
+      .green {
+        fill: var(--green-soft);
+      }
+
+      .yellow {
+        fill: var(--yellow);
+      }
+
+      .dark {
+        fill: var(--ink);
+      }
+
+      .skin {
+        fill: #ffe9c2;
+      }
+
+      .shadow {
+        filter: drop-shadow(5px 6px 0 rgba(23, 48, 74, 0.08));
+      }
+    </style>
+  </head>
+  <body>
+    <section id="hero" class="asset">
+      <div class="obj shadow" style="--w:150px; --r:-4deg; left:78px; top:300px"><svg viewBox="0 0 180 130"><path class="line blue" d="M28 28h124v70H28z"/><path class="line" d="M12 112h156l-18-16H30z"/><path class="line" d="M52 52h55M52 70h34"/><circle class="line yellow" cx="128" cy="63" r="12"/></svg></div>
+      <div class="obj shadow" style="--w:115px; --r:7deg; left:418px; top:158px"><svg viewBox="0 0 140 160"><rect class="line blue" x="34" y="16" width="72" height="128" rx="16"/><circle class="line" cx="70" cy="80" r="28"/><circle class="dark" cx="70" cy="80" r="8"/><path class="line" d="M52 124h36M52 38h34"/></svg></div>
+      <div class="obj shadow" style="--w:118px; --r:18deg; right:330px; top:272px"><svg viewBox="0 0 160 140"><path class="line blue" d="m28 104 58-58"/><path class="line yellow" d="M92 18c18 5 31 18 35 35L102 48 88 62l4 16-16 16-29-29 16-16 16 4 14-14-1-21Z"/></svg></div>
+      <div class="obj shadow" style="--w:138px; --r:-8deg; right:110px; top:390px"><svg viewBox="0 0 180 130"><path class="line green" d="M24 30c28-14 47-13 66 0v78c-21-13-41-13-66 0V30Z"/><path class="line" d="M90 30c24-13 44-13 66 0v78c-25-13-45-13-66 0V30Z"/><path class="line" d="M44 55h26M44 73h22M108 55h26M108 73h22"/></svg></div>
+      <div class="obj shadow" style="--w:132px; --r:-14deg; left:350px; bottom:146px"><svg viewBox="0 0 160 140"><path class="line yellow" d="M42 110 98 26l24 18-58 84-34 10 12-28Z"/><path class="line" d="m92 36 25 18M42 110l23 18"/><path class="line" d="M20 38h44M18 58h30"/></svg></div>
+      <div class="obj shadow" style="--w:122px; --r:-8deg; right:350px; bottom:120px"><svg viewBox="0 0 170 130"><path class="line green" d="M35 26h77c17 0 30 13 30 30v7c0 17-13 30-30 30H74l-35 22 10-26c-10-6-17-17-17-30v-3c0-17 13-30 30-30Z"/><path class="line" d="M62 56h48M62 73h32"/></svg></div>
+      <div class="obj shadow" style="--w:128px; --r:0deg; right:138px; top:82px"><svg viewBox="0 0 120 190"><path class="line dark" d="M39 38c0-24 17-35 34-32 18 3 29 18 25 42l-8 16H46z"/><circle class="line skin" cx="65" cy="42" r="20"/><path class="line green" d="M38 72h52l11 70H28z"/><path class="line" d="M52 74h24l6 68H46z"/><path class="line dark" d="M34 142h24v35H35zM70 142h24v35H71z"/><path class="line" d="M35 178h29M67 178h31"/><path class="line yellow" d="M36 112h50v34H36z"/></svg></div>
+      <div class="obj shadow" style="--w:132px; --r:0deg; left:122px; bottom:40px"><svg viewBox="0 0 120 190"><path class="line dark" d="M35 36c4-21 21-31 39-27 18 4 27 18 23 41l-9 14H44z"/><circle class="line skin" cx="63" cy="42" r="20"/><path class="line blue" d="M36 72h54l10 70H27z"/><path class="line" d="M53 74h20l7 68H46z"/><path class="line dark" d="M32 142h24v35H33zM68 142h24v35H69z"/><path class="line" d="M32 178h29M66 178h31"/><path class="line yellow" d="M76 107h27v24H76z"/></svg></div>
+    </section>
+
+    <section id="tech" class="asset card">
+      <div class="obj shadow" style="--w:190px; --r:-4deg; left:40px; top:72px"><svg viewBox="0 0 180 130"><path class="line blue" d="M28 28h124v70H28z"/><path class="line" d="M12 112h156l-18-16H30z"/><path class="line" d="M52 52h55M52 70h34"/><circle class="line yellow" cx="128" cy="63" r="12"/></svg></div>
+      <div class="obj shadow" style="--w:150px; --r:8deg; left:265px; top:38px"><svg viewBox="0 0 140 160"><rect class="line blue" x="34" y="16" width="72" height="128" rx="16"/><circle class="line" cx="70" cy="80" r="28"/><circle class="dark" cx="70" cy="80" r="8"/><path class="line" d="M52 124h36M52 38h34"/></svg></div>
+      <div class="obj shadow" style="--w:170px; --r:16deg; right:70px; top:76px"><svg viewBox="0 0 160 140"><path class="line blue" d="m28 104 58-58"/><path class="line yellow" d="M92 18c18 5 31 18 35 35L102 48 88 62l4 16-16 16-29-29 16-16 16 4 14-14-1-21Z"/></svg></div>
+    </section>
+
+    <section id="study" class="asset card">
+      <div class="obj shadow" style="--w:190px; --r:-7deg; left:45px; top:82px"><svg viewBox="0 0 180 130"><path class="line green" d="M24 30c28-14 47-13 66 0v78c-21-13-41-13-66 0V30Z"/><path class="line" d="M90 30c24-13 44-13 66 0v78c-25-13-45-13-66 0V30Z"/><path class="line" d="M44 55h26M44 73h22M108 55h26M108 73h22"/></svg></div>
+      <div class="obj shadow" style="--w:160px; --r:-14deg; left:280px; top:80px"><svg viewBox="0 0 160 140"><path class="line yellow" d="M42 110 98 26l24 18-58 84-34 10 12-28Z"/><path class="line" d="m92 36 25 18M42 110l23 18"/><path class="line" d="M20 38h44M18 58h30"/></svg></div>
+      <div class="obj shadow" style="--w:160px; --r:-8deg; right:64px; top:86px"><svg viewBox="0 0 170 130"><path class="line green" d="M35 26h77c17 0 30 13 30 30v7c0 17-13 30-30 30H74l-35 22 10-26c-10-6-17-17-17-30v-3c0-17 13-30 30-30Z"/><path class="line" d="M62 56h48M62 73h32"/></svg></div>
+    </section>
+
+    <section id="guide" class="asset">
+      <div class="obj shadow" style="--w:130px; --r:-4deg; left:35px; top:70px"><svg viewBox="0 0 180 130"><path class="line blue" d="M28 28h124v70H28z"/><path class="line" d="M12 112h156l-18-16H30z"/><path class="line" d="M52 52h55M52 70h34"/></svg></div>
+      <div class="obj shadow" style="--w:132px; --r:-8deg; left:250px; top:70px"><svg viewBox="0 0 180 130"><path class="line green" d="M24 30c28-14 47-13 66 0v78c-21-13-41-13-66 0V30Z"/><path class="line" d="M90 30c24-13 44-13 66 0v78c-25-13-45-13-66 0V30Z"/></svg></div>
+      <div class="obj shadow" style="--w:126px; --r:-8deg; right:230px; top:70px"><svg viewBox="0 0 170 130"><path class="line green" d="M35 26h77c17 0 30 13 30 30v7c0 17-13 30-30 30H74l-35 22 10-26c-10-6-17-17-17-30v-3c0-17 13-30 30-30Z"/></svg></div>
+      <div class="obj shadow" style="--w:122px; --r:15deg; right:45px; top:72px"><svg viewBox="0 0 160 140"><path class="line yellow" d="M42 110 98 26l24 18-58 84-34 10 12-28Z"/><path class="line" d="m92 36 25 18M42 110l23 18"/></svg></div>
+    </section>
+  </body>
+</html>
