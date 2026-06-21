@@ -104,7 +104,11 @@ function PosterHero() {
     <section className="poster-hero" id="top" aria-label="KAWABIT サービス案内">
       <article className="poster-panel poster-study" aria-labelledby="poster-study-title">
         <p className="poster-blue-lead">一人ひとりに、<br />いちばんの学び方を。</p>
-        <h1 id="poster-study-title">わかるが<br />自信に<br />変わる<span>。</span></h1>
+        <h1 id="poster-study-title">
+          わかるが<br />
+          自信に<br />
+          <span className="char-hen">変</span>わる<span className="dot-blue">。</span>
+        </h1>
         <div className="poster-hand-note">
           <img src="/hero/poster-study-hand-note.png" alt="" aria-hidden="true" />
           <span className="sr-only">伴走する、学びのパートナー。</span>
@@ -150,7 +154,10 @@ function PosterHero() {
           <strong>川辺コンピューター</strong>
         </div>
 
-        <h2 id="poster-tech-title">パソコンの<br />困ったを解決<span>。</span></h2>
+        <h2 id="poster-tech-title">
+          パソコンの<br />
+          困ったを解決<span className="dot-white">。</span>
+        </h2>
 
         <p className="poster-tech-lead poster-handwritten-text-white">
           <span className="line1">データはそのまま、</span><br />

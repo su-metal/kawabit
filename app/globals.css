@@ -1255,14 +1255,26 @@ body {
 }
 
 .poster-study h1 span {
+  color: #0b56a5;
+}
+
+.poster-study h1 .char-hen {
+  font-size: 1.25em;
   display: inline-block;
-  width: clamp(14px, 1.5vw, 22px);
-  height: clamp(14px, 1.5vw, 22px);
+  transform: scale(1.08) translateY(-0.02em);
+  transform-origin: center bottom;
+}
+
+.poster-study h1 .dot-blue {
+  display: inline-block;
+  width: clamp(14px, 1.4vw, 22px);
+  height: clamp(14px, 1.4vw, 22px);
   border: clamp(3px, 0.3vw, 5px) solid #0b56a5;
   border-radius: 50%;
   color: transparent;
   margin-left: 8px;
   vertical-align: middle;
+  line-height: 1;
 }
 
 .poster-tech h2 {
@@ -1277,7 +1289,7 @@ body {
   letter-spacing: -0.02em;
 }
 
-.poster-tech h2 span {
+.poster-tech h2 .dot-white {
   display: inline-block;
   width: clamp(12px, 1.2vw, 18px);
   height: clamp(12px, 1.2vw, 18px);
@@ -1286,6 +1298,7 @@ body {
   color: transparent;
   margin-left: 6px;
   vertical-align: middle;
+  line-height: 1;
 }
 
 .poster-hand-note {
@@ -1374,7 +1387,9 @@ body {
 }
 
 .poster-memo li::before {
-  border: 2px solid currentColor;
+  background: #050505;
+  color: #fff;
+  border-radius: 50%;
 }
 
 .poster-tech-memo li::before {
@@ -1400,9 +1415,9 @@ body {
   place-items: center;
   margin: 0;
   color: #fff;
-  font-family: "Segoe Script", "Bradley Hand ITC", "Yu Mincho", cursive;
+  font-family: var(--font-yomogi), "Yomogi", cursive;
   font-size: clamp(15px, 1.3vw, 22px);
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1.35;
   text-align: center;
 }
@@ -1645,8 +1660,8 @@ body {
   place-content: center;
   margin: 0;
   color: #fff;
-  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
-  font-size: clamp(18px, 1.8vw, 26px);
+  font-family: var(--font-yomogi), "Yomogi", cursive;
+  font-size: clamp(20px, 2.2vw, 30px);
   font-weight: 900;
   line-height: 1.3;
   text-align: center;
