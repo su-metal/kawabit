@@ -1648,7 +1648,7 @@ body {
   position: absolute;
   z-index: 10;
   left: clamp(40px, 5vw, 75px);
-  bottom: 160px;
+  bottom: 220px;
   width: clamp(130px, 15vw, 200px);
   transform: rotate(-4deg);
 }
