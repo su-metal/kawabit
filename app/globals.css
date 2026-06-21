@@ -1318,11 +1318,12 @@ body {
 .poster-study-photo {
   position: absolute;
   z-index: 3;
-  top: 240px;
-  right: -20px;
+  top: 210px;
+  right: -30px;
   bottom: auto;
-  width: min(86%, 840px);
-  height: auto;
+  width: clamp(340px, 36vw, 490px);
+  height: clamp(480px, 55vh, 730px);
+  object-fit: fill;
   mix-blend-mode: normal;
   filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.08));
 }
@@ -1765,7 +1766,9 @@ main:has(.poster-hero) .header-contact::before {
   }
 
   .poster-study-photo {
-    width: min(78%, 700px);
+    width: clamp(290px, 32vw, 400px);
+    height: clamp(420px, 50vh, 600px);
+    object-fit: fill;
   }
 
   .poster-tech h2 {
@@ -1807,10 +1810,12 @@ main:has(.poster-hero) .header-contact::before {
   }
 
   .poster-study-photo {
-    top: 292px;
-    right: -72px;
+    top: 260px;
+    right: -40px;
     bottom: auto;
-    width: 116%;
+    width: 96%;
+    height: 420px;
+    object-fit: fill;
   }
 
   .poster-book-stamp {
