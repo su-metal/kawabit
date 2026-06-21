@@ -1318,10 +1318,10 @@ body {
 .poster-study-photo {
   position: absolute;
   z-index: 3;
-  top: 240px;
-  right: -10px;
+  top: 245px;
+  right: -130px;
   bottom: auto;
-  width: clamp(360px, 72%, 520px);
+  width: clamp(550px, 94%, 780px);
   height: auto;
   mix-blend-mode: normal;
   filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.08));
@@ -1765,7 +1765,8 @@ main:has(.poster-hero) .header-contact::before {
   }
 
   .poster-study-photo {
-    width: clamp(300px, 65%, 440px);
+    width: clamp(480px, 86%, 660px);
+    right: -100px;
     height: auto;
   }
 
@@ -1809,9 +1810,9 @@ main:has(.poster-hero) .header-contact::before {
 
   .poster-study-photo {
     top: 280px;
-    right: -40px;
+    right: -90px;
     bottom: auto;
-    width: 90%;
+    width: 124%;
     height: auto;
   }
 
