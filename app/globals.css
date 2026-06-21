@@ -1601,8 +1601,8 @@ body {
 .poster-tech-memo {
   position: absolute;
   z-index: 9;
-  top: 480px;
-  left: 20px;
+  top: 470px;
+  left: clamp(30px, 4vw, 55px);
   width: clamp(200px, 22vw, 300px);
   transform: rotate(-4deg);
 }
@@ -1647,9 +1647,9 @@ body {
 .poster-tech-badge {
   position: absolute;
   z-index: 10;
-  left: 50px;
-  bottom: 30px;
-  width: clamp(140px, 16vw, 220px);
+  left: clamp(40px, 5vw, 75px);
+  bottom: 96px;
+  width: clamp(130px, 15vw, 200px);
   transform: rotate(-4deg);
 }
 
