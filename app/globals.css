@@ -33,6 +33,16 @@ a {
   text-decoration: none;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 main {
   min-height: 100vh;
   overflow-x: clip;
@@ -602,14 +612,14 @@ body {
 .site-header {
   min-height: 104px;
   border-bottom: 0;
-  box-shadow: 0 10px 36px rgba(5, 35, 72, 0.06);
+  box-shadow: none;
 }
 
 .header-contact {
   min-height: 56px;
   border-radius: 999px;
   padding: 0 30px;
-  box-shadow: 0 16px 30px rgba(11, 86, 165, 0.24);
+  box-shadow: none;
 }
 
 .hero {
@@ -1175,5 +1185,715 @@ body {
   .faq-panel,
   .contact-panel {
     padding: 30px 24px;
+  }
+}
+
+/* Poster-style FV implementation using generated PNG assets. */
+.poster-hero {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-height: min(990px, calc(100vh - 66px));
+  max-height: 990px;
+  overflow: hidden;
+  border-bottom: 1px solid #e7e1d6;
+  background: #fff;
+}
+
+.poster-panel {
+  position: relative;
+  min-width: 0;
+  min-height: min(990px, calc(100vh - 66px));
+  max-height: 990px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.poster-study {
+  background:
+    linear-gradient(74deg, rgba(11, 86, 165, 0.09) 1px, transparent 1px),
+    linear-gradient(164deg, rgba(11, 86, 165, 0.09) 1px, transparent 1px),
+    #fff;
+  background-size: 31px 31px;
+  padding: clamp(34px, 3vw, 50px) clamp(30px, 4vw, 62px);
+}
+
+.poster-tech {
+  background: #0b2a75;
+  padding: clamp(34px, 3vw, 50px) clamp(30px, 4vw, 62px);
+}
+
+.poster-blue-lead {
+  position: relative;
+  z-index: 5;
+  margin: 0;
+  padding-left: clamp(0px, 0.6vw, 10px);
+  color: #0b56a5;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(16px, 1.35vw, 22px);
+  font-weight: 900;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
+.poster-study h1,
+.poster-tech h2 {
+  position: relative;
+  z-index: 5;
+  margin: 22px 0 0;
+  color: #050505;
+  font-family: "Arial Black", "Hiragino Kaku Gothic Std", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(64px, 6.2vw, 96px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.poster-study h1 {
+  width: max-content;
+  transform: rotate(-7deg);
+  transform-origin: left top;
+}
+
+.poster-study h1 span {
+  display: inline-block;
+  width: clamp(14px, 1.5vw, 22px);
+  height: clamp(14px, 1.5vw, 22px);
+  border: clamp(3px, 0.3vw, 5px) solid #0b56a5;
+  border-radius: 50%;
+  color: transparent;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.poster-tech h2 {
+  position: relative;
+  z-index: 5;
+  margin: 24px 0 0;
+  color: #fff;
+  font-family: "Arial Black", "Hiragino Kaku Gothic Std", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(52px, 5.2vw, 76px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.poster-tech h2 span {
+  display: inline-block;
+  width: clamp(12px, 1.2vw, 18px);
+  height: clamp(12px, 1.2vw, 18px);
+  border: clamp(3px, 0.3vw, 4px) solid #fff;
+  border-radius: 50%;
+  color: transparent;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.poster-hand-note {
+  position: relative;
+  z-index: 8;
+  width: clamp(285px, 28vw, 410px);
+  margin: 44px 0 0 -12px;
+  transform: rotate(-5deg);
+}
+
+.poster-hand-note img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.poster-study-photo {
+  position: absolute;
+  z-index: 3;
+  top: 270px;
+  right: -4px;
+  bottom: auto;
+  width: min(74%, 720px);
+  height: auto;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.08));
+}
+
+.poster-book-stamp {
+  position: absolute;
+  z-index: 2;
+  top: 236px;
+  right: 56px;
+  width: clamp(86px, 8vw, 118px);
+  height: auto;
+  transform: rotate(14deg);
+}
+
+.poster-memo {
+  position: absolute;
+  z-index: 9;
+  top: 632px;
+  left: 42px;
+  bottom: auto;
+  width: clamp(150px, 14vw, 205px);
+  transform: rotate(-7deg);
+}
+
+.poster-memo img,
+.poster-burst img,
+.poster-red-callout img,
+.poster-free-badge img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.poster-memo ul {
+  position: absolute;
+  inset: 22% 13% 16% 16%;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #050505;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.poster-memo li::before,
+.poster-tech-memo li::before {
+  content: "✓";
+  display: inline-grid;
+  place-items: center;
+  width: 1.35em;
+  height: 1.35em;
+  margin-right: 0.42em;
+  font-family: Arial, sans-serif;
+  font-size: 0.72em;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.poster-memo li::before {
+  border: 2px solid currentColor;
+}
+
+.poster-tech-memo li::before {
+  background: #0b2a75;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.poster-burst {
+  position: absolute;
+  z-index: 10;
+  top: 692px;
+  right: 48px;
+  bottom: auto;
+  width: clamp(116px, 11vw, 168px);
+  transform: rotate(-8deg);
+}
+
+.poster-burst p {
+  position: absolute;
+  inset: 28% 18%;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: #fff;
+  font-family: "Segoe Script", "Bradley Hand ITC", "Yu Mincho", cursive;
+  font-size: clamp(15px, 1.3vw, 22px);
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.poster-service {
+  position: absolute;
+  z-index: 8;
+  left: clamp(32px, 4vw, 72px);
+  bottom: 78px;
+  display: grid;
+  gap: 18px;
+  font-family: "Hiragino Kaku Gothic Std", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+}
+
+.poster-service strong {
+  display: block;
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.poster-service span {
+  color: #050505;
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 850;
+}
+
+.poster-service-study {
+  color: #0b56a5;
+}
+
+.poster-service-tech {
+  color: #050505;
+  bottom: 58px;
+}
+
+.poster-tech-support {
+  position: relative;
+  z-index: 8;
+  padding: 8px 16px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 900;
+}
+
+.poster-tech-support-wrapper {
+  position: absolute;
+  z-index: 8;
+  right: clamp(170px, 19vw, 260px);
+  bottom: 74px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.poster-tech-screwdriver {
+  width: clamp(24px, 2.5vw, 36px);
+  height: auto;
+  transform: rotate(15deg);
+  filter: brightness(0) invert(1);
+}
+
+.poster-link {
+  position: absolute;
+  z-index: 10;
+  bottom: 70px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  color: #050505;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 900;
+}
+
+.poster-link span {
+  width: clamp(42px, 5vw, 74px);
+  height: 1px;
+  background: currentColor;
+}
+
+.poster-link span::after {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  margin-left: calc(100% - 8px);
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+  content: "";
+}
+
+.poster-link-study {
+  right: clamp(46px, 5vw, 86px);
+}
+
+.poster-link-tech {
+  left: auto;
+  right: clamp(46px, 5vw, 86px);
+  bottom: 74px;
+  color: #fff;
+}
+.poster-link-tech span {
+  background: #fff;
+}
+
+.poster-tech-brand {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.poster-tech-lead {
+  position: relative;
+  z-index: 5;
+  margin: 28px 0 0;
+  color: #fff;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(16px, 1.4vw, 22px);
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+}
+
+.poster-handwritten-text-white {
+  margin: 32px 0 0 10px !important;
+  font-family: var(--font-yomogi), "Yomogi", cursive !important;
+  color: #fff;
+  font-size: clamp(22px, 2.4vw, 36px) !important;
+  font-weight: 400 !important;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  transform: rotate(-3deg);
+  transform-origin: left center;
+}
+
+.poster-handwritten-text-white span {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.poster-handwritten-text-white span::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  bottom: 0;
+  width: 104%;
+  height: 6px;
+  border-top: 3px solid #fff;
+  border-bottom: 1.5px solid #fff;
+  transform: rotate(-1deg);
+  transform-origin: left center;
+}
+
+.poster-handwritten-text-white .line2 {
+  margin-left: 1.5em;
+  margin-top: 8px;
+}
+
+.poster-tech-photo {
+  position: absolute;
+  z-index: 3;
+  right: -20px;
+  bottom: -40px;
+  width: min(85%, 720px);
+  height: auto;
+}
+
+.poster-tech-memo {
+  position: absolute;
+  z-index: 9;
+  top: 480px;
+  left: 20px;
+  width: clamp(200px, 22vw, 300px);
+  transform: rotate(-4deg);
+}
+
+.poster-tech-memo img,
+.poster-tech-stamp,
+.poster-tech-badge img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.poster-tech-memo ul {
+  position: absolute;
+  inset: 20% 12%;
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #050505;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(13px, 1.2vw, 18px);
+  font-weight: 900;
+}
+
+.poster-tech-memo li {
+  display: flex;
+  align-items: center;
+}
+
+.poster-tech-stamp {
+  position: absolute;
+  z-index: 2;
+  top: 40px;
+  right: 40px;
+  width: clamp(120px, 14vw, 180px);
+  transform: rotate(8deg);
+}
+
+.poster-tech-badge {
+  position: absolute;
+  z-index: 10;
+  left: 50px;
+  bottom: 30px;
+  width: clamp(140px, 16vw, 220px);
+  transform: rotate(-4deg);
+}
+
+.poster-tech-badge p {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  color: #fff;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(18px, 1.8vw, 26px);
+  font-weight: 900;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.poster-hero + .services {
+  margin-top: 0;
+  padding-top: clamp(44px, 5vw, 76px);
+}
+
+main:has(.poster-hero) .site-header {
+  grid-template-columns: minmax(180px, 1fr) auto minmax(160px, 1fr);
+  min-height: 66px;
+  gap: 28px;
+  border-bottom: 1px solid #e8e8e8;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 0 clamp(22px, 2vw, 34px);
+  backdrop-filter: blur(8px);
+}
+
+main:has(.poster-hero) .brand strong {
+  color: #050505;
+  font-family: "Arial Black", "Hiragino Kaku Gothic Std", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: clamp(26px, 2vw, 36px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+main:has(.poster-hero) nav {
+  gap: clamp(26px, 3.2vw, 58px);
+  color: #050505;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+main:has(.poster-hero) nav a {
+  min-height: 66px;
+}
+
+main:has(.poster-hero) nav a::after {
+  display: none;
+}
+
+main:has(.poster-hero) .header-contact {
+  justify-self: end;
+  min-height: 44px;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  color: #050505;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+main:has(.poster-hero) .header-contact::before {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: #050505;
+  color: #fff;
+  border: 2px solid #050505;
+  box-shadow: inset 0 0 0 19px #050505;
+  background:
+    linear-gradient(36deg, transparent 45%, #fff 47%, #fff 53%, transparent 55%),
+    linear-gradient(-36deg, transparent 45%, #fff 47%, #fff 53%, transparent 55%),
+    linear-gradient(#fff, #fff) center / 18px 12px no-repeat;
+  color: transparent;
+  font-size: 0;
+  content: "";
+}
+
+.poster-free-badge span {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  width: 34%;
+  height: 18%;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  transform: translateX(-50%) skew(-10deg);
+}
+
+@media (max-width: 1180px) {
+  .poster-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .poster-panel {
+    min-height: 820px;
+  }
+
+  .poster-study h1 {
+    font-size: clamp(58px, 12vw, 118px);
+  }
+
+  .poster-study-photo {
+    width: min(62%, 600px);
+  }
+
+  .poster-tech h2 {
+    font-size: clamp(58px, 10vw, 108px);
+  }
+
+  .poster-pc-lineart {
+    width: min(82%, 820px);
+  }
+
+  .poster-link-tech {
+    left: auto;
+    right: clamp(180px, 22vw, 270px);
+  }
+}
+
+@media (max-width: 680px) {
+  .poster-study,
+  .poster-tech {
+    padding: 32px 20px;
+  }
+
+  .poster-panel {
+    min-height: 690px;
+  }
+
+  .poster-blue-lead {
+    font-size: 14px;
+  }
+
+  .poster-study h1 {
+    margin-top: 16px;
+    font-size: clamp(48px, 17vw, 82px);
+  }
+
+  .poster-hand-note {
+    width: min(88vw, 330px);
+    margin-top: 24px;
+  }
+
+  .poster-study-photo {
+    top: 292px;
+    right: -72px;
+    bottom: auto;
+    width: 104%;
+  }
+
+  .poster-book-stamp {
+    top: 246px;
+    right: 22px;
+    width: 88px;
+  }
+
+  .poster-memo {
+    top: 510px;
+    left: 14px;
+    bottom: auto;
+    width: 176px;
+  }
+
+  .poster-memo ul {
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .poster-burst {
+    top: 548px;
+    right: 18px;
+    bottom: auto;
+    width: 132px;
+  }
+
+  .poster-service {
+    left: 20px;
+    bottom: 44px;
+    gap: 10px;
+  }
+
+  .poster-service strong {
+    font-size: 28px;
+  }
+
+  .poster-link-study {
+    right: 20px;
+    bottom: 18px;
+  }
+
+  .poster-trouble-list {
+    gap: 10px;
+    font-size: 17px;
+  }
+
+  .poster-pc-lineart {
+    top: 112px;
+    right: -118px;
+    width: 118%;
+  }
+
+  .poster-red-callout-large {
+    top: 74px;
+    right: 6px;
+    width: 136px;
+  }
+
+  .poster-red-callout-large p {
+    font-size: 24px;
+  }
+
+  .poster-vertical-note {
+    top: 190px;
+    right: 4px;
+    font-size: 12px;
+  }
+
+  .poster-red-callout-small {
+    left: 18px;
+    bottom: 276px;
+    width: 180px;
+  }
+
+  .poster-tech h2 {
+    right: 18px;
+    bottom: 118px;
+    left: 20px;
+    font-size: clamp(44px, 14vw, 70px);
+  }
+
+  .poster-service-tech {
+    bottom: 54px;
+  }
+
+  .poster-link-tech {
+    right: 112px;
+    bottom: 24px;
+  }
+
+  .poster-free-badge {
+    right: 8px;
+    bottom: 8px;
+    width: 98px;
+  }
+
+  .poster-free-badge p {
+    font-size: 11px;
   }
 }
