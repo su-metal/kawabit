@@ -1,320 +1,286 @@
 import RevealOnScroll from "./reveal-on-scroll";
 
-const HERO_VARIANT = "poster";
-
 const services = [
   {
-    number: "SERVICE 01",
-    title: "かわべ家庭教師学院",
-    lead: "一人ひとりに寄り添う完全個別指導で、成績アップと学習習慣の定着をサポートします。",
+    id: "study",
+    label: "学び",
+    title: "家庭教師",
+    name: "かわべ家庭教師学院",
+    lead: "学びのつまずきを、近くでほどく。",
+    body:
+      "定期テスト対策、受験準備、学習習慣づくりまで。お子さまの状況を聞きながら、今必要な学び方を一緒に整理します。",
     href: "https://kawabegakuin.jp/",
-    tone: "study",
-    icon: "book",
-    tags: ["完全個別指導", "定期テスト対策", "受験対策", "学習習慣サポート"],
+    phone: "0120-777-697",
+    cta: "家庭教師に相談する",
+    spot: "study",
   },
   {
-    number: "SERVICE 02",
-    title: "川辺コンピューター",
-    lead: "パソコンの修理からデータ復旧、ご購入・初期設定まで、ITのお困りごとを解決します。",
+    id: "it",
+    label: "IT",
+    title: "パソコン修理",
+    name: "川辺コンピューター",
+    lead: "困ったパソコンを、落ち着いて見直す。",
+    body:
+      "起動しない、動作が遅い、データを取り出したい。症状を確認しながら、修理・設定・データ復旧の相談先へ案内します。",
     href: "https://kawabecom.jp/",
-    tone: "tech",
-    icon: "pc",
-    tags: ["パソコン修理", "データ復旧", "購入・設定サポート", "各種サポート"],
+    phone: "0532-63-7717",
+    cta: "PC修理に相談する",
+    spot: "repair",
   },
 ];
 
-const strengths = [
+const reasons = [
   {
-    title: "地域密着",
-    text: "豊橋・豊川・田原エリアに根ざし、迅速で丁寧なサポートをお届けします。",
-    icon: "pin",
+    title: "入口がひとつ",
+    text: "学びとIT、どちらの相談もここから確認できます。探し回らず、目的に合う窓口へ進めます。",
+    spot: "person",
   },
   {
-    title: "相談しやすい",
-    text: "わかりやすい説明と親身な対応で、初めての方でも安心してご相談いただけます。",
-    icon: "chat",
+    title: "むずかしく言わない",
+    text: "専門的な内容も、できるだけ普段の言葉で説明します。初めての相談でも状況を整理しやすくします。",
+    spot: "talk",
   },
   {
-    title: "専門スタッフ対応",
-    text: "教育とIT、それぞれの専門スタッフが確かな知識と経験でサポートします。",
-    icon: "staff",
+    title: "暮らしに近い",
+    text: "家庭の学習環境や日常のITトラブルなど、身近な困りごとを前提にした案内を大切にします。",
+    spot: "objects",
   },
 ];
 
-const flows = [
-  "お問い合わせ",
-  "内容の確認",
-  "専門窓口へご案内",
-  "サービス開始",
+const flow = [
+  {
+    title: "内容を選ぶ",
+    text: "家庭教師か、パソコン修理か、近いほうを選びます。",
+  },
+  {
+    title: "状況を伝える",
+    text: "学年・教科・困っている症状など、わかる範囲で大丈夫です。",
+  },
+  {
+    title: "窓口で確認",
+    text: "各サービスの担当窓口で、詳しい内容を確認します。",
+  },
+  {
+    title: "必要な対応へ",
+    text: "体験相談、修理受付、データ復旧相談など、次の手続きへ進みます。",
+  },
 ];
 
-const iconFiles = {
-  book: "book.png",
-  pc: "pc.png",
-  pin: "pin.png",
-  chat: "chat.png",
-  staff: "staff.png",
-  lab: "guide.png",
+const spotFiles = {
+  study: "kawabit-spot-study.png",
+  repair: "kawabit-spot-repair.png",
+  combo: "kawabit-spot-combo.png",
+  person: "kawabit-spot-combo.png",
+  talk: "kawabit-spot-talk.png",
+  path: "kawabit-spot-path.png",
+  objects: "kawabit-spot-objects.png",
 };
 
-const studyPoints = [
-  "定期テスト対策",
-  "受験対策",
-  "苦手克服",
-  "学習習慣の定着",
-];
-
-const pcTroubles = [
-  "起動しない",
-  "動作が遅い",
-  "画面がつかない",
-  "データ復旧",
-  "ウイルス駆除",
-];
-
-function Icon({ type }) {
+function Spot({ name, className = "" }) {
   return (
-    <img
-      className={`icon-img icon-${type}`}
-      src={`/icons/${iconFiles[type]}`}
-      alt=""
-      aria-hidden="true"
-    />
+    <span className={`spot spot--${name} ${className}`} aria-hidden="true">
+      <img src={`/illustrations/${spotFiles[name]}`} alt="" />
+    </span>
   );
 }
 
-function ClassicHero() {
+function Header() {
   return (
-    <section className="hero hero-classic" id="top">
-      <div className="hero-copy">
-        <p className="hero-note">学びとITの相談ナビ</p>
-        <Icon type="lab" />
-        <h1>学びの不安も、<br />ITの困りごとも。</h1>
-        <p>
-          カワビットは、かわべ家庭教師学院と川辺コンピューターへ目的に合わせてつながる案内サイトです。
+    <header className="site-header">
+      <a className="brand" href="#top" aria-label="KAWABIT トップへ">
+        KAWABIT
+      </a>
+      <nav className="site-nav" aria-label="主要ナビゲーション">
+        <a href="#services">サービス</a>
+        <a href="#reason">選ばれる理由</a>
+        <a href="#flow">相談の流れ</a>
+      </nav>
+      <a className="header-cta" href="#contact">
+        相談する
+      </a>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="hero" id="top" aria-label="KAWABIT ファーストビュー">
+      <div className="hero__copy">
+        <p className="hero__brand">カワビット</p>
+        <h1>
+          学びとITの
+          <br />
+          相談窓口。
+        </h1>
+        <p className="hero__lead">
+          家庭教師の相談も、パソコン修理やデータ復旧の相談も。
+          迷ったら、まずKAWABITから近い窓口へ進めます。
         </p>
-        <p className="support-note">Kawabegakuin / Kawabe Computer</p>
+        <div className="hero__actions" aria-label="サービス導線">
+          <a className="button button--study" href="https://kawabegakuin.jp/">
+            家庭教師
+          </a>
+          <a className="button button--it" href="https://kawabecom.jp/">
+            パソコン修理
+          </a>
+        </div>
+      </div>
+      <div className="hero__art" aria-hidden="true">
+        <Spot name="study" />
+        <Spot name="repair" />
+        <Spot name="person" />
+        <Spot name="objects" />
+        <span className="hero__path" />
       </div>
     </section>
   );
 }
 
-function PosterHero() {
+function Intro() {
   return (
-    <section className="poster-hero" id="top" aria-label="KAWABIT サービス案内">
-      <article className="poster-panel poster-study" aria-labelledby="poster-study-title">
-        <p className="poster-blue-lead">一人ひとりに、<br />いちばんの学び方を。</p>
-        <h1 id="poster-study-title">
-          わかるが<br />
-          自信に<br />
-          <span className="char-hen">変</span>わる<span className="dot-blue">。</span>
-        </h1>
-        <div className="poster-hand-note">
-          <img src="/hero/poster-study-hand-note.png" alt="" aria-hidden="true" />
-          <span className="sr-only">伴走する、学びのパートナー。</span>
-        </div>
-
-        <img
-          className="poster-study-photo"
-          src="/hero/poster-study-photo.png"
-          alt="生徒と講師がノートを見ながら学習している様子"
-        />
-        <img
-          className="poster-book-stamp"
-          src="/hero/poster-book-stamp.png"
-          alt=""
-          aria-hidden="true"
-        />
-
-        <div className="poster-memo" aria-label="かわべ家庭教師学院の対応内容">
-          <img src="/hero/poster-green-memo.png" alt="" aria-hidden="true" />
-          <ul>
-            {studyPoints.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="poster-burst">
-          <img src="/hero/poster-black-burst.png" alt="" aria-hidden="true" />
-          <p>オンライン<br />対応OK!</p>
-        </div>
-
-        <div className="poster-service poster-service-study">
-          <strong>かわべ家庭教師学院</strong>
-          <span>対象：小学生・中学生・高校生</span>
-        </div>
-        <a className="poster-link poster-link-study" href="https://kawabegakuin.jp/">
-          <span></span>詳しく見る
-        </a>
-      </article>
-
-      <article className="poster-panel poster-tech" aria-labelledby="poster-tech-title">
-        <div className="poster-tech-brand">
-          <strong>川辺コンピューター</strong>
-        </div>
-
-        <h2 id="poster-tech-title">
-          パソコンの<br />
-          困ったを解決<span className="dot-white">。</span>
-        </h2>
-
-        <p className="poster-tech-lead poster-handwritten-text-white">
-          <span className="line1">データはそのまま、</span><br />
-          <span className="line2">迅速・丁寧に修理します。</span>
+    <section className="intro section reveal">
+      <div className="intro__text">
+        <h2>迷ったら、まずKAWABITへ。</h2>
+        <p>
+          学習のことも、パソコンのことも、最初の相談先がわからないまま止まってしまうことがあります。
+          KAWABITは、家庭教師とIT修理の入口をひとつにまとめた案内サイトです。
+          必要な相談先へ、わかりやすくつなぎます。
         </p>
-
-        <img
-          className="poster-tech-photo"
-          src="/hero/poster-pc-repair-lineart.png"
-          alt="技術者がノートパソコンを修理している様子"
-        />
-
-        <div className="poster-tech-memo" aria-label="パソコンの困りごと">
-          <img src="/hero/poster-red-label-large.png" alt="" aria-hidden="true" />
-          <ul>
-            {pcTroubles.map((trouble) => (
-              <li key={trouble}>{trouble}</li>
-            ))}
-          </ul>
-        </div>
-
-        <img
-          className="poster-tech-stamp"
-          src="/hero/poster-red-label-small.png"
-          alt=""
-          aria-hidden="true"
-        />
-
-        <div className="poster-tech-badge">
-          <img src="/hero/poster-free-badge.png" alt="" aria-hidden="true" />
-          <p>見積無料<br />診断無料</p>
-        </div>
-
-        <div className="poster-tech-support-wrapper">
-          <div className="poster-tech-support">
-            <span>持ち込み・出張対応OK！</span>
-          </div>
-          <img
-            className="poster-tech-screwdriver"
-            src="/illustrations/individual/screwdriver.png"
-            alt=""
-            aria-hidden="true"
-          />
-        </div>
-        <a className="poster-link poster-link-tech" href="https://kawabecom.jp/">
-          <span></span>詳しく見る
-        </a>
-      </article>
+      </div>
+      <Spot name="combo" className="intro__spot" />
     </section>
   );
 }
 
-function Hero() {
-  return HERO_VARIANT === "poster" ? <PosterHero /> : <ClassicHero />;
+function Services() {
+  return (
+    <section className="services section" id="services">
+      {services.map((service, index) => (
+        <article className={`service service--${service.id} reveal`} key={service.id}>
+          <div className="service__marker">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <b>{service.label}</b>
+          </div>
+          <div className="service__body">
+            <p className="section-label">{service.title}</p>
+            <h2>{service.lead}</h2>
+            <p>{service.body}</p>
+            <dl>
+              <div>
+                <dt>専門サイト</dt>
+                <dd>{service.name}</dd>
+              </div>
+              <div>
+                <dt>電話</dt>
+                <dd>{service.phone}</dd>
+              </div>
+            </dl>
+            <a className="text-link" href={service.href}>
+              {service.cta}
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <Spot name={service.spot} className="service__spot" />
+        </article>
+      ))}
+    </section>
+  );
+}
+
+function Reasons() {
+  return (
+    <section className="reason section reveal" id="reason">
+      <div className="section-heading">
+        <p className="section-label">選ばれる理由</p>
+        <h2>
+          迷わせず、
+          <br />
+          わかりやすく。
+        </h2>
+      </div>
+      <div className="reason__list">
+        {reasons.map((reason) => (
+          <article className="reason__item" key={reason.title}>
+            <Spot name={reason.spot} />
+            <div>
+              <h3>{reason.title}</h3>
+              <p>{reason.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Flow() {
+  return (
+    <section className="flow section reveal" id="flow">
+      <div className="section-heading">
+        <p className="section-label">相談の流れ</p>
+        <h2>小さく聞いて、次へ進む。</h2>
+      </div>
+      <ol className="flow__list">
+        {flow.map((item, index) => (
+          <li key={item.title}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <div className="flow__content">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <Spot name="path" className="flow__spot" />
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section className="contact section reveal" id="contact">
+      <div>
+        <p className="section-label">まずは相談する</p>
+        <h2>
+          学びも、ITも。
+          <br />
+          気軽に確認してください。
+        </h2>
+        <p>
+          小さなつまずきでも、早めに相談すると選択肢が広がります。
+          今の状況に近い窓口からご確認ください。
+        </p>
+      </div>
+      <div className="contact__actions">
+        <a className="button button--study" href="https://kawabegakuin.jp/">
+          家庭教師に相談する
+        </a>
+        <a className="button button--it" href="https://kawabecom.jp/">
+          PC修理に相談する
+        </a>
+        <p>10:00-19:00 / 日曜休</p>
+      </div>
+    </section>
+  );
 }
 
 export default function Home() {
   return (
     <>
       <RevealOnScroll />
+      <Header />
       <main>
-        <header className="site-header">
-          <a className="brand" href="#top" aria-label="KAWABIT トップ">
-            <span>
-              <strong>Kawabit</strong>
-            </span>
-          </a>
-          <nav aria-label="主要ナビゲーション">
-            <a href="#services">サービス</a>
-            <a href="#reason">Kawabitについて</a>
-            <a href="#flow">ご利用の流れ</a>
-            <a href="#contact">お知らせ</a>
-            <a href="#faq">よくあるご質問</a>
-          </nav>
-          <a className="header-contact" href="#contact">お問い合わせ</a>
-        </header>
-
         <Hero />
-
-        <section className="services section-shell reveal" id="services">
-          <div className="service-grid">
-            {services.map((service) => (
-              <article className={`service-card ${service.tone}`} key={service.title}>
-                <div className="card-top">
-                  <span>{service.number}</span>
-                  <Icon type={service.icon} />
-                </div>
-                <h2>{service.title}</h2>
-                <p>{service.lead}</p>
-                <ul>
-                  {service.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-                <a href={service.href}>詳しく見る <span>›</span></a>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="reason reveal" id="reason">
-          <div className="reason-grid section-shell">
-            {strengths.map((item) => (
-              <article className="reason-item" key={item.title}>
-                <Icon type={item.icon} />
-                <div>
-                  <h2>{item.title}</h2>
-                  <p>{item.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="flow section-shell reveal" id="flow">
-          <div className="section-title">
-            <p>FLOW</p>
-            <h2>ご利用の流れ</h2>
-          </div>
-          <ol>
-            {flows.map((flow, index) => (
-              <li key={flow}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{flow}</strong>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <section className="faq-contact section-shell reveal" id="faq">
-          <div className="faq-panel">
-            <div className="section-title">
-              <p>FAQ</p>
-              <h2>こんなお悩み、ありませんか？</h2>
-            </div>
-            <div className="question-list">
-              <p>勉強の進め方や成績について相談したい</p>
-              <p>パソコンが起動しない、データが心配</p>
-              <p>どちらの窓口に問い合わせるべきか分からない</p>
-            </div>
-          </div>
-          <div className="contact-panel" id="contact">
-            <p>詳しいサービス内容は、それぞれの専門サイトでご確認ください。</p>
-            <strong>10:00-19:00 / 日曜休</strong>
-            <div>
-              <a href="https://kawabegakuin.jp/">家庭教師の相談</a>
-              <a href="https://kawabecom.jp/">PC・ITの相談</a>
-            </div>
-          </div>
-        </section>
-
-        <footer>
-          <strong>KAWABIT</strong>
-          <span>かわべ家庭教師学院 / 川辺コンピューター</span>
-          <span>豊橋・豊川・田原エリア対応</span>
-        </footer>
+        <Intro />
+        <Services />
+        <Reasons />
+        <Flow />
+        <Contact />
       </main>
+      <footer className="site-footer">
+        <strong>KAWABIT</strong>
+        <span>かわべ家庭教師学院 / 川辺コンピューター</span>
+      </footer>
     </>
   );
 }
