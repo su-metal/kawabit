@@ -31,19 +31,25 @@ const services = [
 
 const reasons = [
   {
-    title: "入口がひとつ",
-    text: "学びとIT、どちらの相談もここから確認できます。探し回らず、目的に合う窓口へ進めます。",
+    tag: "学び × IT",
+    title: "窓口はひとつでOK",
+    text: "家庭教師もパソコン修理も、別々に探す必要はありません。お困りごとをまとめてお聞きしてから、合う窓口へご案内します。",
     spot: "person",
+    accent: "green",
   },
   {
-    title: "むずかしく言わない",
-    text: "専門的な内容も、できるだけ普段の言葉で説明します。初めての相談でも状況を整理しやすくします。",
+    tag: "専門用語ゼロ",
+    title: "やさしい言葉で進めます",
+    text: "「画面がおかしい」「テスト前で不安」だけで大丈夫。専門用語に置きかえずに、いまの状況をそのままお話しください。",
     spot: "talk",
+    accent: "coral",
   },
   {
-    title: "暮らしに近い",
-    text: "家庭の学習環境や日常のITトラブルなど、身近な困りごとを前提にした案内を大切にします。",
+    tag: "身近な相談相手",
+    title: "暮らしのそばで",
+    text: "家庭の学習机やリビングのパソコンなど、生活の中で起きる困りごとが前提です。日常の延長として、お気軽にどうぞ。",
     spot: "objects",
+    accent: "blue",
   },
 ];
 
@@ -130,7 +136,6 @@ function Hero() {
         <Spot name="repair" />
         <Spot name="person" />
         <Spot name="objects" />
-        <span className="hero__path" />
       </div>
     </section>
   );
@@ -197,12 +202,25 @@ function Reasons() {
           <br />
           わかりやすく。
         </h2>
+        <p className="reason__lead">
+          初めての方にも、すでに頼っている方にも。
+          KAWABITが大切にしている3つのこと。
+        </p>
       </div>
       <div className="reason__list">
-        {reasons.map((reason) => (
-          <article className="reason__item" key={reason.title}>
-            <Spot name={reason.spot} />
-            <div>
+        {reasons.map((reason, index) => (
+          <article
+            className={`reason__item reason__item--${reason.accent}`}
+            key={reason.title}
+          >
+            <header className="reason__head">
+              <span className="reason__num">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="reason__tag">{reason.tag}</span>
+            </header>
+            <Spot name={reason.spot} className="reason__spot" />
+            <div className="reason__body">
               <h3>{reason.title}</h3>
               <p>{reason.text}</p>
             </div>
