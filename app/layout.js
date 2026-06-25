@@ -1,5 +1,6 @@
 import { Yomogi } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "./smooth-scroll";
 
 const yomogi = Yomogi({
   weight: "400",
@@ -17,7 +18,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
-      <body className={yomogi.variable}>{children}</body>
+      <body className={yomogi.variable}>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }
