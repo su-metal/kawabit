@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import RevealOnScroll from "./reveal-on-scroll";
 
 const services = [
@@ -279,25 +278,44 @@ function Intro() {
 
 function Scene() {
   return (
-    <section className="scene reveal" aria-label="KAWABIT の風景">
+    <section className="scene reveal" aria-label="KAWABIT の役割">
       <div className="scene__inner">
         <div className="scene__heading">
-          <p className="section-label">KAWABIT の風景</p>
+          <p className="section-label">KAWABIT の役割</p>
           <h2>
-            学びと修理が、
+            学びの困りごとも、
             <br />
-            となり同士の街。
+            パソコンの困りごとも。
           </h2>
           <p className="scene__lead">
-            机に向かう子も、パソコンとにらめっこする大人も。
-            ひとつの地図のなかで、それぞれの「困った」がほどけていきます。
+            まずは近い窓口へ。KAWABITは、家庭教師とパソコン修理の入口を
+            ひとつにまとめた案内サイトです。
           </p>
+        </div>
+        <div className="scene__routes" aria-label="相談先の選び方">
+          <a className="scene__route scene__route--study" href="https://kawabegakuin.jp/">
+            <Spot name="study" className="scene__route-spot" />
+            <span className="scene__route-label">学びの相談</span>
+            <strong>家庭教師へ</strong>
+            <span className="scene__route-text">
+              勉強方法、成績、受験、学習習慣の相談はこちら。
+            </span>
+          </a>
+          <a className="scene__route scene__route--it" href="https://kawabecom.jp/">
+            <Spot name="repair" className="scene__route-spot" />
+            <span className="scene__route-label">ITの相談</span>
+            <strong>PC修理へ</strong>
+            <span className="scene__route-text">
+              起動しない、遅い、データ復旧、設定の相談はこちら。
+            </span>
+          </a>
         </div>
         <figure className="scene__figure">
           <img
             src="/illustrations/kawabit-scene-island.png"
             alt="家庭教師の学習風景とパソコン修理の作業風景がひとつの島につながったイラスト"
           />
+          <figcaption>学びとITが、となり合っている場所。</figcaption>
         </figure>
       </div>
     </section>
@@ -308,52 +326,49 @@ function Services() {
   return (
     <section className="services section" id="services">
       {services.map((service, index) => (
-        <Fragment key={service.id}>
-          <article className={`service service--${service.id} reveal`}>
-            <div className="service__marker">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <b>{service.label}</b>
-            </div>
-            <div className="service__body">
-              <p className="section-label">{service.title}</p>
-              <h2>{service.lead}</h2>
-              <p>{service.body}</p>
-              <dl>
-                <div>
-                  <dt>専門サイト</dt>
-                  <dd>{service.name}</dd>
-                </div>
-                <div>
-                  <dt>電話</dt>
-                  <dd>{service.phone}</dd>
-                </div>
-              </dl>
-              <a className="text-link" href={service.href}>
-                {service.cta}
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-            <Spot name={service.spot} className="service__spot" />
-            <div className="service__points">
-              <p className="service__points-label">選ばれる理由</p>
-              <ol className="service__points-list">
-                {service.points.map((point, i) => (
-                  <li className="service__point" key={point.title}>
-                    <div className="service__point-head">
-                      <span className="service__point-num">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="service__point-tag">{point.tag}</span>
-                    </div>
-                    <h3>{point.title}</h3>
-                    <p>{point.text}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </article>
-          {index === 0 ? <Scene /> : null}
-        </Fragment>
+        <article className={`service service--${service.id} reveal`} key={service.id}>
+          <div className="service__marker">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <b>{service.label}</b>
+          </div>
+          <div className="service__body">
+            <p className="service__title">{service.title}</p>
+            <h2>{service.lead}</h2>
+            <p>{service.body}</p>
+            <dl>
+              <div>
+                <dt>専門サイト</dt>
+                <dd>{service.name}</dd>
+              </div>
+              <div>
+                <dt>電話</dt>
+                <dd>{service.phone}</dd>
+              </div>
+            </dl>
+            <a className="text-link" href={service.href}>
+              {service.cta}
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <Spot name={service.spot} className="service__spot" />
+          <div className="service__points">
+            <p className="service__points-label">選ばれる理由</p>
+            <ol className="service__points-list">
+              {service.points.map((point, i) => (
+                <li className="service__point" key={point.title}>
+                  <div className="service__point-head">
+                    <span className="service__point-num">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="service__point-tag">{point.tag}</span>
+                  </div>
+                  <h3>{point.title}</h3>
+                  <p>{point.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </article>
       ))}
     </section>
   );
@@ -565,6 +580,7 @@ export default function Home() {
       <main>
         <Hero />
         <Intro />
+        <Scene />
         <Services />
         <Pricing />
         <Voices />

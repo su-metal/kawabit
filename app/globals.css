@@ -308,22 +308,27 @@ main {
 }
 
 .scene {
-  width: 100%;
+  width: min(var(--max), calc(100% - 44px));
+  margin: 0 auto;
+  padding: clamp(30px, 4vw, 56px) 0 clamp(72px, 9vw, 124px);
 }
 
 .scene__inner {
   display: grid;
-  gap: clamp(24px, 3.5vw, 44px);
+  gap: clamp(28px, 4vw, 52px);
 }
 
 .scene__heading {
-  width: 100%;
+  width: min(100%, 840px);
 }
 
 .scene__heading h2 {
   margin: 0;
-  font-size: clamp(32px, 4.8vw, 60px);
-  line-height: 1.1;
+  font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
+  font-size: clamp(42px, 6vw, 82px);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  line-height: 1.02;
 }
 
 .scene__lead {
@@ -333,6 +338,77 @@ main {
   font-size: 16px;
   font-weight: 700;
   line-height: 2;
+}
+
+.scene__routes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.6vw, 32px);
+}
+
+.scene__route {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(92px, 140px) minmax(0, 1fr);
+  grid-template-areas:
+    "spot label"
+    "spot title"
+    "spot text";
+  gap: 8px clamp(18px, 2.2vw, 28px);
+  align-items: center;
+  min-height: 210px;
+  border: var(--line);
+  background: var(--paper);
+  padding: clamp(18px, 2.4vw, 30px);
+  box-shadow: 7px 7px 0 var(--ink);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.scene__route:hover {
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(4px, 4px);
+}
+
+.scene__route--study {
+  background: var(--green-pale);
+}
+
+.scene__route--it {
+  background: var(--blue-pale);
+}
+
+.scene__route-spot {
+  grid-area: spot;
+  align-self: center;
+  width: min(140px, 100%);
+}
+
+.scene__route-label {
+  grid-area: label;
+  justify-self: start;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper);
+  padding: 5px 13px;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.scene__route strong {
+  grid-area: title;
+  font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
+  font-size: clamp(34px, 4.2vw, 58px);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+
+.scene__route-text {
+  grid-area: text;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.7;
 }
 
 .scene__figure {
@@ -347,6 +423,16 @@ main {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.scene__figure figcaption {
+  border-top: var(--line);
+  background: var(--coral);
+  padding: 16px clamp(18px, 2.2vw, 28px);
+  font-family: var(--display);
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .services {
@@ -419,6 +505,30 @@ main {
 
 .service__body {
   max-width: 650px;
+}
+
+.service__title {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0 0 22px;
+  border: var(--line);
+  color: var(--ink);
+  padding: clamp(8px, 1.1vw, 14px) clamp(14px, 1.8vw, 24px);
+  box-shadow: 7px 7px 0 var(--ink);
+  font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
+  font-size: clamp(48px, 6.2vw, 86px);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  line-height: 0.98;
+  word-break: keep-all;
+}
+
+.service--study .service__title {
+  background: var(--green);
+}
+
+.service--it .service__title {
+  background: var(--blue);
 }
 
 .service h2 {
@@ -1168,6 +1278,14 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .scene__routes {
+    grid-template-columns: 1fr;
+  }
+
+  .scene__route {
+    min-height: 0;
+  }
+
   .hero {
     min-height: auto;
   }
@@ -1319,6 +1437,38 @@ main {
     padding-top: 54px;
   }
 
+  .scene {
+    width: min(100% - 28px, var(--max));
+    padding: 18px 0 64px;
+  }
+
+  .scene__heading h2 {
+    font-size: clamp(38px, 11.5vw, 58px);
+  }
+
+  .scene__routes {
+    gap: 18px;
+  }
+
+  .scene__route {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 6px 16px;
+    padding: 18px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .scene__route-spot {
+    width: 92px;
+  }
+
+  .scene__route strong {
+    font-size: clamp(30px, 9.5vw, 42px);
+  }
+
+  .scene__route-text {
+    font-size: 13px;
+  }
+
   .intro__spot,
   .service__spot {
     width: min(260px, 80vw);
@@ -1326,6 +1476,11 @@ main {
 
   .service__point {
     padding: 20px;
+  }
+
+  .service__title {
+    font-size: clamp(42px, 13vw, 58px);
+    letter-spacing: -0.07em;
   }
 
   .issues__list li {
