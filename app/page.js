@@ -1,4 +1,6 @@
 import RevealOnScroll from "./reveal-on-scroll";
+import ServicesSection from "./services-section";
+import Spot from "./spot";
 
 const services = [
   {
@@ -190,24 +192,6 @@ const issueGroups = [
   },
 ];
 
-const spotFiles = {
-  study: "kawabit-spot-study.png",
-  repair: "kawabit-spot-repair.png",
-  combo: "kawabit-spot-combo.png",
-  person: "kawabit-spot-person.png",
-  talk: "kawabit-spot-talk.png",
-  path: "kawabit-spot-path.png",
-  objects: "kawabit-spot-objects.png",
-};
-
-function Spot({ name, className = "" }) {
-  return (
-    <span className={`spot spot--${name} ${className}`} aria-hidden="true">
-      <img src={`/illustrations/${spotFiles[name]}`} alt="" />
-    </span>
-  );
-}
-
 function Header() {
   return (
     <header className="site-header">
@@ -318,58 +302,6 @@ function Scene() {
           <figcaption>学びとITが、となり合っている場所。</figcaption>
         </figure>
       </div>
-    </section>
-  );
-}
-
-function Services() {
-  return (
-    <section className="services section" id="services">
-      {services.map((service, index) => (
-        <article className={`service service--${service.id} reveal`} key={service.id}>
-          <div className="service__marker">
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <b>{service.label}</b>
-          </div>
-          <div className="service__body">
-            <p className="service__title">{service.title}</p>
-            <h2>{service.lead}</h2>
-            <p>{service.body}</p>
-            <dl>
-              <div>
-                <dt>専門サイト</dt>
-                <dd>{service.name}</dd>
-              </div>
-              <div>
-                <dt>電話</dt>
-                <dd>{service.phone}</dd>
-              </div>
-            </dl>
-            <a className="text-link" href={service.href}>
-              {service.cta}
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-          <Spot name={service.spot} className="service__spot" />
-          <div className="service__points">
-            <p className="service__points-label">選ばれる理由</p>
-            <ol className="service__points-list">
-              {service.points.map((point, i) => (
-                <li className="service__point" key={point.title}>
-                  <div className="service__point-head">
-                    <span className="service__point-num">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="service__point-tag">{point.tag}</span>
-                  </div>
-                  <h3>{point.title}</h3>
-                  <p>{point.text}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </article>
-      ))}
     </section>
   );
 }
@@ -581,7 +513,7 @@ export default function Home() {
         <Hero />
         <Intro />
         <Scene />
-        <Services />
+        <ServicesSection services={services} />
         <Pricing />
         <Voices />
         <Issues />

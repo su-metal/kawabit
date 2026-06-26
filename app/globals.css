@@ -437,8 +437,81 @@ main {
 
 .services {
   display: grid;
-  gap: clamp(70px, 9vw, 128px);
+  gap: 0;
   padding: 28px 0 clamp(90px, 10vw, 150px);
+}
+
+.services__tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: end;
+}
+
+.services__tab {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  padding: clamp(18px, 2.2vw, 26px) clamp(20px, 2.5vw, 32px);
+  background: #e6e4df;
+  border: var(--line);
+  color: #6a6862;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.services__tab + .services__tab {
+  border-left: none;
+}
+
+.services__tab:hover:not(.is-active) {
+  background: #d8d6d0;
+  color: var(--ink);
+}
+
+.services__tab.is-active {
+  z-index: 2;
+  margin-bottom: -5px;
+  padding-bottom: calc(clamp(18px, 2.2vw, 26px) + 5px);
+  color: var(--ink);
+}
+
+.services__tab--study.is-active {
+  background: var(--green-pale);
+  border-bottom: 5px solid var(--green-pale);
+}
+
+.services__tab--it.is-active {
+  background: var(--blue-pale);
+  border-bottom: 5px solid var(--blue-pale);
+}
+
+.services__tab-num {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  opacity: 0.55;
+}
+
+.services__tab.is-active .services__tab-num {
+  opacity: 1;
+}
+
+.services__tab-label {
+  display: none;
+}
+
+.services__tab-title {
+  font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
 .service {
@@ -447,10 +520,22 @@ main {
   grid-template-columns: 120px minmax(0, 0.95fr) 330px;
   gap: clamp(28px, 5vw, 74px);
   align-items: center;
+  padding: clamp(40px, 5vw, 64px) clamp(28px, 4vw, 64px) clamp(40px, 5vw, 72px);
+  border: var(--line);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.service[hidden] {
+  display: none;
+}
+
+.service--study {
+  background: var(--green-pale);
 }
 
 .service--it {
   grid-template-columns: 330px minmax(0, 0.95fr) 120px;
+  background: var(--blue-pale);
 }
 
 .service--it .service__marker {
@@ -479,10 +564,11 @@ main {
 
 .service__marker span {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 46px;
+  font-size: 32px;
   font-weight: 950;
   letter-spacing: -0.08em;
   writing-mode: vertical-rl;
+  opacity: 0.45;
 }
 
 .service__marker b {
@@ -1306,6 +1392,28 @@ main {
     grid-row: auto;
   }
 
+  .service {
+    padding: 30px 22px 28px;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  .services__tab {
+    padding: 14px 16px;
+    gap: 8px;
+  }
+
+  .services__tab.is-active {
+    padding-bottom: 19px;
+  }
+
+  .services__tab-num {
+    font-size: 18px;
+  }
+
+  .services__tab-title {
+    font-size: 20px;
+  }
+
   .service__marker {
     display: flex;
     align-items: center;
@@ -1476,6 +1584,29 @@ main {
 
   .service__point {
     padding: 20px;
+  }
+
+  .service {
+    padding: 24px 16px 22px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .services__tab {
+    padding: 12px 12px;
+    gap: 6px;
+  }
+
+  .services__tab.is-active {
+    padding-bottom: 17px;
+  }
+
+  .services__tab-num {
+    font-size: 16px;
+  }
+
+  .services__tab-title {
+    font-size: clamp(16px, 5vw, 20px);
+    letter-spacing: -0.03em;
   }
 
   .service__title {
