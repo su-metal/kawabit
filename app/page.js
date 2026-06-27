@@ -303,8 +303,8 @@ function BrandHistory() {
           <li className="history__item history__item--now">
             <span className="history__year">NOW</span>
             <div>
-              <h3>豊橋で続く2つの専門サービス</h3>
-              <p>必要になったときに、思い出せる相談先として。</p>
+              <h3>KAWABIT</h3>
+              <p>KAWABEはこれからも、家庭教師とパソコン修理で。</p>
             </div>
           </li>
         </ol>

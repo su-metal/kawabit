@@ -337,7 +337,7 @@ main {
   display: block;
   width: auto;
   max-width: 100%;
-  max-height: min(79svh, 850px);
+  max-height: min(75svh, 800px);
   height: auto;
   transform: none;
 }
@@ -476,10 +476,10 @@ main {
 .scene__heading h2 {
   margin: 0;
   font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
-  font-size: clamp(42px, 6vw, 82px);
+  font-size: clamp(32px, 4.4vw, 56px);
   font-weight: 950;
   letter-spacing: 0.04em;
-  line-height: 1.15;
+  line-height: 1.18;
 }
 
 .scene__lead {
@@ -660,6 +660,17 @@ main {
 .history__item--now::before,
 .history__item--now .history__year {
   background: var(--coral);
+}
+
+.history__item--now {
+  background: var(--coral-pale);
+  padding: clamp(28px, 3.2vw, 42px);
+  box-shadow: 12px 12px 0 var(--ink);
+}
+
+.history__item--now .history__year {
+  font-size: clamp(20px, 2.6vw, 32px);
+  padding: 8px 18px;
 }
 
 .history__year {
@@ -1710,10 +1721,24 @@ main {
 /* ===== Section label (Contact still uses) ===== */
 
 .section-label {
-  margin: 0 0 18px;
-  font-family: var(--display);
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 clamp(16px, 2vw, 24px);
+  font-family: var(--sans);
+  font-size: clamp(20px, 2.2vw, 28px);
   font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.section-label::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: clamp(22px, 2.4vw, 30px);
+  background: var(--ink);
+  border-radius: 2px;
 }
 
 .site-footer {
