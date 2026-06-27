@@ -221,11 +221,17 @@ function Hero() {
         </p>
       </div>
       <div className="hero__art">
-        <img
-          className="hero__island"
-          src="/illustrations/used/kawabit-hero-wide-flow-v1.png"
-          alt="学びとITの相談が同じ入口につながる KAWABIT のブランドイラスト"
-        />
+        <picture style={{ display: 'contents' }}>
+          <source
+            media="(max-width: 640px)"
+            srcSet="/illustrations/used/kawabit-scene-body-4x3-transparent.png"
+          />
+          <img
+            className="hero__island"
+            src="/illustrations/used/kawabit-hero-wide-flow-v1.png"
+            alt="学びとITの相談が同じ入口につながる KAWABIT のブランドイラスト"
+          />
+        </picture>
       </div>
       <div className="hero__service-cards" aria-label="KAWABIT のサービス">
         <ServiceSwitchLink
