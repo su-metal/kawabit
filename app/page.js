@@ -313,47 +313,96 @@ function BrandHistory() {
 
 function Contact() {
   return (
-    <section className="contact section reveal" id="contact">
-      <div className="contact__main">
-        <div>
+    <section className="contact reveal" id="contact">
+      <div className="contact__inner">
+        <div className="contact__head">
           <p className="section-label">まずは相談する</p>
           <h2>
             まずは、
             <br />
             気軽に話してみませんか？
           </h2>
-          <p>
+          <p className="contact__lead">
             小さなつまずきでも、早めに相談すると選択肢が広がります。
             今の状況に近い窓口からご確認ください。
           </p>
         </div>
-        <div className="contact__actions">
-          <a className="button button--study" href="https://kawabegakuin.jp/">
-            家庭教師に相談する
+
+        <div className="contact__cards">
+          <a
+            className="contact-card contact-card--study"
+            href="https://kawabegakuin.jp/"
+          >
+            <Spot name="study" className="contact-card__spot" />
+            <div className="contact-card__body">
+              <h3 className="contact-card__title">家庭教師に相談する</h3>
+              <p className="contact-card__lead">
+                勉強のつまずき・受験対策・
+                <br />
+                不登校サポートまで
+              </p>
+              <dl className="contact-card__meta">
+                <div>
+                  <dt>対応エリア</dt>
+                  <dd>
+                    豊橋・豊川・田原
+                    <br />
+                    オンラインは全国対応
+                  </dd>
+                </div>
+              </dl>
+              <span className="contact-card__cta">
+                話を聞いてもらう
+                <span className="contact-card__cta-arrow" aria-hidden="true">
+                  →
+                </span>
+              </span>
+            </div>
           </a>
-          <a className="button button--it" href="https://kawabecom.jp/">
-            PC修理に相談する
+
+          <a
+            className="contact-card contact-card--it"
+            href="https://kawabecom.jp/"
+          >
+            <Spot name="repair" className="contact-card__spot" />
+            <div className="contact-card__body">
+              <h3 className="contact-card__title">PC修理に相談する</h3>
+              <p className="contact-card__lead">
+                壊れた・遅い・分からない、
+                <br />
+                なんでも気軽に
+              </p>
+              <dl className="contact-card__meta">
+                <div>
+                  <dt>対応エリア</dt>
+                  <dd>
+                    豊橋市が中心
+                    <br />
+                    近隣地域へ出張も可
+                  </dd>
+                </div>
+              </dl>
+              <span className="contact-card__cta">
+                話を聞いてもらう
+                <span className="contact-card__cta-arrow" aria-hidden="true">
+                  →
+                </span>
+              </span>
+            </div>
           </a>
         </div>
+
+        <dl className="contact__info">
+          <div>
+            <dt>所在地</dt>
+            <dd>愛知県豊橋市南牛川1丁目1-7</dd>
+          </div>
+          <div>
+            <dt>営業時間</dt>
+            <dd>10:00 – 19:00 ／ 日曜休</dd>
+          </div>
+        </dl>
       </div>
-      <dl className="contact__info">
-        <div>
-          <dt>対応エリア</dt>
-          <dd>
-            家庭教師：豊橋・豊川・田原（オンラインは全国）
-            <br />
-            PC修理：豊橋市を中心に近隣地域へ出張も
-          </dd>
-        </div>
-        <div>
-          <dt>所在地</dt>
-          <dd>愛知県豊橋市南牛川1丁目1-7</dd>
-        </div>
-        <div>
-          <dt>営業時間</dt>
-          <dd>10:00 – 19:00 ／ 日曜休</dd>
-        </div>
-      </dl>
     </section>
   );
 }
@@ -376,8 +425,10 @@ export default function Home() {
         <Contact />
       </main>
       <footer className="site-footer">
-        <strong>KAWABIT</strong>
-        <span>かわべ家庭教師学院 / 川辺コンピューター</span>
+        <div className="site-footer__inner">
+          <strong>KAWABIT</strong>
+          <span>かわべ家庭教師学院 / 川辺コンピューター</span>
+        </div>
       </footer>
     </>
   );
