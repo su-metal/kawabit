@@ -229,30 +229,31 @@ function Hero() {
   return (
     <section className="hero" id="top" aria-label="KAWABIT ファーストビュー">
       <div className="hero__copy">
-        <p className="hero__brand">カワビット</p>
         <h1>
           <span className="hero__title-line">学びもITも、</span>
-          <span className="hero__title-line">まるっと</span>
-          <span className="hero__title-line">おまかせ！</span>
+          <span className="hero__title-line">ここから相談。</span>
         </h1>
         <p className="hero__lead">
-          家庭教師も、パソコン修理も、データ復旧も。
-          困ったら、まずKAWABITで聞いちゃおう！
+          家庭教師も、パソコン修理も。
+          困ったらまずKAWABITへ。
         </p>
         <div className="hero__actions" aria-label="サービス導線">
-          <a className="button button--study" href="#services">
+          <ServiceSwitchLink className="button button--study" serviceId="study">
             家庭教師
-          </a>
-          <a className="button button--it" href="#services">
+            <span aria-hidden="true">›</span>
+          </ServiceSwitchLink>
+          <ServiceSwitchLink className="button button--it" serviceId="it">
             パソコン修理
-          </a>
+            <span aria-hidden="true">›</span>
+          </ServiceSwitchLink>
         </div>
       </div>
-      <div className="hero__art" aria-hidden="true">
-        <Spot name="study" />
-        <Spot name="repair" />
-        <Spot name="person" />
-        <Spot name="objects" />
+      <div className="hero__art">
+        <img
+          className="hero__island"
+          src="/illustrations/used/kawabit-scene-island-soft-color.png"
+          alt="家庭教師の学習風景とパソコン修理の作業風景がひとつの島につながったイラスト"
+        />
       </div>
     </section>
   );
@@ -303,7 +304,7 @@ function Scene() {
         </div>
         <figure className="scene__figure">
           <img
-            src="/illustrations/used/kawabit-scene-island.png"
+            src="/illustrations/used/kawabit-scene-island-soft-color.png"
             alt="家庭教師の学習風景とパソコン修理の作業風景がひとつの島につながったイラスト"
           />
           <figcaption>学びとITが、となり合っている場所。</figcaption>
