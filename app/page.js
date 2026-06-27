@@ -215,7 +215,7 @@ function Hero() {
   return (
     <section className="hero" id="top" aria-label="KAWABIT ファーストビュー">
       <div className="hero__copy">
-        <h1>学びもITも、ここから相談。</h1>
+        <h1>KAWABIT</h1>
         <p className="hero__lead">
           家庭教師も、パソコン修理も。暮らしの近くに、川辺の相談先を。
         </p>
@@ -228,7 +228,7 @@ function Hero() {
           />
           <img
             className="hero__island"
-            src="/illustrations/used/kawabit-hero-wide-flow-v1.png"
+            src="/illustrations/used/kawabit-hero-wide-flow-v2.png"
             alt="学びとITの相談が同じ入口につながる KAWABIT のブランドイラスト"
           />
         </picture>

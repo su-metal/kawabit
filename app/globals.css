@@ -84,7 +84,7 @@ main {
   height: 44px;
   border-top: 6px solid var(--ink);
   border-bottom: var(--line);
-  background: var(--green-pale);
+  background: #e38766;
   overflow: hidden;
   padding: 0;
 }
@@ -205,7 +205,11 @@ main {
   margin: 0;
   font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
   font-weight: 950;
-  letter-spacing: -0.08em;
+  letter-spacing: 0.04em;
+}
+
+.mobile-br {
+  display: none;
 }
 
 .hero h1 {
@@ -213,7 +217,7 @@ main {
   margin-inline: auto;
   font-family: var(--display);
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.12em;
   font-size: clamp(42px, 5vw, 78px);
   line-height: 1.08;
   text-align: center;
@@ -418,9 +422,9 @@ main {
 .hero__service-card h2 {
   margin: 0;
   font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
-  font-size: clamp(24px, 2.45vw, 38px);
+  font-size: clamp(20px, 1.8vw, 28px);
   font-weight: 950;
-  letter-spacing: -0.06em;
+  letter-spacing: 0.04em;
   line-height: 1.08;
 }
 
@@ -1619,18 +1623,18 @@ main {
   }
 
   .hero__service-card {
-    grid-template-columns: 76px minmax(0, 1fr);
+    grid-template-columns: 66px minmax(0, 1fr);
     gap: 12px;
     min-height: 0;
-    padding: 12px 14px;
-    border-width: 4px;
-    border-radius: 22px;
-    box-shadow: 5px 5px 0 var(--ink);
+    padding: 12px 12px;
+    border-width: 3px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
   }
 
   .hero__service-visual {
-    width: 76px;
-    padding-top: 11px;
+    width: 66px;
+    padding-top: 10px;
   }
 
   .hero__service-spot img {
@@ -1640,22 +1644,21 @@ main {
 
   .hero__service-label {
     border-width: 2px;
-    padding: 3px 8px;
+    padding: 2px 6px;
     font-size: 9px;
   }
 
   .hero__service-card h2 {
-    font-size: clamp(20px, 5.8vw, 27px);
-    letter-spacing: -0.04em;
+    font-size: clamp(14px, 4.0vw, 17px);
+    letter-spacing: 0.04em;
   }
 
   .hero__service-card p {
-    font-size: 12px;
-    line-height: 1.55;
+    display: none;
   }
 
   .hero__service-link {
-    font-size: 12px;
+    font-size: 11px;
     border-bottom-width: 2px;
   }
 
@@ -1665,12 +1668,24 @@ main {
     padding: 8px 0 24px;
   }
 
-  .hero h1 {
-    font-size: clamp(31px, 9.8vw, 46px);
-    line-height: 1.12;
+  .hero__copy {
+    margin-top: clamp(16px, 4vw, 28px);
   }
 
-  .hero__lead,
+  .hero h1 {
+    font-size: clamp(31px, 9.8vw, 46px);
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .mobile-br {
+    display: block;
+  }
+
+  .hero__lead {
+    display: none;
+  }
+
   .contact p {
     font-size: 14px;
     line-height: 1.85;
@@ -1699,7 +1714,8 @@ main {
   .hero__art {
     width: 100%;
     margin-left: 0;
-    margin-top: -24px;
+    margin-top: 0;
+    align-self: center;
     overflow: hidden;
   }
 
