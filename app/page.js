@@ -2,6 +2,7 @@ import RevealOnScroll from "./reveal-on-scroll";
 import ServicesSection from "./services-section";
 import ServiceSwitchLink from "./service-switch-link";
 import Spot from "./spot";
+import Header from "./header";
 
 const services = [
   {
@@ -208,107 +209,97 @@ const faqsByService = {
   ],
 };
 
-function Header() {
-  return (
-    <header className="site-header">
-      <a className="brand" href="#top" aria-label="KAWABIT トップへ">
-        KAWABIT
-      </a>
-      <nav className="site-nav" aria-label="主要ナビゲーション">
-        <a href="#services">サービス</a>
-        <a href="#contact">相談する</a>
-      </nav>
-      <a className="header-cta" href="#contact">
-        相談する
-      </a>
-    </header>
-  );
-}
+
 
 function Hero() {
   return (
     <section className="hero" id="top" aria-label="KAWABIT ファーストビュー">
       <div className="hero__copy">
-        <h1>
-          <span className="hero__title-line">学びもITも、</span>
-          <span className="hero__title-line">ここから相談。</span>
-        </h1>
+        <h1>学びもITも、ここから相談。</h1>
         <p className="hero__lead">
-          家庭教師も、パソコン修理も。
-          困ったらまずKAWABITへ。
+          家庭教師も、パソコン修理も。暮らしの近くに、川辺の相談先を。
         </p>
-        <div className="hero__actions" aria-label="サービス導線">
-          <ServiceSwitchLink className="button button--study" serviceId="study">
-            家庭教師
-            <span aria-hidden="true">›</span>
-          </ServiceSwitchLink>
-          <ServiceSwitchLink className="button button--it" serviceId="it">
-            パソコン修理
-            <span aria-hidden="true">›</span>
-          </ServiceSwitchLink>
-        </div>
       </div>
       <div className="hero__art">
         <img
           className="hero__island"
-          src="/illustrations/used/kawabit-scene-island-soft-color.png"
-          alt="家庭教師の学習風景とパソコン修理の作業風景がひとつの島につながったイラスト"
+          src="/illustrations/used/kawabit-hero-wide-flow-v1.png"
+          alt="学びとITの相談が同じ入口につながる KAWABIT のブランドイラスト"
         />
+      </div>
+      <div className="hero__service-cards" aria-label="KAWABIT のサービス">
+        <ServiceSwitchLink
+          className="hero__service-card hero__service-card--study"
+          serviceId="study"
+        >
+          <span className="hero__service-visual">
+            <span className="hero__service-label">学びの相談</span>
+            <Spot name="study" className="hero__service-spot" />
+          </span>
+          <div className="hero__service-copy">
+            <h2>かわべ家庭教師学院</h2>
+            <p>定期テスト、受験、学習習慣づくりまで相談できます。</p>
+            <span className="hero__service-link">家庭教師を詳しく見る</span>
+          </div>
+        </ServiceSwitchLink>
+        <ServiceSwitchLink
+          className="hero__service-card hero__service-card--it"
+          serviceId="it"
+        >
+          <span className="hero__service-visual">
+            <span className="hero__service-label">ITの相談</span>
+            <Spot name="repair" className="hero__service-spot" />
+          </span>
+          <div className="hero__service-copy">
+            <h2>川辺コンピューター</h2>
+            <p>パソコン修理、設定、データ復旧の困りごとを相談できます。</p>
+            <span className="hero__service-link">PC修理を詳しく見る</span>
+          </div>
+        </ServiceSwitchLink>
       </div>
     </section>
   );
 }
 
-function Scene() {
+function BrandHistory() {
   return (
-    <section className="scene reveal" aria-label="KAWABIT の役割">
+    <section className="history reveal" aria-label="川辺ブランドの歩み">
       <div className="scene__inner">
         <div className="scene__heading">
-          <p className="section-label">KAWABIT の役割</p>
+          <p className="section-label">川辺ブランドの歩み</p>
           <h2>
-            学びの困りごとも、
+            学びとITを、
             <br />
-            パソコンの困りごとも。
+            豊橋で続けてきました。
           </h2>
           <p className="scene__lead">
-            KAWABITは、学びの相談とITの相談をひとつにまとめた入口です。
-            お子さまの勉強、受験、学習習慣のこと。パソコン修理、設定、
-            データ復旧のこと。近い窓口から、詳しい内容を確認できます。
+            かわべ家庭教師学院は1997年から。川辺コンピューターは1999年から。
+            どちらも豊橋を拠点に、それぞれの分野で身近な相談を受けてきました。
           </p>
         </div>
-        <div className="scene__services" aria-label="KAWABIT のサービス">
-          <ServiceSwitchLink
-            className="scene__service scene__service--study"
-            serviceId="study"
-          >
-            <Spot name="study" className="scene__service-spot" />
-            <div className="scene__service-copy">
-              <span className="scene__service-label">学びの相談</span>
+        <ol className="history__timeline" aria-label="川辺ブランドの沿革">
+          <li className="history__item history__item--study">
+            <span className="history__year">1997</span>
+            <div>
               <h3>かわべ家庭教師学院</h3>
-              <p>定期テスト、受験、学習習慣づくりまで相談できます。</p>
-              <span className="scene__service-link">家庭教師を詳しく見る</span>
+              <p>プロ家庭教師・学習相談</p>
             </div>
-          </ServiceSwitchLink>
-          <ServiceSwitchLink
-            className="scene__service scene__service--it"
-            serviceId="it"
-          >
-            <Spot name="repair" className="scene__service-spot" />
-            <div className="scene__service-copy">
-              <span className="scene__service-label">ITの相談</span>
+          </li>
+          <li className="history__item history__item--it">
+            <span className="history__year">1999</span>
+            <div>
               <h3>川辺コンピューター</h3>
-              <p>パソコン修理、設定、データ復旧の困りごとを相談できます。</p>
-              <span className="scene__service-link">PC修理を詳しく見る</span>
+              <p>パソコン修理・データ復旧・IT相談</p>
             </div>
-          </ServiceSwitchLink>
-        </div>
-        <figure className="scene__figure">
-          <img
-            src="/illustrations/used/kawabit-scene-island-soft-color.png"
-            alt="家庭教師の学習風景とパソコン修理の作業風景がひとつの島につながったイラスト"
-          />
-          <figcaption>学びとITが、となり合っている場所。</figcaption>
-        </figure>
+          </li>
+          <li className="history__item history__item--now">
+            <span className="history__year">NOW</span>
+            <div>
+              <h3>豊橋で続く2つの専門サービス</h3>
+              <p>必要になったときに、思い出せる相談先として。</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
   );
@@ -368,7 +359,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Scene />
+        <BrandHistory />
         <ServicesSection
           services={services}
           pricingByService={pricingByService}
