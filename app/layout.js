@@ -1,12 +1,5 @@
-import { Yomogi } from "next/font/google";
 import "./globals.css";
-
-const yomogi = Yomogi({
-  weight: "400",
-  preload: false,
-  variable: "--font-yomogi",
-  display: "swap",
-});
+import SmoothScroll from "./smooth-scroll";
 
 export const metadata = {
   title: "KAWABIT | 学びとITの相談ナビ",
@@ -17,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
-      <body className={yomogi.variable}>{children}</body>
+      <body>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

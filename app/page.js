@@ -1,4 +1,8 @@
 import RevealOnScroll from "./reveal-on-scroll";
+import ServicesSection from "./services-section";
+import ServiceSwitchLink from "./service-switch-link";
+import Spot from "./spot";
+import Header from "./header";
 
 const services = [
   {
@@ -6,232 +10,303 @@ const services = [
     label: "学び",
     title: "家庭教師",
     name: "かわべ家庭教師学院",
-    lead: "学びのつまずきを、近くでほどく。",
+    lead: "「わからない」を、いっしょにほぐそう。",
     body:
       "定期テスト対策、受験準備、学習習慣づくりまで。お子さまの状況を聞きながら、今必要な学び方を一緒に整理します。",
     href: "https://kawabegakuin.jp/",
     phone: "0120-777-697",
     cta: "家庭教師に相談する",
     spot: "study",
+    tabIllust: "study-tab-note.png",
+    panelIllust: "study-voice-parent-smile.png",
+    points: [
+      {
+        tag: "一人ひとりに",
+        title: "お子さま専属のペースで",
+        text: "「わかったふり」をしなくていい時間です。つまずいたところまで一緒に戻り、ご家庭のペースで進めます。",
+      },
+      {
+        tag: "つまずきの理由から",
+        title: "答えだけ、教えません",
+        text: "解けなかった「なぜ」を一緒にほどきます。次の似た問題も自分で解ける足場をつくります。",
+      },
+      {
+        tag: "目的に合わせて",
+        title: "テストも、受験も、習慣も",
+        text: "「テスト前だけ」「受験まで」「机に向かう習慣を」——ご家庭の目的に合わせて進め方をご提案します。",
+      },
+    ],
   },
   {
     id: "it",
     label: "IT",
     title: "パソコン修理",
     name: "川辺コンピューター",
-    lead: "困ったパソコンを、落ち着いて見直す。",
+    lead: "パソコンの「困った！」を、サクッと解決。",
     body:
       "起動しない、動作が遅い、データを取り出したい。症状を確認しながら、修理・設定・データ復旧の相談先へ案内します。",
     href: "https://kawabecom.jp/",
     phone: "0532-63-7717",
     cta: "PC修理に相談する",
     spot: "repair",
+    tabIllust: "it-tab-tools.png",
+    panelIllust: "it-panel-counter.png",
+    points: [
+      {
+        tag: "診断無料",
+        title: "まず症状をうかがいます",
+        text: "「動かない」「遅い」「変な画面が出る」——その症状を一緒に確認。原因を見立ててから手を動かします。",
+      },
+      {
+        tag: "見積無料",
+        title: "費用は事前にお伝え",
+        text: "作業の前に内容と費用をきちんとご説明します。納得いただいてから進めるので、はじめての方も安心です。",
+      },
+      {
+        tag: "幅広く対応",
+        title: "修理・設定・データ復旧",
+        text: "直すだけでなく設定や引っ越し、データの取り出しまで。買い替えのご相談もどうぞ。",
+      },
+    ],
   },
 ];
 
-const reasons = [
-  {
-    title: "入口がひとつ",
-    text: "学びとIT、どちらの相談もここから確認できます。探し回らず、目的に合う窓口へ進めます。",
-    spot: "person",
+const pricingByService = {
+  study: {
+    label: "家庭教師",
+    name: "かわべ家庭教師学院",
+    items: [
+      {
+        title: "教材費",
+        value: "ゼロ",
+        note: "学校教材＋オリジナルプリントで進めます",
+      },
+      {
+        title: "月額",
+        value: "14,300円〜",
+        note: "小学生・週1回60分（税込）",
+      },
+    ],
+    extra: "＋ 年間契約なし、いつでもやめられます",
   },
-  {
-    title: "むずかしく言わない",
-    text: "専門的な内容も、できるだけ普段の言葉で説明します。初めての相談でも状況を整理しやすくします。",
-    spot: "talk",
+  it: {
+    label: "PC修理",
+    name: "川辺コンピューター",
+    items: [
+      {
+        title: "初期診断",
+        value: "無料",
+        note: "症状を見立ててから作業を判断します",
+      },
+      {
+        title: "軽度トラブル",
+        value: "6,800円〜",
+        note: "症状によって料金は変わります",
+      },
+    ],
+    extra: "＋ データ復旧は最短24時間で対応",
   },
-  {
-    title: "暮らしに近い",
-    text: "家庭の学習環境や日常のITトラブルなど、身近な困りごとを前提にした案内を大切にします。",
-    spot: "objects",
-  },
-];
-
-const flow = [
-  {
-    title: "内容を選ぶ",
-    text: "家庭教師か、パソコン修理か、近いほうを選びます。",
-  },
-  {
-    title: "状況を伝える",
-    text: "学年・教科・困っている症状など、わかる範囲で大丈夫です。",
-  },
-  {
-    title: "窓口で確認",
-    text: "各サービスの担当窓口で、詳しい内容を確認します。",
-  },
-  {
-    title: "必要な対応へ",
-    text: "体験相談、修理受付、データ復旧相談など、次の手続きへ進みます。",
-  },
-];
-
-const spotFiles = {
-  study: "kawabit-spot-study.png",
-  repair: "kawabit-spot-repair.png",
-  combo: "kawabit-spot-combo.png",
-  person: "kawabit-spot-combo.png",
-  talk: "kawabit-spot-talk.png",
-  path: "kawabit-spot-path.png",
-  objects: "kawabit-spot-objects.png",
 };
 
-function Spot({ name, className = "" }) {
-  return (
-    <span className={`spot spot--${name} ${className}`} aria-hidden="true">
-      <img src={`/illustrations/${spotFiles[name]}`} alt="" />
-    </span>
-  );
-}
+const issuesByService = {
+  study: {
+    title: "学びの困りごと",
+    items: [
+      "定期テストの点数を上げたい",
+      "受験までの計画を一緒に立てたい",
+      "学校に行きづらい時期がある",
+      "大人になってから学び直したい",
+      "近くに通えない／オンラインで受けたい",
+    ],
+  },
+  it: {
+    title: "ITの困りごと",
+    items: [
+      "急に動かなくなった、立ち上がらない",
+      "大事なデータを取り出したい",
+      "動作が遅くて買い替えに迷う",
+      "パソコンの使い方を教わりたい",
+      "会社のIT環境を相談したい",
+    ],
+  },
+};
 
-function Header() {
-  return (
-    <header className="site-header">
-      <a className="brand" href="#top" aria-label="KAWABIT トップへ">
-        KAWABIT
-      </a>
-      <nav className="site-nav" aria-label="主要ナビゲーション">
-        <a href="#services">サービス</a>
-        <a href="#reason">選ばれる理由</a>
-        <a href="#flow">相談の流れ</a>
-      </nav>
-      <a className="header-cta" href="#contact">
-        相談する
-      </a>
-    </header>
-  );
-}
+const voicesByService = {
+  study: [
+    {
+      body:
+        "テスト前に毎回パニックになる子でしたが、「どこからやればいいか」を一緒に整理してもらえて、自分から机に向かうようになりました。",
+      attr: "中学2年生の保護者・豊橋市",
+      illust: "study-voice-parent-smile.png",
+    },
+    {
+      body:
+        "苦手だった英語を、文法の前に「なぜそうなるか」から教えてくれます。受験までの計画を一緒に立ててもらえて、親も安心です。",
+      attr: "中学3年生の保護者・豊川市",
+      illust: "study-voice-online.png",
+    },
+  ],
+  it: [
+    {
+      body:
+        "突然パソコンが立ち上がらず、写真も全部あきらめかけていました。データを救い出していただいて、本当に助かりました。",
+      attr: "60代女性・豊橋市",
+      illust: "it-voice-senior-smile.png",
+    },
+    {
+      body:
+        "動作が遅くて買い替えようかと思っていたのですが、設定の見直しでだいぶ軽くなりました。買い替えずに済んで助かりました。",
+      attr: "50代男性・田原市",
+      illust: "it-voice-data-desk.png",
+    },
+  ],
+};
+
+const faqsByService = {
+  study: [
+    {
+      q: "料金は事前にわかりますか？",
+      a: "月額制で教材費や年間契約はありません。初回ご相談時にお子さまの状況と希望をうかがって、月額を明確にお伝えします。",
+    },
+    {
+      q: "オンラインでも受けられますか？",
+      a: "オンラインコースをご用意しています。全国どこからでも受講でき、対面と同じ品質でサポートします。",
+    },
+    {
+      q: "対応エリアはどこですか？",
+      a: "対面は豊橋・豊川・田原を中心に、オンラインなら全国対応です。お住まいの地域に合わせてご提案します。",
+    },
+    {
+      q: "学校や塾と併用しても大丈夫ですか？",
+      a: "もちろん大丈夫です。学校教材と通塾内容を踏まえて、足りないところを補う形で進めることもできます。",
+    },
+    {
+      q: "営業時間外でも問い合わせできますか？",
+      a: "Webからのお問い合わせは24時間受け付けています。ご返答は営業時間内（10:00〜19:00／日曜休）にお返しします。",
+    },
+  ],
+  it: [
+    {
+      q: "料金は事前にわかりますか？",
+      a: "初期診断は無料で、作業の前にお見積りをお伝えします。納得いただいてから進めるので、追加費用の心配はありません。",
+    },
+    {
+      q: "出張対応はしてもらえますか？",
+      a: "店舗お持ち込みを基本としつつ、近隣エリアへの出張も承ります。まずはお電話で症状をうかがい、最適な対応をご案内します。",
+    },
+    {
+      q: "対応エリアはどこですか？",
+      a: "豊橋市南牛川の店舗で受け付け、近隣地域への出張にも対応しています。郵送修理のご相談も可能です。",
+    },
+    {
+      q: "会社のパソコンや IT 環境も相談できますか？",
+      a: "中小企業向けのITコンサルティング・購入サポート・ネットワーク整備までご相談いただけます。",
+    },
+    {
+      q: "営業時間外でも問い合わせできますか？",
+      a: "Webからのお問い合わせは24時間受け付けています。ご返答は営業時間内（10:00〜19:00／日曜休）にお返しします。",
+    },
+  ],
+};
+
+
 
 function Hero() {
   return (
     <section className="hero" id="top" aria-label="KAWABIT ファーストビュー">
       <div className="hero__copy">
-        <p className="hero__brand">カワビット</p>
-        <h1>
-          学びとITの
-          <br />
-          相談窓口。
-        </h1>
+        <h1>KAWABIT</h1>
         <p className="hero__lead">
-          家庭教師の相談も、パソコン修理やデータ復旧の相談も。
-          迷ったら、まずKAWABITから近い窓口へ進めます。
+          家庭教師も、パソコン修理も。暮らしの近くに、川辺の相談先を。
         </p>
-        <div className="hero__actions" aria-label="サービス導線">
-          <a className="button button--study" href="https://kawabegakuin.jp/">
-            家庭教師
-          </a>
-          <a className="button button--it" href="https://kawabecom.jp/">
-            パソコン修理
-          </a>
+      </div>
+      <div className="hero__art">
+        <picture style={{ display: 'contents' }}>
+          <source
+            media="(max-width: 640px)"
+            srcSet="/illustrations/used/kawabit-scene-body-4x3-transparent.png"
+          />
+          <img
+            className="hero__island"
+            src="/illustrations/used/kawabit-hero-wide-flow-v2.png"
+            alt="学びとITの相談が同じ入口につながる KAWABIT のブランドイラスト"
+          />
+        </picture>
+      </div>
+      <div className="hero__service-cards" aria-label="KAWABIT のサービス">
+        <ServiceSwitchLink
+          className="hero__service-card hero__service-card--study"
+          serviceId="study"
+        >
+          <span className="hero__service-visual">
+            <span className="hero__service-label">学びの相談</span>
+            <Spot name="study" className="hero__service-spot" />
+          </span>
+          <div className="hero__service-copy">
+            <h2>かわべ家庭教師学院</h2>
+            <p>定期テスト、受験、学習習慣づくりまで相談できます。</p>
+            <span className="hero__service-link">家庭教師を詳しく見る</span>
+          </div>
+        </ServiceSwitchLink>
+        <ServiceSwitchLink
+          className="hero__service-card hero__service-card--it"
+          serviceId="it"
+        >
+          <span className="hero__service-visual">
+            <span className="hero__service-label">ITの相談</span>
+            <Spot name="repair" className="hero__service-spot" />
+          </span>
+          <div className="hero__service-copy">
+            <h2>川辺コンピューター</h2>
+            <p>パソコン修理、設定、データ復旧の困りごとを相談できます。</p>
+            <span className="hero__service-link">PC修理を詳しく見る</span>
+          </div>
+        </ServiceSwitchLink>
+      </div>
+    </section>
+  );
+}
+
+function BrandHistory() {
+  return (
+    <section className="history reveal" aria-label="川辺ブランドの歩み">
+      <div className="scene__inner">
+        <div className="scene__heading">
+          <p className="section-label">川辺ブランドの歩み</p>
+          <h2>
+            学びとITを、
+            <br />
+            豊橋で続けてきました。
+          </h2>
+          <p className="scene__lead">
+            かわべ家庭教師学院は1997年から。川辺コンピューターは1999年から。
+            どちらも豊橋を拠点に、それぞれの分野で身近な相談を受けてきました。
+          </p>
         </div>
-      </div>
-      <div className="hero__art" aria-hidden="true">
-        <Spot name="study" />
-        <Spot name="repair" />
-        <Spot name="person" />
-        <Spot name="objects" />
-        <span className="hero__path" />
-      </div>
-    </section>
-  );
-}
-
-function Intro() {
-  return (
-    <section className="intro section reveal">
-      <div className="intro__text">
-        <h2>迷ったら、まずKAWABITへ。</h2>
-        <p>
-          学習のことも、パソコンのことも、最初の相談先がわからないまま止まってしまうことがあります。
-          KAWABITは、家庭教師とIT修理の入口をひとつにまとめた案内サイトです。
-          必要な相談先へ、わかりやすくつなぎます。
-        </p>
-      </div>
-      <Spot name="combo" className="intro__spot" />
-    </section>
-  );
-}
-
-function Services() {
-  return (
-    <section className="services section" id="services">
-      {services.map((service, index) => (
-        <article className={`service service--${service.id} reveal`} key={service.id}>
-          <div className="service__marker">
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <b>{service.label}</b>
-          </div>
-          <div className="service__body">
-            <p className="section-label">{service.title}</p>
-            <h2>{service.lead}</h2>
-            <p>{service.body}</p>
-            <dl>
-              <div>
-                <dt>専門サイト</dt>
-                <dd>{service.name}</dd>
-              </div>
-              <div>
-                <dt>電話</dt>
-                <dd>{service.phone}</dd>
-              </div>
-            </dl>
-            <a className="text-link" href={service.href}>
-              {service.cta}
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-          <Spot name={service.spot} className="service__spot" />
-        </article>
-      ))}
-    </section>
-  );
-}
-
-function Reasons() {
-  return (
-    <section className="reason section reveal" id="reason">
-      <div className="section-heading">
-        <p className="section-label">選ばれる理由</p>
-        <h2>
-          迷わせず、
-          <br />
-          わかりやすく。
-        </h2>
-      </div>
-      <div className="reason__list">
-        {reasons.map((reason) => (
-          <article className="reason__item" key={reason.title}>
-            <Spot name={reason.spot} />
+        <ol className="history__timeline" aria-label="川辺ブランドの沿革">
+          <li className="history__item history__item--study">
+            <span className="history__year">1997</span>
             <div>
-              <h3>{reason.title}</h3>
-              <p>{reason.text}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Flow() {
-  return (
-    <section className="flow section reveal" id="flow">
-      <div className="section-heading">
-        <p className="section-label">相談の流れ</p>
-        <h2>小さく聞いて、次へ進む。</h2>
-      </div>
-      <ol className="flow__list">
-        {flow.map((item, index) => (
-          <li key={item.title}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <div className="flow__content">
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+              <h3>かわべ家庭教師学院</h3>
+              <p>プロ家庭教師・学習相談</p>
             </div>
           </li>
-        ))}
-      </ol>
-      <Spot name="path" className="flow__spot" />
+          <li className="history__item history__item--it">
+            <span className="history__year">1999</span>
+            <div>
+              <h3>川辺コンピューター</h3>
+              <p>パソコン修理・データ復旧・IT相談</p>
+            </div>
+          </li>
+          <li className="history__item history__item--now">
+            <span className="history__year">NOW</span>
+            <div>
+              <h3>豊橋で続く2つの専門サービス</h3>
+              <p>必要になったときに、思い出せる相談先として。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </section>
   );
 }
@@ -239,27 +314,46 @@ function Flow() {
 function Contact() {
   return (
     <section className="contact section reveal" id="contact">
-      <div>
-        <p className="section-label">まずは相談する</p>
-        <h2>
-          学びも、ITも。
-          <br />
-          気軽に確認してください。
-        </h2>
-        <p>
-          小さなつまずきでも、早めに相談すると選択肢が広がります。
-          今の状況に近い窓口からご確認ください。
-        </p>
+      <div className="contact__main">
+        <div>
+          <p className="section-label">まずは相談する</p>
+          <h2>
+            まずは、
+            <br />
+            気軽に話してみませんか？
+          </h2>
+          <p>
+            小さなつまずきでも、早めに相談すると選択肢が広がります。
+            今の状況に近い窓口からご確認ください。
+          </p>
+        </div>
+        <div className="contact__actions">
+          <a className="button button--study" href="https://kawabegakuin.jp/">
+            家庭教師に相談する
+          </a>
+          <a className="button button--it" href="https://kawabecom.jp/">
+            PC修理に相談する
+          </a>
+        </div>
       </div>
-      <div className="contact__actions">
-        <a className="button button--study" href="https://kawabegakuin.jp/">
-          家庭教師に相談する
-        </a>
-        <a className="button button--it" href="https://kawabecom.jp/">
-          PC修理に相談する
-        </a>
-        <p>10:00-19:00 / 日曜休</p>
-      </div>
+      <dl className="contact__info">
+        <div>
+          <dt>対応エリア</dt>
+          <dd>
+            家庭教師：豊橋・豊川・田原（オンラインは全国）
+            <br />
+            PC修理：豊橋市を中心に近隣地域へ出張も
+          </dd>
+        </div>
+        <div>
+          <dt>所在地</dt>
+          <dd>愛知県豊橋市南牛川1丁目1-7</dd>
+        </div>
+        <div>
+          <dt>営業時間</dt>
+          <dd>10:00 – 19:00 ／ 日曜休</dd>
+        </div>
+      </dl>
     </section>
   );
 }
@@ -271,10 +365,14 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Intro />
-        <Services />
-        <Reasons />
-        <Flow />
+        <BrandHistory />
+        <ServicesSection
+          services={services}
+          pricingByService={pricingByService}
+          issuesByService={issuesByService}
+          voicesByService={voicesByService}
+          faqsByService={faqsByService}
+        />
         <Contact />
       </main>
       <footer className="site-footer">
