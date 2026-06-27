@@ -84,6 +84,29 @@ export default function ServicesSection({
 
   return (
     <section className="services section" id="services">
+      <div className="services__intro">
+        <div className="services__intro-main">
+          <div className="services__intro-badge">
+            <span className="services__intro-circle" />
+            <span className="services__intro-label">SERVICE GUIDE</span>
+          </div>
+          <h2 className="services__intro-title">2つの専門サービス</h2>
+          <div className="services__intro-text">
+            <p>家庭教師・学習相談は「かわべ家庭教師学院」へ。</p>
+            <p>パソコン修理・データ復旧は「川辺コンピューター」へ。</p>
+            <p>内容に合わせて、下のタブからご確認ください。</p>
+          </div>
+        </div>
+        <div className="services__intro-card">
+          <div className="services__intro-card-num">2</div>
+          <p className="services__intro-card-text">
+            学びとITを、同じ
+            <br />
+            入口から。
+          </p>
+        </div>
+      </div>
+
       <div className="services__tabs" role="tablist" aria-label="サービスを切り替え">
         {services.map((service) => (
           <button
@@ -133,6 +156,16 @@ export default function ServicesSection({
           >
             <div className="panel__intro">
               <div className="panel__intro-copy">
+                {service.id === "study" && (
+                  <span className="panel__intro-sticker panel__intro-sticker--study">
+                    とことん伴走！
+                  </span>
+                )}
+                {service.id === "it" && (
+                  <span className="panel__intro-sticker panel__intro-sticker--it">
+                    修理♡ラブ
+                  </span>
+                )}
                 <h2>{service.lead}</h2>
                 <p className="panel__intro-body">{service.body}</p>
               </div>
