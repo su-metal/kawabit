@@ -701,10 +701,7 @@ main {
 }
 
 .services__intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(220px, 22vw, 260px);
-  gap: clamp(28px, 4vw, 56px);
-  align-items: flex-start;
+  display: block;
   margin-bottom: clamp(48px, 6vw, 72px);
 }
 
@@ -743,10 +740,10 @@ main {
   border: 3px solid var(--ink);
   border-radius: 999px;
   padding: 4px 14px;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
+  font-family: var(--sans);
+  font-size: 12px;
   font-weight: 950;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   white-space: nowrap;
 }
 
@@ -774,39 +771,13 @@ main {
   margin-bottom: 6px;
 }
 
-.services__intro-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  background: var(--paper);
-  border: var(--line);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: 8px 8px 0 var(--ink);
-}
-
-.services__intro-card-num {
-  width: 38px;
-  height: 38px;
-  background: var(--yellow);
-  border: 3px solid var(--ink);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 950;
-}
-
-.services__intro-card-text {
-  margin: 0;
-  font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
-  font-size: clamp(15px, 1.8vw, 20px);
-  font-weight: 950;
+.services__intro-tagline {
+  margin: clamp(6px, 0.8vw, 10px) 0 0;
+  font-family: var(--sans);
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 900;
   letter-spacing: 0.04em;
-  line-height: 1.45;
+  color: var(--ink);
 }
 
 .services__tabs {
@@ -948,13 +919,24 @@ main {
 /* Panel: shared section label */
 
 .panel__section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin: 0 0 clamp(16px, 2vw, 24px);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: 950;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-family: var(--sans);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.panel__section-label::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: clamp(22px, 2.4vw, 30px);
+  background: var(--ink);
+  border-radius: 2px;
 }
 
 /* Panel: intro block */
@@ -975,8 +957,32 @@ main {
   line-height: 1.15;
 }
 
-.panel__intro-body {
+.panel__intro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin: clamp(18px, 2vw, 24px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.panel__intro-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  padding: 7px 16px;
+  background: var(--paper);
+  font-family: var(--display);
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.panel__intro-body {
+  margin: clamp(14px, 1.6vw, 18px) 0 0;
   color: var(--ink);
   font-size: clamp(15px, 1.4vw, 17px);
   font-weight: 700;
@@ -1589,7 +1595,7 @@ main {
 
 .contact-card__title {
   margin: 0;
-  font-family: var(--display);
+  font-family: var(--sans);
   font-size: clamp(22px, 2.3vw, 28px);
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -2158,19 +2164,7 @@ main {
   }
 
   .services__intro {
-    grid-template-columns: 1fr;
-    gap: 32px;
     margin-bottom: 40px;
-  }
-
-  .services__intro-card {
-    align-items: flex-start;
-    text-align: left;
-    padding: 20px;
-  }
-
-  .services__intro-card-num {
-    align-self: flex-start;
   }
 }
 

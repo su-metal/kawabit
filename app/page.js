@@ -11,8 +11,9 @@ const services = [
     title: "家庭教師",
     name: "かわべ家庭教師学院",
     lead: "勉強のつまずきから、受験の相談まで",
+    tags: ["定期テスト対策", "受験準備", "学習習慣づくり"],
     body:
-      "定期テスト対策、受験準備、学習習慣づくりまで。お子さまの状況を聞きながら、今必要な学び方を一緒に整理します。",
+      "今いる場所から、無理のないペースで一緒に進んでいきます。",
     href: "https://kawabegakuin.jp/",
     phone: "0120-777-697",
     cta: "家庭教師に相談する",
@@ -43,8 +44,9 @@ const services = [
     title: "パソコン修理",
     name: "川辺コンピューター",
     lead: "パソコンの「困った！」を、サクッと解決。",
+    tags: ["パソコン修理", "設定サポート", "データ復旧"],
     body:
-      "起動しない、動作が遅い、データを取り出したい。症状を確認しながら、修理・設定・データ復旧の相談先へ案内します。",
+      "症状を一緒に確かめて、いちばん近い解決ルートをご案内します。",
     href: "https://kawabecom.jp/",
     phone: "0532-63-7717",
     cta: "PC修理に相談する",
@@ -110,7 +112,7 @@ const pricingByService = {
 
 const issuesByService = {
   study: {
-    title: "学びの困りごと",
+    title: "こんなご相談、多いです",
     items: [
       "定期テストの点数を上げたい",
       "受験までの計画を一緒に立てたい",
@@ -120,7 +122,7 @@ const issuesByService = {
     ],
   },
   it: {
-    title: "ITの困りごと",
+    title: "こんなトラブル、多いです",
     items: [
       "急に動かなくなった、立ち上がらない",
       "大事なデータを取り出したい",
@@ -244,7 +246,7 @@ function Hero() {
           </span>
           <div className="hero__service-copy">
             <h2>かわべ家庭教師学院</h2>
-            <p>定期テスト、受験、学習習慣づくりまで相談できます。</p>
+            <p>定期テスト、受験、学習習慣づくりまで、まるっと相談できます。</p>
             <span className="hero__service-link">家庭教師を詳しく見る</span>
           </div>
         </ServiceSwitchLink>
@@ -258,7 +260,7 @@ function Hero() {
           </span>
           <div className="hero__service-copy">
             <h2>川辺コンピューター</h2>
-            <p>パソコン修理、設定、データ復旧の困りごとを相談できます。</p>
+            <p>パソコン修理、設定、データ復旧まで、まるっと相談できます。</p>
             <span className="hero__service-link">PC修理を詳しく見る</span>
           </div>
         </ServiceSwitchLink>
@@ -316,15 +318,14 @@ function Contact() {
     <section className="contact reveal" id="contact">
       <div className="contact__inner">
         <div className="contact__head">
-          <p className="section-label">まずは相談する</p>
+          <p className="section-label">相談どき！</p>
           <h2>
-            まずは、
+            話してみたら、
             <br />
-            気軽に話してみませんか？
+            案外スッキリ。
           </h2>
           <p className="contact__lead">
-            小さなつまずきでも、早めに相談すると選択肢が広がります。
-            今の状況に近い窓口からご確認ください。
+            勉強のことは「かわべ家庭教師学院」、パソコンのことは「川辺コンピューター」。気になる方からどうぞ！
           </p>
         </div>
 
@@ -335,7 +336,7 @@ function Contact() {
           >
             <Spot name="study" className="contact-card__spot" />
             <div className="contact-card__body">
-              <h3 className="contact-card__title">家庭教師に相談する</h3>
+              <h3 className="contact-card__title">かわべ家庭教師学院</h3>
               <p className="contact-card__lead">
                 勉強のつまずき・受験対策・
                 <br />
@@ -352,7 +353,7 @@ function Contact() {
                 </div>
               </dl>
               <span className="contact-card__cta">
-                話を聞いてもらう
+                詳しく見る
                 <span className="contact-card__cta-arrow" aria-hidden="true">
                   →
                 </span>
@@ -366,7 +367,7 @@ function Contact() {
           >
             <Spot name="repair" className="contact-card__spot" />
             <div className="contact-card__body">
-              <h3 className="contact-card__title">PC修理に相談する</h3>
+              <h3 className="contact-card__title">川辺コンピューター</h3>
               <p className="contact-card__lead">
                 壊れた・遅い・分からない、
                 <br />
@@ -383,7 +384,7 @@ function Contact() {
                 </div>
               </dl>
               <span className="contact-card__cta">
-                話を聞いてもらう
+                詳しく見る
                 <span className="contact-card__cta-arrow" aria-hidden="true">
                   →
                 </span>
