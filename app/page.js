@@ -1,5 +1,6 @@
 import RevealOnScroll from "./reveal-on-scroll";
 import ServicesSection from "./services-section";
+import ServiceSwitchLink from "./service-switch-link";
 import Spot from "./spot";
 
 const services = [
@@ -15,6 +16,8 @@ const services = [
     phone: "0120-777-697",
     cta: "家庭教師に相談する",
     spot: "study",
+    tabIllust: "study-tab-note.png",
+    panelIllust: "study-voice-parent-smile.png",
     points: [
       {
         tag: "一人ひとりに",
@@ -45,6 +48,8 @@ const services = [
     phone: "0532-63-7717",
     cta: "PC修理に相談する",
     spot: "repair",
+    tabIllust: "it-tab-tools.png",
+    panelIllust: "it-panel-counter.png",
     points: [
       {
         tag: "診断無料",
@@ -65,9 +70,8 @@ const services = [
   },
 ];
 
-const pricingPanels = [
-  {
-    service: "study",
+const pricingByService = {
+  study: {
     label: "家庭教師",
     name: "かわべ家庭教師学院",
     items: [
@@ -83,10 +87,8 @@ const pricingPanels = [
       },
     ],
     extra: "＋ 年間契約なし、いつでもやめられます",
-    stamp: "kawabit-spot-stamp-study.png",
   },
-  {
-    service: "it",
+  it: {
     label: "PC修理",
     name: "川辺コンピューター",
     items: [
@@ -102,73 +104,11 @@ const pricingPanels = [
       },
     ],
     extra: "＋ データ復旧は最短24時間で対応",
-    stamp: "kawabit-spot-stamp-repair.png",
   },
-];
-
-const faqs = [
-  {
-    q: "どちらのサービスから相談すればいいかわからないのですが？",
-    a: "お困りごとの内容をうかがってから、合う窓口へご案内します。学びとITで担当は分かれていますが、KAWABITとして連携していますのでご安心ください。",
-  },
-  {
-    q: "料金は事前にわかりますか？",
-    a: "パソコン修理は初期診断が無料で、作業の前にお見積りをお伝えします。家庭教師は月額制で、教材費や年間契約はありません。",
-  },
-  {
-    q: "オンラインでも対応してもらえますか？",
-    a: "家庭教師はオンラインコースをご用意しており、全国どこからでも受講いただけます。パソコン修理は店舗お持ち込みを基本に、近隣エリアへ出張も承ります。",
-  },
-  {
-    q: "対応エリアはどこですか？",
-    a: "家庭教師は豊橋・豊川・田原を中心に、オンラインは全国対応です。パソコン修理は豊橋市南牛川の店舗で受け付け、近隣地域への出張にも対応しています。",
-  },
-  {
-    q: "営業時間外でも問い合わせできますか？",
-    a: "Webからのお問い合わせは24時間受け付けています。ご返答は営業時間内（10:00〜19:00／日曜休）に順次お返しします。",
-  },
-  {
-    q: "会社や学校からの相談も可能ですか？",
-    a: "パソコン側は中小企業向けのITコンサルティング・購入サポートまでご相談いただけます。学びの面では、合同勉強会などのご相談も承っています。",
-  },
-];
-
-const voices = [
-  {
-    service: "study",
-    label: "家庭教師",
-    body: "テスト前に毎回パニックになる子でしたが、「どこからやればいいか」を一緒に整理してもらえて、自分から机に向かうようになりました。",
-    attr: "中学2年生の保護者・豊橋市",
-  },
-  {
-    service: "it",
-    label: "PC修理",
-    body: "突然パソコンが立ち上がらず、写真も全部あきらめかけていました。データを救い出していただいて、本当に助かりました。",
-    attr: "60代女性・豊橋市",
-  },
-  {
-    service: "study",
-    label: "家庭教師",
-    body: "苦手だった英語を、文法の前に「なぜそうなるか」から教えてくれます。受験までの計画を一緒に立ててもらえて、親も安心です。",
-    attr: "中学3年生の保護者・豊川市",
-  },
-  {
-    service: "it",
-    label: "PC修理",
-    body: "動作が遅くて買い替えようかと思っていたのですが、設定の見直しでだいぶ軽くなりました。買い替えずに済んで助かりました。",
-    attr: "50代男性・田原市",
-  },
-];
-
-const voiceArtFiles = {
-  study: "kawabit-spot-voice-study.png",
-  it: "kawabit-spot-voice-repair.png",
 };
 
-const issueGroups = [
-  {
-    id: "study",
-    label: "家庭教師",
+const issuesByService = {
+  study: {
     title: "学びの困りごと",
     items: [
       "定期テストの点数を上げたい",
@@ -178,9 +118,7 @@ const issueGroups = [
       "近くに通えない／オンラインで受けたい",
     ],
   },
-  {
-    id: "it",
-    label: "PC修理",
+  it: {
     title: "ITの困りごと",
     items: [
       "急に動かなくなった、立ち上がらない",
@@ -190,7 +128,85 @@ const issueGroups = [
       "会社のIT環境を相談したい",
     ],
   },
-];
+};
+
+const voicesByService = {
+  study: [
+    {
+      body:
+        "テスト前に毎回パニックになる子でしたが、「どこからやればいいか」を一緒に整理してもらえて、自分から机に向かうようになりました。",
+      attr: "中学2年生の保護者・豊橋市",
+      illust: "study-voice-parent-smile.png",
+    },
+    {
+      body:
+        "苦手だった英語を、文法の前に「なぜそうなるか」から教えてくれます。受験までの計画を一緒に立ててもらえて、親も安心です。",
+      attr: "中学3年生の保護者・豊川市",
+      illust: "study-voice-online.png",
+    },
+  ],
+  it: [
+    {
+      body:
+        "突然パソコンが立ち上がらず、写真も全部あきらめかけていました。データを救い出していただいて、本当に助かりました。",
+      attr: "60代女性・豊橋市",
+      illust: "it-voice-senior-smile.png",
+    },
+    {
+      body:
+        "動作が遅くて買い替えようかと思っていたのですが、設定の見直しでだいぶ軽くなりました。買い替えずに済んで助かりました。",
+      attr: "50代男性・田原市",
+      illust: "it-voice-data-desk.png",
+    },
+  ],
+};
+
+const faqsByService = {
+  study: [
+    {
+      q: "料金は事前にわかりますか？",
+      a: "月額制で教材費や年間契約はありません。初回ご相談時にお子さまの状況と希望をうかがって、月額を明確にお伝えします。",
+    },
+    {
+      q: "オンラインでも受けられますか？",
+      a: "オンラインコースをご用意しています。全国どこからでも受講でき、対面と同じ品質でサポートします。",
+    },
+    {
+      q: "対応エリアはどこですか？",
+      a: "対面は豊橋・豊川・田原を中心に、オンラインなら全国対応です。お住まいの地域に合わせてご提案します。",
+    },
+    {
+      q: "学校や塾と併用しても大丈夫ですか？",
+      a: "もちろん大丈夫です。学校教材と通塾内容を踏まえて、足りないところを補う形で進めることもできます。",
+    },
+    {
+      q: "営業時間外でも問い合わせできますか？",
+      a: "Webからのお問い合わせは24時間受け付けています。ご返答は営業時間内（10:00〜19:00／日曜休）にお返しします。",
+    },
+  ],
+  it: [
+    {
+      q: "料金は事前にわかりますか？",
+      a: "初期診断は無料で、作業の前にお見積りをお伝えします。納得いただいてから進めるので、追加費用の心配はありません。",
+    },
+    {
+      q: "出張対応はしてもらえますか？",
+      a: "店舗お持ち込みを基本としつつ、近隣エリアへの出張も承ります。まずはお電話で症状をうかがい、最適な対応をご案内します。",
+    },
+    {
+      q: "対応エリアはどこですか？",
+      a: "豊橋市南牛川の店舗で受け付け、近隣地域への出張にも対応しています。郵送修理のご相談も可能です。",
+    },
+    {
+      q: "会社のパソコンや IT 環境も相談できますか？",
+      a: "中小企業向けのITコンサルティング・購入サポート・ネットワーク整備までご相談いただけます。",
+    },
+    {
+      q: "営業時間外でも問い合わせできますか？",
+      a: "Webからのお問い合わせは24時間受け付けています。ご返答は営業時間内（10:00〜19:00／日曜休）にお返しします。",
+    },
+  ],
+};
 
 function Header() {
   return (
@@ -200,8 +216,6 @@ function Header() {
       </a>
       <nav className="site-nav" aria-label="主要ナビゲーション">
         <a href="#services">サービス</a>
-        <a href="#issues">相談できること</a>
-        <a href="#faq">よくある質問</a>
         <a href="#contact">相談する</a>
       </nav>
       <a className="header-cta" href="#contact">
@@ -226,10 +240,10 @@ function Hero() {
           困ったら、まずKAWABITで聞いちゃおう！
         </p>
         <div className="hero__actions" aria-label="サービス導線">
-          <a className="button button--study" href="https://kawabegakuin.jp/">
+          <a className="button button--study" href="#services">
             家庭教師
           </a>
-          <a className="button button--it" href="https://kawabecom.jp/">
+          <a className="button button--it" href="#services">
             パソコン修理
           </a>
         </div>
@@ -240,22 +254,6 @@ function Hero() {
         <Spot name="person" />
         <Spot name="objects" />
       </div>
-    </section>
-  );
-}
-
-function Intro() {
-  return (
-    <section className="intro section reveal">
-      <div className="intro__text">
-        <h2>迷ったら、KAWABITに聞いてみよう。</h2>
-        <p>
-          学習のことも、パソコンのことも、最初の相談先がわからないまま止まってしまうことがあります。
-          KAWABITは、家庭教師とIT修理の入口をひとつにまとめた案内サイトです。
-          必要な相談先へ、わかりやすくつなぎます。
-        </p>
-      </div>
-      <Spot name="combo" className="intro__spot" />
     </section>
   );
 }
@@ -272,184 +270,44 @@ function Scene() {
             パソコンの困りごとも。
           </h2>
           <p className="scene__lead">
-            まずは近い窓口へ。KAWABITは、家庭教師とパソコン修理の入口を
-            ひとつにまとめた案内サイトです。
+            KAWABITは、学びの相談とITの相談をひとつにまとめた入口です。
+            お子さまの勉強、受験、学習習慣のこと。パソコン修理、設定、
+            データ復旧のこと。近い窓口から、詳しい内容を確認できます。
           </p>
         </div>
-        <div className="scene__routes" aria-label="相談先の選び方">
-          <a className="scene__route scene__route--study" href="https://kawabegakuin.jp/">
-            <Spot name="study" className="scene__route-spot" />
-            <span className="scene__route-label">学びの相談</span>
-            <strong>家庭教師へ</strong>
-            <span className="scene__route-text">
-              勉強方法、成績、受験、学習習慣の相談はこちら。
-            </span>
-          </a>
-          <a className="scene__route scene__route--it" href="https://kawabecom.jp/">
-            <Spot name="repair" className="scene__route-spot" />
-            <span className="scene__route-label">ITの相談</span>
-            <strong>PC修理へ</strong>
-            <span className="scene__route-text">
-              起動しない、遅い、データ復旧、設定の相談はこちら。
-            </span>
-          </a>
+        <div className="scene__services" aria-label="KAWABIT のサービス">
+          <ServiceSwitchLink
+            className="scene__service scene__service--study"
+            serviceId="study"
+          >
+            <Spot name="study" className="scene__service-spot" />
+            <div className="scene__service-copy">
+              <span className="scene__service-label">学びの相談</span>
+              <h3>かわべ家庭教師学院</h3>
+              <p>定期テスト、受験、学習習慣づくりまで相談できます。</p>
+              <span className="scene__service-link">家庭教師を詳しく見る</span>
+            </div>
+          </ServiceSwitchLink>
+          <ServiceSwitchLink
+            className="scene__service scene__service--it"
+            serviceId="it"
+          >
+            <Spot name="repair" className="scene__service-spot" />
+            <div className="scene__service-copy">
+              <span className="scene__service-label">ITの相談</span>
+              <h3>川辺コンピューター</h3>
+              <p>パソコン修理、設定、データ復旧の困りごとを相談できます。</p>
+              <span className="scene__service-link">PC修理を詳しく見る</span>
+            </div>
+          </ServiceSwitchLink>
         </div>
         <figure className="scene__figure">
           <img
-            src="/illustrations/kawabit-scene-island.png"
+            src="/illustrations/used/kawabit-scene-island.png"
             alt="家庭教師の学習風景とパソコン修理の作業風景がひとつの島につながったイラスト"
           />
           <figcaption>学びとITが、となり合っている場所。</figcaption>
         </figure>
-      </div>
-    </section>
-  );
-}
-
-function Pricing() {
-  return (
-    <section className="pricing section reveal" id="pricing">
-      <div className="section-heading">
-        <p className="section-label">はじめやすさ</p>
-        <h2>
-          気軽に、
-          <br />
-          はじめられますよ。
-        </h2>
-        <p className="pricing__lead">
-          両サービスとも「まずは試したい」気持ちに寄りそう料金設計です。
-        </p>
-      </div>
-      <div className="pricing__panels">
-        {pricingPanels.map((panel) => (
-          <div
-            className={`pricing__panel pricing__panel--${panel.service}`}
-            key={panel.service}
-          >
-            <header className="pricing__panel-head">
-              <span className="pricing__panel-tag">{panel.label}</span>
-              <p className="pricing__panel-name">{panel.name}</p>
-            </header>
-            {panel.stamp ? (
-              <img
-                className="pricing__stamp"
-                src={`/illustrations/${panel.stamp}`}
-                alt=""
-                aria-hidden="true"
-              />
-            ) : null}
-            <ul className="pricing__rows">
-              {panel.items.map((item) => (
-                <li className="pricing__row" key={item.title}>
-                  <p className="pricing__row-title">{item.title}</p>
-                  <p className="pricing__row-value">{item.value}</p>
-                  <p className="pricing__row-note">{item.note}</p>
-                </li>
-              ))}
-            </ul>
-            <p className="pricing__extra">{panel.extra}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Voices() {
-  return (
-    <section className="voices section reveal" id="voices">
-      <div className="section-heading">
-        <p className="section-label">お客様の声</p>
-        <h2>
-          うれしい声、
-          <br />
-          届いてます！
-        </h2>
-        <p className="voices__lead">
-          実際にご相談いただいた方からの感想を、一部ご紹介します。
-        </p>
-      </div>
-      <div className="voices__list">
-        {voices.map((voice) => (
-          <article
-            className={`voice voice--${voice.service}`}
-            key={voice.body}
-          >
-            <img
-              className="voice__art"
-              src={`/illustrations/${voiceArtFiles[voice.service]}`}
-              alt=""
-              aria-hidden="true"
-            />
-            <span className="voice__tag">{voice.label}</span>
-            <p className="voice__body">{voice.body}</p>
-            <p className="voice__attr">{voice.attr}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Issues() {
-  return (
-    <section className="issues section reveal" id="issues">
-      <div className="section-heading">
-        <p className="section-label">相談できること</p>
-        <h2>
-          こんなとき、
-          <br />
-          相談してみませんか？
-        </h2>
-      </div>
-      <div className="issues__groups">
-        {issueGroups.map((group) => (
-          <div
-            className={`issues__group issues__group--${group.id}`}
-            key={group.id}
-          >
-            <header className="issues__group-head">
-              <span className="issues__group-tag">{group.label}</span>
-              <h3>{group.title}</h3>
-            </header>
-            <ul className="issues__list">
-              {group.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <Spot name="path" className="issues__spot" />
-    </section>
-  );
-}
-
-function Faq() {
-  return (
-    <section className="faq section reveal" id="faq">
-      <div className="section-heading">
-        <p className="section-label">よくある質問</p>
-        <h2>
-          気になること、
-          <br />
-          なんでも聞いてみて。
-        </h2>
-      </div>
-      <div className="faq__list">
-        {faqs.map((item) => (
-          <details className="faq__item" key={item.q}>
-            <summary className="faq__summary">
-              <span className="faq__mark" aria-hidden="true">Q</span>
-              <span className="faq__question">{item.q}</span>
-              <span className="faq__chevron" aria-hidden="true" />
-            </summary>
-            <div className="faq__body">
-              <span className="faq__mark faq__mark--a" aria-hidden="true">A</span>
-              <p>{item.a}</p>
-            </div>
-          </details>
-        ))}
       </div>
     </section>
   );
@@ -491,9 +349,7 @@ function Contact() {
         </div>
         <div>
           <dt>所在地</dt>
-          <dd>
-            愛知県豊橋市南牛川1丁目1-7
-          </dd>
+          <dd>愛知県豊橋市南牛川1丁目1-7</dd>
         </div>
         <div>
           <dt>営業時間</dt>
@@ -511,13 +367,14 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Intro />
         <Scene />
-        <ServicesSection services={services} />
-        <Pricing />
-        <Voices />
-        <Issues />
-        <Faq />
+        <ServicesSection
+          services={services}
+          pricingByService={pricingByService}
+          issuesByService={issuesByService}
+          voicesByService={voicesByService}
+          faqsByService={faqsByService}
+        />
         <Contact />
       </main>
       <footer className="site-footer">
