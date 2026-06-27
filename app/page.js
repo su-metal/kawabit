@@ -10,7 +10,7 @@ const services = [
     label: "学び",
     title: "家庭教師",
     name: "かわべ家庭教師学院",
-    lead: "「わからない」を、いっしょにほぐそう。",
+    lead: "勉強のつまずきから、受験の相談まで",
     body:
       "定期テスト対策、受験準備、学習習慣づくりまで。お子さまの状況を聞きながら、今必要な学び方を一緒に整理します。",
     href: "https://kawabegakuin.jp/",
@@ -39,7 +39,7 @@ const services = [
   },
   {
     id: "it",
-    label: "IT",
+    label: "パソコン修理",
     title: "パソコン修理",
     name: "川辺コンピューター",
     lead: "パソコンの「困った！」を、サクッと解決。",
@@ -253,7 +253,7 @@ function Hero() {
           serviceId="it"
         >
           <span className="hero__service-visual">
-            <span className="hero__service-label">ITの相談</span>
+            <span className="hero__service-label">パソコン修理の相談</span>
             <Spot name="repair" className="hero__service-spot" />
           </span>
           <div className="hero__service-copy">

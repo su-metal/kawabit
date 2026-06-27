@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KAWABIT services intro mock</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&display=swap");
+
+      :root {
+        --bg: #fbfaf5;
+        --paper: #ffffff;
+        --ink: #050505;
+        --muted: #56524a;
+        --green: #f5c424;
+        --green-pale: #fce58a;
+        --blue: #5fb8d6;
+        --blue-pale: #c0e1ee;
+        --coral: #f0683d;
+        --line: 5px solid var(--ink);
+        --radius: 28px;
+        --radius-sm: 18px;
+        --sans: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Yu Gothic UI", Meiryo, system-ui, sans-serif;
+        --display: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", var(--sans);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(90deg, rgba(5, 5, 5, 0.035) 1px, transparent 1px) 0 0 / 72px 72px,
+          linear-gradient(rgba(5, 5, 5, 0.035) 1px, transparent 1px) 0 0 / 72px 72px,
+          var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        letter-spacing: 0.02em;
+      }
+
+      .canvas {
+        width: 1440px;
+        min-height: 1060px;
+        padding: 86px 112px 110px;
+      }
+
+      .service-preview {
+        width: 1180px;
+        margin: 0 auto;
+      }
+
+      .intro {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 230px;
+        gap: 52px;
+        align-items: end;
+        margin-bottom: 48px;
+      }
+
+      .intro::before {
+        position: absolute;
+        top: -24px;
+        left: -30px;
+        width: 92px;
+        height: 92px;
+        border: 5px solid var(--ink);
+        border-radius: 50%;
+        background: var(--coral);
+        content: "";
+        z-index: -1;
+      }
+
+      .intro__label {
+        display: inline-flex;
+        width: max-content;
+        margin-bottom: 18px;
+        border: 4px solid var(--ink);
+        border-radius: 999px;
+        background: var(--paper);
+        padding: 8px 18px;
+        font-size: 13px;
+        font-weight: 950;
+        letter-spacing: 0.14em;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
+        font-size: 78px;
+        font-weight: 950;
+        letter-spacing: 0.04em;
+        line-height: 1.05;
+      }
+
+      .intro__body {
+        max-width: 780px;
+        margin: 28px 0 0;
+        color: var(--ink);
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 2;
+      }
+
+      .intro__body strong {
+        font-weight: 950;
+      }
+
+      .intro__note {
+        position: relative;
+        display: grid;
+        gap: 18px;
+        border: var(--line);
+        border-radius: var(--radius);
+        background: var(--paper);
+        padding: 22px;
+        box-shadow: 7px 7px 0 var(--ink);
+        transform: rotate(1.5deg);
+      }
+
+      .intro__note-mark {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        margin-bottom: 16px;
+        border: 4px solid var(--ink);
+        border-radius: 50%;
+        background: var(--green);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 28px;
+        font-weight: 950;
+      }
+
+      .intro__note-lines {
+        display: grid;
+        gap: 12px;
+      }
+
+      .intro__note-line {
+        height: 22px;
+        border: 4px solid var(--ink);
+        border-radius: 999px;
+      }
+
+      .intro__note-line--study {
+        width: 150px;
+        background: var(--green-pale);
+      }
+
+      .intro__note-line--it {
+        width: 120px;
+        background: var(--blue-pale);
+      }
+
+      .tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: stretch;
+        position: relative;
+        z-index: 3;
+        margin-bottom: -5px;
+      }
+
+      .tab {
+        position: relative;
+        display: grid;
+        grid-template-columns: 130px minmax(0, 1fr);
+        grid-template-areas:
+          "spot label"
+          "spot title"
+          "spot text";
+        gap: 8px 28px;
+        align-items: center;
+        min-height: 206px;
+        padding: 30px;
+        border: var(--line);
+        border-radius: var(--radius) var(--radius) 0 0;
+        color: var(--ink);
+        text-align: left;
+      }
+
+      .tab + .tab {
+        margin-left: -5px;
+      }
+
+      .tab--study {
+        z-index: 2;
+        background: var(--green-pale);
+        border-bottom-color: var(--green-pale);
+      }
+
+      .tab--study::after {
+        position: absolute;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-bottom: 5px dashed var(--ink);
+        content: "";
+        z-index: 3;
+      }
+
+      .tab--it {
+        background: #e6e4df;
+      }
+
+      .tab__spot {
+        grid-area: spot;
+        width: 130px;
+      }
+
+      .tab--it .tab__spot,
+      .tab--it .tab__text {
+        opacity: 0.7;
+      }
+
+      .tab__label {
+        grid-area: label;
+        justify-self: start;
+        align-self: end;
+        border: 3px solid var(--ink);
+        border-radius: 999px;
+        background: var(--paper);
+        padding: 5px 13px;
+        font-size: 12px;
+        font-weight: 950;
+        line-height: 1;
+      }
+
+      .tab__title {
+        grid-area: title;
+        align-self: center;
+        font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
+        font-size: 32px;
+        font-weight: 950;
+        letter-spacing: 0.04em;
+        line-height: 1.15;
+      }
+
+      .tab__text {
+        grid-area: text;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1.7;
+      }
+
+      .panel {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 250px;
+        gap: 56px;
+        align-items: center;
+        min-height: 390px;
+        padding: 86px 56px 64px;
+        border: var(--line);
+        border-radius: 0 0 var(--radius) var(--radius);
+        background: var(--green-pale);
+        box-shadow: 10px 10px 0 var(--ink);
+      }
+
+      .panel__label {
+        margin: 0 0 22px;
+        color: var(--muted);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        font-weight: 950;
+        letter-spacing: 0.18em;
+      }
+
+      .panel h2 {
+        margin: 0;
+        font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
+        font-size: 58px;
+        font-weight: 950;
+        letter-spacing: 0.04em;
+        line-height: 1.15;
+      }
+
+      .panel p {
+        max-width: 680px;
+        margin: 22px 0 0;
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 2;
+      }
+
+      .panel__art {
+        width: 235px;
+        justify-self: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="canvas">
+      <section class="service-preview" aria-label="サービス導入セクション案">
+        <div class="intro">
+          <div>
+            <span class="intro__label">SERVICE GUIDE</span>
+            <h1>2つの専門サービス</h1>
+            <p class="intro__body">
+              家庭教師・学習相談は<strong>「かわべ家庭教師学院」</strong>へ。<br />
+              パソコン修理・データ復旧は<strong>「川辺コンピューター」</strong>へ。<br />
+              内容に合わせて、下のタブからご確認ください。
+            </p>
+          </div>
+          <aside class="intro__note" aria-hidden="true">
+            <span class="intro__note-mark">2</span>
+            <span class="intro__note-lines">
+              <span class="intro__note-line intro__note-line--study"></span>
+              <span class="intro__note-line intro__note-line--it"></span>
+            </span>
+          </aside>
+        </div>
+
+        <div class="tabs" role="presentation">
+          <div class="tab tab--study">
+            <img class="tab__spot" src="../public/illustrations/used/study-tab-note.png" alt="" />
+            <span class="tab__label">家庭教師の相談</span>
+            <span class="tab__title">家庭教師へ</span>
+            <span class="tab__text">勉強方法、成績、受験、学習習慣の相談はこちら。</span>
+          </div>
+          <div class="tab tab--it">
+            <img class="tab__spot" src="../public/illustrations/used/it-tab-tools.png" alt="" />
+            <span class="tab__label">パソコン修理の相談</span>
+            <span class="tab__title">パソコン修理へ</span>
+            <span class="tab__text">起動しない、遅い、データ復旧、設定の相談はこちら。</span>
+          </div>
+        </div>
+
+        <article class="panel">
+          <div>
+            <p class="panel__label">かわべ家庭教師学院</p>
+            <h2>勉強のつまずきから、受験の相談まで。</h2>
+            <p>
+              豊橋・豊川・田原を中心に、学習状況に合わせた家庭教師・学習相談を案内します。
+            </p>
+          </div>
+          <img class="panel__art" src="../public/illustrations/used/study-panel-living.png" alt="" />
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
