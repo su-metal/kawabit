@@ -84,7 +84,7 @@ export default function ServicesSection({
 
   return (
     <section className="services section" id="services">
-      <div className="services__intro">
+      <div className="services__intro reveal">
         <div className="services__intro-main">
           <div className="services__intro-badge">
             <span className="services__intro-circle" />
@@ -100,7 +100,7 @@ export default function ServicesSection({
         </div>
       </div>
 
-      <div className="services__tabs" role="tablist" aria-label="サービスを切り替え">
+      <div className="services__tabs reveal reveal-stagger" role="tablist" aria-label="サービスを切り替え">
         {services.map((service) => (
           <button
             key={service.id}
@@ -145,7 +145,7 @@ export default function ServicesSection({
             role="tabpanel"
             aria-labelledby={`services-tab-${service.id}`}
             hidden={active !== service.id}
-            className={`service service--${service.id} reveal is-visible`}
+            className={`service service--${service.id}`}
           >
             <div className="panel__intro">
               <div className="panel__intro-copy">

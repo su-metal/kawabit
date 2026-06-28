@@ -6,6 +6,8 @@
     "predev": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
     "dev": "next dev",
     "build": "next build",
+    "build:cloudflare": "next build",
+    "deploy:cloudflare": "npm run build:cloudflare && npx wrangler pages deploy out --project-name kawabit --branch main",
     "start": "next start",
     "lint": "next lint"
   },
