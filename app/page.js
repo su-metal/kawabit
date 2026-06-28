@@ -334,75 +334,87 @@ function Contact() {
             className="contact-card contact-card--study"
             href="https://kawabegakuin.jp/"
           >
-            <Spot name="study" className="contact-card__spot" />
-            <div className="contact-card__body">
+            <div className="contact-card__header">
+              <Spot name="study" className="contact-card__spot" />
               <h3 className="contact-card__title">かわべ家庭教師学院</h3>
-              <p className="contact-card__lead">
-                勉強のつまずき・受験対策・
-                <br />
-                不登校サポートまで
-              </p>
-              <dl className="contact-card__meta">
-                <div>
-                  <dt>対応エリア</dt>
-                  <dd>
-                    豊橋・豊川・田原
-                    <br />
-                    オンラインは全国対応
-                  </dd>
-                </div>
-              </dl>
-              <span className="contact-card__cta">
-                詳しく見る
-                <span className="contact-card__cta-arrow" aria-hidden="true">
-                  →
-                </span>
-              </span>
             </div>
+            <p className="contact-card__lead">
+              勉強のつまずき・受験対策・
+              <br />
+              不登校サポートまで
+            </p>
+            <dl className="contact-card__meta">
+              <div>
+                <dt>対応エリア</dt>
+                <dd>
+                  豊橋・豊川・田原
+                  <br />
+                  オンラインは全国対応
+                </dd>
+              </div>
+              <div>
+                <dt>所在地</dt>
+                <dd>
+                  <span className="contact-card__place">
+                    <span className="contact-card__place-label">北山本部</span>
+                    豊橋市牧野町牧野26-80 北山ビル3F
+                  </span>
+                  <span className="contact-card__place">
+                    <span className="contact-card__place-label">牛川事務所</span>
+                    豊橋市南牛川1丁目1-7
+                  </span>
+                </dd>
+              </div>
+            </dl>
+            <span className="contact-card__cta">
+              詳しく見る
+              <span className="contact-card__cta-arrow" aria-hidden="true">
+                →
+              </span>
+            </span>
           </a>
 
           <a
             className="contact-card contact-card--it"
             href="https://kawabecom.jp/"
           >
-            <Spot name="repair" className="contact-card__spot" />
-            <div className="contact-card__body">
+            <div className="contact-card__header">
+              <Spot name="repair" className="contact-card__spot" />
               <h3 className="contact-card__title">川辺コンピューター</h3>
-              <p className="contact-card__lead">
-                壊れた・遅い・分からない、
-                <br />
-                なんでも気軽に
-              </p>
-              <dl className="contact-card__meta">
-                <div>
-                  <dt>対応エリア</dt>
-                  <dd>
-                    豊橋市が中心
-                    <br />
-                    近隣地域へ出張も可
-                  </dd>
-                </div>
-              </dl>
-              <span className="contact-card__cta">
-                詳しく見る
-                <span className="contact-card__cta-arrow" aria-hidden="true">
-                  →
-                </span>
-              </span>
             </div>
+            <p className="contact-card__lead">
+              壊れた・遅い・分からない、
+              <br />
+              なんでも気軽に
+            </p>
+            <dl className="contact-card__meta">
+              <div>
+                <dt>対応エリア</dt>
+                <dd>
+                  豊橋市が中心
+                  <br />
+                  近隣地域へ出張も可
+                </dd>
+              </div>
+              <div>
+                <dt>所在地</dt>
+                <dd>豊橋市南牛川1丁目1-7</dd>
+              </div>
+            </dl>
+            <span className="contact-card__cta">
+              詳しく見る
+              <span className="contact-card__cta-arrow" aria-hidden="true">
+                →
+              </span>
+            </span>
           </a>
         </div>
 
-        <dl className="contact__info">
-          <div>
-            <dt>所在地</dt>
-            <dd>愛知県豊橋市南牛川1丁目1-7</dd>
-          </div>
-          <div>
-            <dt>営業時間</dt>
-            <dd>10:00 – 19:00 ／ 日曜休</dd>
-          </div>
-        </dl>
+        <p className="contact__hours">
+          <span className="contact__hours-label">営業時間</span>
+          <span className="contact__hours-value">10:00 – 19:00 ／ 日曜休</span>
+          <span className="contact__hours-note">両店共通</span>
+        </p>
       </div>
     </section>
   );
