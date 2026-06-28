@@ -88,22 +88,15 @@ export default function ServicesSection({
         <div className="services__intro-main">
           <div className="services__intro-badge">
             <span className="services__intro-circle" />
-            <span className="services__intro-label">SERVICE GUIDE</span>
+            <span className="services__intro-label">サービスは、ふたつ</span>
           </div>
-          <h2 className="services__intro-title">2つの専門サービス</h2>
+          <h2 className="services__intro-title">学びと、パソコンの相談先。</h2>
+          <p className="services__intro-tagline">学びもITも、同じ入口から。</p>
           <div className="services__intro-text">
-            <p>家庭教師・学習相談は「かわべ家庭教師学院」へ。</p>
-            <p>パソコン修理・データ復旧は「川辺コンピューター」へ。</p>
-            <p>内容に合わせて、下のタブからご確認ください。</p>
+            <p>勉強のことなら「かわべ家庭教師学院」。</p>
+            <p>パソコンのことなら「川辺コンピューター」。</p>
+            <p>気になるタブをのぞいてみてください。</p>
           </div>
-        </div>
-        <div className="services__intro-card">
-          <div className="services__intro-card-num">2</div>
-          <p className="services__intro-card-text">
-            学びとITを、同じ
-            <br />
-            入口から。
-          </p>
         </div>
       </div>
 
@@ -167,6 +160,15 @@ export default function ServicesSection({
                   </span>
                 )}
                 <h2>{service.lead}</h2>
+                {service.tags && service.tags.length > 0 && (
+                  <ul className="panel__intro-tags">
+                    {service.tags.map((tag) => (
+                      <li className="panel__intro-tag" key={tag}>
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <p className="panel__intro-body">{service.body}</p>
               </div>
               <img
@@ -178,7 +180,7 @@ export default function ServicesSection({
             </div>
 
             <section className="panel__reasons">
-              <p className="panel__section-label">選ばれる理由</p>
+              <p className="panel__section-label">わたしたちのこだわり</p>
               <ol className="panel__reasons-list">
                 {service.points.map((point, i) => (
                   <li className="panel__reason" key={point.title}>
@@ -196,7 +198,7 @@ export default function ServicesSection({
             </section>
 
             <section className="panel__pricing">
-              <p className="panel__section-label">はじめやすさ・料金</p>
+              <p className="panel__section-label">料金とはじめ方</p>
               <div className="panel__pricing-card">
                 <header className="panel__pricing-head">
                   <span className="panel__pricing-tag">{pricing.label}</span>
@@ -225,7 +227,7 @@ export default function ServicesSection({
             </section>
 
             <section className="panel__voices">
-              <p className="panel__section-label">お客様の声</p>
+              <p className="panel__section-label">相談してみた方の声</p>
               <div className="panel__voices-list">
                 {voices.map((voice) => (
                   <article className="panel__voice" key={voice.body}>
@@ -243,7 +245,7 @@ export default function ServicesSection({
             </section>
 
             <section className="panel__faq">
-              <p className="panel__section-label">よくある質問</p>
+              <p className="panel__section-label">よく聞かれること</p>
               <div className="panel__faq-list">
                 {faqs.map((item) => (
                   <details className="panel__faq-item" key={item.q}>
@@ -269,7 +271,7 @@ export default function ServicesSection({
             </section>
 
             <section className="panel__contact">
-              <p className="panel__section-label">ご相談先</p>
+              <p className="panel__section-label">相談はこちら</p>
               <dl className="panel__contact-info">
                 <div>
                   <dt>専門サイト</dt>
