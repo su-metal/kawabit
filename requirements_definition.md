@@ -89,7 +89,7 @@
 - サイト内のイラストは PNG 形式のラスター画像として生成し、SVG 形式のイラストは新規に使用しない。
 - 装飾イラストは用途に応じて、個別PNGまたは複数のポイントイラストをまとめたPNGシートとして管理する。
 - 写真バナーなど複数情報を含む主要ビジュアルは、用途が明確なPNGバナーとして `public/banners/` 配下で管理できる。ただしデザイン上必要な場合に限り使用し、無理に全体バナーとして埋め込まない。
-- FVでは `public/illustrations/used/kawabit-hero-wide-flow-v2.png` を大きなブランドイラストとして使用し、同じ初期表示内に生成PNGサムネイル付きの2つのサービスカードを配置する。各セクションでは生成PNG `public/illustrations/kawabit-spot-*.png` をポイントイラスト素材として使用する。表示時はいずれも画像のアスペクト比を変更しない。
+- FVではPC・タブレット表示時に `public/illustrations/used/kawabit-hero-wide-flow-v2.png`、モバイル表示時に縦長島デザインの `public/illustrations/used/kawabit-hero-mobile-vertical-island-v5.png` を大きなブランドイラストとして使用し、同じ初期表示内に生成PNGサムネイル付きの2つのサービスカードを配置する。各セクションでは生成PNG `public/illustrations/kawabit-spot-*.png` をポイントイラスト素材として使用する。表示時はいずれも画像のアスペクト比を変更しない。
 - サービスカードや理由セクションなどの小アイコン・イラストは、CSS疑似要素やSVGではなく、生成PNGを `public/icons/` または `public/illustrations/` 配下で管理して表示する。
 - UIテキスト、CTA、電話番号、URLは画像内に埋め込まず、HTML/CSSで実装する。
 - 実装や運用方針が変わる場合は、`AGENTS.md` とこのファイルを同じターンで更新して整合を保つ。
