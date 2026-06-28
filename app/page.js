@@ -222,10 +222,22 @@ const faqsByService = {
 
 
 function Hero() {
+  const titleChars = "KAWABIT".split("");
   return (
     <section className="hero" id="top" aria-label="KAWABIT ファーストビュー">
       <div className="hero__copy">
-        <h1>KAWABIT</h1>
+        <h1 className="hero__title" aria-label="KAWABIT">
+          {titleChars.map((char, i) => (
+            <span
+              key={i}
+              className="hero__title-char"
+              style={{ "--i": i }}
+              aria-hidden="true"
+            >
+              {char}
+            </span>
+          ))}
+        </h1>
         <p className="hero__lead">
           家庭教師も、パソコン修理も。暮らしの近くに、川辺の相談先を。
         </p>
@@ -279,10 +291,13 @@ function Hero() {
 
 function BrandHistory() {
   return (
-    <section className="history reveal" aria-label="川辺ブランドの歩み">
+    <section className="history" aria-label="川辺ブランドの歩み">
       <div className="scene__inner">
-        <div className="scene__heading">
-          <p className="section-label">川辺ブランドの歩み</p>
+        <div className="scene__heading history__intro reveal">
+          <div className="services__intro-badge">
+            <span className="services__intro-circle" />
+            <span className="services__intro-label">川辺ブランドの歩み</span>
+          </div>
           <h2>
             学びとITを、
             <br />
@@ -293,7 +308,7 @@ function BrandHistory() {
             どちらも豊橋を拠点に、それぞれの分野で身近な相談を受けてきました。
           </p>
         </div>
-        <ol className="history__timeline" aria-label="川辺ブランドの沿革">
+        <ol className="history__timeline reveal reveal-stagger" aria-label="川辺ブランドの沿革">
           <li className="history__item history__item--study">
             <span className="history__year">1997</span>
             <div>
@@ -323,10 +338,13 @@ function BrandHistory() {
 
 function Contact() {
   return (
-    <section className="contact reveal" id="contact">
+    <section className="contact" id="contact">
       <div className="contact__inner">
-        <div className="contact__head">
-          <p className="section-label">相談どき！</p>
+        <div className="contact__head history__intro reveal">
+          <div className="services__intro-badge">
+            <span className="services__intro-circle" />
+            <span className="services__intro-label">相談どき！</span>
+          </div>
           <h2>
             話してみたら、
             <br />
@@ -337,7 +355,7 @@ function Contact() {
           </p>
         </div>
 
-        <div className="contact__cards">
+        <div className="contact__cards reveal reveal-stagger">
           <a
             className="contact-card contact-card--study"
             href="https://kawabegakuin.jp/"
