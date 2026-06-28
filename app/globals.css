@@ -1650,9 +1650,19 @@ main {
 
 .contact-card__header {
   display: grid;
-  grid-template-columns: clamp(120px, 13vw, 150px) minmax(0, 1fr);
-  gap: clamp(16px, 2vw, 24px);
+  grid-template-columns: clamp(140px, 17vw, 190px) minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 22px);
   align-items: center;
+}
+
+.contact-card__heading {
+  display: grid;
+  gap: clamp(8px, 0.9vw, 12px);
+  min-width: 0;
+}
+
+.contact-card__title {
+  white-space: nowrap;
 }
 
 .contact-card--study {
@@ -2582,18 +2592,19 @@ main {
   }
 
   .hero__art {
-    width: 100%;
+    width: calc(100% + 28px);
     margin-left: 0;
-    margin-top: 0;
+    margin-top: -10px;
+    margin-bottom: -10px;
     align-self: center;
     overflow: hidden;
   }
 
   .hero__island {
     width: 100%;
-    max-width: 100%;
+    max-width: none;
     height: auto;
-    max-height: 48svh;
+    max-height: none;
     object-fit: contain;
     object-position: center;
   }
@@ -2653,6 +2664,8 @@ main {
   }
 
   .services__tab-label {
+    align-self: center;
+    justify-self: center;
     border-width: 2px;
     padding: 4px 10px;
     font-size: 10px;
@@ -2718,8 +2731,18 @@ main {
   }
 
   .contact-card__header {
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    justify-items: stretch;
+  }
+
+  .contact-card__spot {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .contact-card__heading {
+    text-align: center;
   }
 }
 

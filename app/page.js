@@ -246,7 +246,7 @@ function Hero() {
         <picture style={{ display: 'contents' }}>
           <source
             media="(max-width: 640px)"
-            srcSet="/illustrations/used/kawabit-scene-body-4x3-transparent.png"
+            srcSet="/illustrations/used/kawabit-hero-mobile-vertical-island-v5.png"
           />
           <img
             className="hero__island"
@@ -343,15 +343,15 @@ function Contact() {
         <div className="contact__head history__intro reveal">
           <div className="services__intro-badge">
             <span className="services__intro-circle" />
-            <span className="services__intro-label">相談どき！</span>
+            <span className="services__intro-label">お気軽にどうぞ</span>
           </div>
           <h2>
-            話してみたら、
+            迷ったら、
             <br />
-            案外スッキリ。
+            まずひと声。
           </h2>
           <p className="contact__lead">
-            勉強のことは「かわべ家庭教師学院」、パソコンのことは「川辺コンピューター」。気になる方からどうぞ！
+            学びのことも、パソコンのことも。「これって聞いていいのかな？」くらいの軽さで大丈夫です。電話でもWebでも、話しやすい方法でお声がけください。
           </p>
         </div>
 
@@ -362,13 +362,15 @@ function Contact() {
           >
             <div className="contact-card__header">
               <Spot name="study" className="contact-card__spot" />
-              <h3 className="contact-card__title">かわべ家庭教師学院</h3>
+              <div className="contact-card__heading">
+                <h3 className="contact-card__title">かわべ家庭教師学院</h3>
+                <p className="contact-card__lead">
+                  勉強のつまずき・受験対策・
+                  <br />
+                  不登校サポートまで
+                </p>
+              </div>
             </div>
-            <p className="contact-card__lead">
-              勉強のつまずき・受験対策・
-              <br />
-              不登校サポートまで
-            </p>
             <dl className="contact-card__meta">
               <div>
                 <dt>対応エリア</dt>
@@ -406,13 +408,15 @@ function Contact() {
           >
             <div className="contact-card__header">
               <Spot name="repair" className="contact-card__spot" />
-              <h3 className="contact-card__title">川辺コンピューター</h3>
+              <div className="contact-card__heading">
+                <h3 className="contact-card__title">川辺コンピューター</h3>
+                <p className="contact-card__lead">
+                  壊れた・遅い・分からない、
+                  <br />
+                  なんでも気軽に
+                </p>
+              </div>
             </div>
-            <p className="contact-card__lead">
-              壊れた・遅い・分からない、
-              <br />
-              なんでも気軽に
-            </p>
             <dl className="contact-card__meta">
               <div>
                 <dt>対応エリア</dt>

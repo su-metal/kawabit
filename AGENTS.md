@@ -46,7 +46,7 @@ KAWABIT トップページの主要な役割は、「片方のサービスを目
 - SVG 形式のイラストは新規に使用しない。
 - ヒーローや各セクションに配置する装飾イラストは、用途に応じて個別PNGまたは複数のポイントイラストをまとめたPNGシートとして管理できる。UIテキストは画像内に埋め込まない。
 - 写真バナーなど複数情報を含む主要ビジュアルは、用途が明確なPNGバナーとして `public/banners/` 配下で管理できる。ただしデザイン上必要な場合に限り使用し、無理に全体バナーとして埋め込まない。
-- FVでは、PC・タブレット表示時に `public/illustrations/used/kawabit-hero-wide-flow-v2.png` を使用し、モバイル（スマホ）表示時は `<picture>` タグを用いてアスペクト比4:3の `public/illustrations/used/kawabit-scene-body-4x3-transparent.png` に自動的に切り替えて表示する。各セクションでは生成PNG `public/illustrations/kawabit-spot-*.png` をポイントイラスト素材として使用する。表示時はいずれも画像のアスペクト比を変更しない。
+- FVでは、PC・タブレット表示時に `public/illustrations/used/kawabit-hero-wide-flow-v2.png` を使用し、モバイル（スマホ）表示時は `<picture>` タグを用いて縦長島デザインの `public/illustrations/used/kawabit-hero-mobile-vertical-island-v5.png` に自動的に切り替えて表示する。各セクションでは生成PNG `public/illustrations/kawabit-spot-*.png` をポイントイラスト素材として使用する。表示時はいずれも画像のアスペクト比を変更しない。
 - サービスカードや理由セクションなどの小アイコン・イラストは、CSS疑似要素やSVGではなく、生成PNGを `public/icons/` または `public/illustrations/` 配下で管理して表示する。
 - ナビゲーション、見出し、本文、ボタン、電話番号、URLなどのUIテキストは画像内に埋め込まず、HTML/CSSで実装する。
 - 生成PNGは `public/illustrations/` 配下に配置し、用途が分かるファイル名にする。
