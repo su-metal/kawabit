@@ -2592,12 +2592,13 @@ main {
   }
 
   .hero__art {
-    width: calc(100% + 28px);
-    margin-left: 0;
+    justify-self: center;
+    width: calc(100% + 72px);
+    margin-inline: -36px;
     margin-top: -10px;
     margin-bottom: -10px;
     align-self: center;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .hero__island {

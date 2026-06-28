@@ -1,11 +1,8 @@
 "use client";
 
 export default function ServiceSwitchLink({ serviceId, className, children }) {
-  const href = `#services-${serviceId}`;
-
   const handleClick = (event) => {
     event.preventDefault();
-    history.pushState(null, "", href);
     window.dispatchEvent(
       new CustomEvent("kawabit:select-service", {
         detail: { serviceId },
@@ -14,7 +11,7 @@ export default function ServiceSwitchLink({ serviceId, className, children }) {
   };
 
   return (
-    <a className={className} href={href} onClick={handleClick}>
+    <a className={className} href="#services" onClick={handleClick}>
       {children}
     </a>
   );

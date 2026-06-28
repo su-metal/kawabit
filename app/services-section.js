@@ -61,6 +61,11 @@ export default function ServicesSection({
       }
 
       activateServiceTab(serviceId, shouldScroll);
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}`
+      );
     };
 
     const handleHashChange = () => activateFromHash(true);

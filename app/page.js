@@ -246,7 +246,7 @@ function Hero() {
         <picture style={{ display: 'contents' }}>
           <source
             media="(max-width: 640px)"
-            srcSet="/illustrations/used/kawabit-hero-mobile-vertical-island-v5.png"
+            srcSet="/illustrations/used/kawabit-scene-body-4x3-transparent.png"
           />
           <img
             className="hero__island"
