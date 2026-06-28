@@ -246,7 +246,7 @@ function Hero() {
         <picture style={{ display: 'contents' }}>
           <source
             media="(max-width: 640px)"
-            srcSet="/illustrations/used/kawabit-hero-mobile-vertical-island-v5.png"
+            srcSet="/illustrations/used/kawabit-scene-body-4x3-transparent.png"
           />
           <img
             className="hero__island"
@@ -359,6 +359,8 @@ function Contact() {
           <a
             className="contact-card contact-card--study"
             href="https://kawabegakuin.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <div className="contact-card__header">
               <Spot name="study" className="contact-card__spot" />
@@ -405,6 +407,8 @@ function Contact() {
           <a
             className="contact-card contact-card--it"
             href="https://kawabecom.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <div className="contact-card__header">
               <Spot name="repair" className="contact-card__spot" />

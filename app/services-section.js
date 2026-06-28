@@ -61,6 +61,11 @@ export default function ServicesSection({
       }
 
       activateServiceTab(serviceId, shouldScroll);
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}`
+      );
     };
 
     const handleHashChange = () => activateFromHash(true);
@@ -292,11 +297,22 @@ export default function ServicesSection({
                 <div>
                   <dt>電話</dt>
                   <dd>
-                    <a href={phoneHref}>{service.phone}</a>
+                    <a
+                      href={phoneHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {service.phone}
+                    </a>
                   </dd>
                 </div>
               </dl>
-              <a className="panel__contact-cta" href={service.href}>
+              <a
+                className="panel__contact-cta"
+                href={service.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {service.cta}
                 <span aria-hidden="true">→</span>
               </a>

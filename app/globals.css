@@ -2351,6 +2351,10 @@ main {
     margin-top: -32px;
   }
 
+  .hero__service-cards {
+    margin-top: 0;
+  }
+
   .hero__island {
     width: 100%;
     max-height: 80svh;
@@ -2529,6 +2533,10 @@ main {
     border-bottom-width: 2px;
   }
 
+  .hero__service-cards {
+    margin-top: clamp(-22px, -4svh, -12px);
+  }
+
   .hero {
     gap: 14px;
     min-height: calc(100svh - 44px);
@@ -2592,12 +2600,13 @@ main {
   }
 
   .hero__art {
-    width: calc(100% + 28px);
-    margin-left: 0;
+    justify-self: center;
+    width: calc(100% + 72px);
+    margin-inline: -36px;
     margin-top: -10px;
     margin-bottom: -10px;
     align-self: center;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .hero__island {
