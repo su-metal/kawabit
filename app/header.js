@@ -25,14 +25,29 @@ export default function Header() {
   if (isScrolled) {
     return (
       <header className="site-header site-header--normal">
-        <a className="brand" href="#top" aria-label="KAWABIT トップへ">
+        <a
+          className="brand"
+          href="#top"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="KAWABIT トップへ"
+        >
           KAWABIT
         </a>
         <nav className="site-nav" aria-label="主要ナビゲーション">
-          <a href="#services">サービス</a>
-          <a href="#contact">相談する</a>
+          <a href="#services" target="_blank" rel="noopener noreferrer">
+            サービス
+          </a>
+          <a href="#contact" target="_blank" rel="noopener noreferrer">
+            相談する
+          </a>
         </nav>
-        <a className="header-cta" href="#contact">
+        <a
+          className="header-cta"
+          href="#contact"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           相談する
         </a>
       </header>

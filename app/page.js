@@ -359,6 +359,8 @@ function Contact() {
           <a
             className="contact-card contact-card--study"
             href="https://kawabegakuin.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <div className="contact-card__header">
               <Spot name="study" className="contact-card__spot" />
@@ -405,6 +407,8 @@ function Contact() {
           <a
             className="contact-card contact-card--it"
             href="https://kawabecom.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <div className="contact-card__header">
               <Spot name="repair" className="contact-card__spot" />
