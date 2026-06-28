@@ -164,7 +164,17 @@ export default function ServicesSection({
                     修理♡ラブ
                   </span>
                 )}
-                <h2>{service.lead}</h2>
+                <h2>
+                  {service.id === "study" ? (
+                    <>
+                      勉強のつまずきから、
+                      <br className="panel__intro-title-break" />
+                      受験の相談まで
+                    </>
+                  ) : (
+                    service.lead
+                  )}
+                </h2>
                 {service.tags && service.tags.length > 0 && (
                   <ul className="panel__intro-tags">
                     {service.tags.map((tag) => (
