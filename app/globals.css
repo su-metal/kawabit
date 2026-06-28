@@ -1077,16 +1077,78 @@ main {
   font-size: 22px;
 }
 
-.panel__intro-spot {
+.panel__intro-stage {
+  position: relative;
   width: 100%;
   max-width: 320px;
   justify-self: center;
+}
+
+.panel__intro-spot {
+  display: block;
+  width: 100%;
   background: var(--paper);
   border: var(--line);
   border-radius: var(--radius-sm);
   padding: clamp(10px, 2vw, 20px);
   aspect-ratio: 1 / 1;
   object-fit: contain;
+}
+
+.panel__intro-bubble {
+  position: absolute;
+  padding: 9px 14px;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  font-family: var(--display);
+  font-size: clamp(12px, 1.05vw, 13px);
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  white-space: pre-line;
+  box-shadow: 4px 4px 0 var(--ink);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.panel__intro-bubble--ask {
+  top: -14px;
+  left: -22px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.panel__intro-bubble--ask::after {
+  content: "";
+  position: absolute;
+  right: 28px;
+  bottom: -9px;
+  width: 14px;
+  height: 14px;
+  background: var(--paper);
+  border-right: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  transform: rotate(45deg);
+}
+
+.panel__intro-bubble--answer {
+  right: -24px;
+  bottom: -14px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.panel__intro-bubble--answer::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: -9px;
+  width: 14px;
+  height: 14px;
+  background: var(--ink);
+  border-left: 3px solid var(--ink);
+  border-top: 3px solid var(--ink);
+  transform: rotate(45deg);
 }
 
 .panel__intro-sticker {
@@ -2058,9 +2120,25 @@ main {
     font-size: 13px;
   }
 
-  .panel__intro-spot {
-    justify-self: center;
+  .panel__intro-stage {
     max-width: 240px;
+  }
+
+  .panel__intro-bubble {
+    font-size: 11px;
+    padding: 7px 11px;
+    border-width: 2.5px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .panel__intro-bubble--ask {
+    top: -10px;
+    left: -14px;
+  }
+
+  .panel__intro-bubble--answer {
+    right: -14px;
+    bottom: -10px;
   }
 
   .panel__reasons-list {

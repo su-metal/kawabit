@@ -171,12 +171,24 @@ export default function ServicesSection({
                 )}
                 <p className="panel__intro-body">{service.body}</p>
               </div>
-              <img
-                className={getIllustClass("panel__intro-spot", service.panelIllust)}
-                src={`/illustrations/used/${service.panelIllust}`}
-                alt=""
-                aria-hidden="true"
-              />
+              <div className="panel__intro-stage">
+                <img
+                  className={getIllustClass("panel__intro-spot", service.panelIllust)}
+                  src={`/illustrations/used/${service.panelIllust}`}
+                  alt=""
+                  aria-hidden="true"
+                />
+                {service.bubbles && (
+                  <>
+                    <span className="panel__intro-bubble panel__intro-bubble--ask">
+                      {service.bubbles.ask}
+                    </span>
+                    <span className="panel__intro-bubble panel__intro-bubble--answer">
+                      {service.bubbles.answer}
+                    </span>
+                  </>
+                )}
+              </div>
             </div>
 
             <section className="panel__reasons">
