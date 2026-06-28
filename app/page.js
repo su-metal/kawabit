@@ -20,6 +20,10 @@ const services = [
     spot: "study",
     tabIllust: "study-tab-note.png",
     panelIllust: "study-voice-parent-smile.png",
+    bubbles: {
+      ask: "ここ、ちょっと\nつまずいてて…",
+      answer: "じゃあ一緒に、\nそこまで戻ろう",
+    },
     points: [
       {
         tag: "一人ひとりに",
@@ -53,6 +57,10 @@ const services = [
     spot: "repair",
     tabIllust: "it-tab-tools.png",
     panelIllust: "it-panel-counter.png",
+    bubbles: {
+      ask: "Wi-Fiが急に\nつながらなくて",
+      answer: "まず症状から、\n見せてください",
+    },
     points: [
       {
         tag: "診断無料",
