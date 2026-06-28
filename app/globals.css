@@ -436,6 +436,10 @@ main {
   line-height: 1.65;
 }
 
+.panel__intro-title-break {
+  display: block;
+}
+
 .hero__service-link {
   justify-self: start;
   margin-top: 3px;
@@ -2476,6 +2480,10 @@ main {
   .services__intro-title,
   .contact h2 {
     font-size: clamp(28px, 7.6vw, 44px);
+  }
+
+  .panel__intro-title-break {
+    display: none;
   }
 
   .scene__service {
