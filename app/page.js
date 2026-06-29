@@ -125,7 +125,6 @@ const issuesByService = {
       "定期テストの点数を上げたい",
       "受験までの計画を一緒に立てたい",
       "学校に行きづらい時期がある",
-      "大人になってから学び直したい",
       "近くに通えない／オンラインで受けたい",
     ],
   },
@@ -136,40 +135,8 @@ const issuesByService = {
       "大事なデータを取り出したい",
       "動作が遅くて買い替えに迷う",
       "パソコンの使い方を教わりたい",
-      "会社のIT環境を相談したい",
     ],
   },
-};
-
-const voicesByService = {
-  study: [
-    {
-      body:
-        "テスト前に毎回パニックになる子でしたが、「どこからやればいいか」を一緒に整理してもらえて、自分から机に向かうようになりました。",
-      attr: "中学2年生の保護者・豊橋市",
-      illust: "study-voice-parent-smile.png",
-    },
-    {
-      body:
-        "苦手だった英語を、文法の前に「なぜそうなるか」から教えてくれます。受験までの計画を一緒に立ててもらえて、親も安心です。",
-      attr: "中学3年生の保護者・豊川市",
-      illust: "study-voice-online.png",
-    },
-  ],
-  it: [
-    {
-      body:
-        "突然パソコンが立ち上がらず、写真も全部あきらめかけていました。データを救い出していただいて、本当に助かりました。",
-      attr: "60代女性・豊橋市",
-      illust: "it-voice-senior-smile.png",
-    },
-    {
-      body:
-        "動作が遅くて買い替えようかと思っていたのですが、設定の見直しでだいぶ軽くなりました。買い替えずに済んで助かりました。",
-      attr: "50代男性・田原市",
-      illust: "it-voice-data-desk.png",
-    },
-  ],
 };
 
 const faqsByService = {
@@ -450,7 +417,6 @@ export default function Home() {
           services={services}
           pricingByService={pricingByService}
           issuesByService={issuesByService}
-          voicesByService={voicesByService}
           faqsByService={faqsByService}
         />
         <Contact />

@@ -1418,83 +1418,6 @@ main {
   background: var(--blue);
 }
 
-/* Panel: voices */
-
-.panel__voices-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(20px, 2.6vw, 32px);
-}
-
-.panel__voice {
-  position: relative;
-  display: grid;
-  gap: 14px;
-  border: var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  padding: clamp(24px, 2.8vw, 32px) clamp(96px, 12vw, 140px) clamp(22px, 2.4vw, 28px)
-    clamp(22px, 2.4vw, 28px);
-  box-shadow: 5px 5px 0 var(--ink);
-  overflow: hidden;
-}
-
-.panel__voice::before {
-  position: absolute;
-  top: -10px;
-  right: 18px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(96px, 10vw, 140px);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--ink);
-  opacity: 0.14;
-  content: "\201C";
-  pointer-events: none;
-}
-
-.panel__voice-art {
-  position: absolute;
-  right: -14px;
-  bottom: -18px;
-  z-index: 0;
-  width: clamp(96px, 11vw, 130px);
-  height: auto;
-  opacity: 0.85;
-  pointer-events: none;
-}
-
-.panel__voice-art--study-parent-smile {
-  width: clamp(86px, 9.9vw, 117px);
-}
-
-.panel__voice > *:not(.panel__voice-art) {
-  position: relative;
-  z-index: 1;
-}
-
-.panel__voice-body {
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(15px, 1.4vw, 17px);
-  font-weight: 700;
-  line-height: 1.9;
-}
-
-.panel__voice-attr {
-  margin: 0;
-  padding-top: 12px;
-  border-top: 2px dashed var(--ink);
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 950;
-  letter-spacing: 0.02em;
-}
-
-.panel__voice-attr::before {
-  content: "— ";
-}
-
 /* Panel: faq */
 
 .panel__faq-list {
@@ -2154,14 +2077,11 @@ main {
 .service:not([hidden]) .panel__issues {
   animation: kawabit-panel-section 560ms cubic-bezier(0.22, 1, 0.36, 1) 380ms both;
 }
-.service:not([hidden]) .panel__voices {
+.service:not([hidden]) .panel__faq {
   animation: kawabit-panel-section 560ms cubic-bezier(0.22, 1, 0.36, 1) 460ms both;
 }
-.service:not([hidden]) .panel__faq {
-  animation: kawabit-panel-section 560ms cubic-bezier(0.22, 1, 0.36, 1) 540ms both;
-}
 .service:not([hidden]) .panel__contact {
-  animation: kawabit-panel-section 560ms cubic-bezier(0.22, 1, 0.36, 1) 620ms both;
+  animation: kawabit-panel-section 560ms cubic-bezier(0.22, 1, 0.36, 1) 540ms both;
 }
 
 @keyframes kawabit-panel-section {
@@ -2425,11 +2345,6 @@ main {
   .panel__reasons-list {
     grid-template-columns: 1fr;
     gap: 14px;
-  }
-
-  .panel__voices-list {
-    grid-template-columns: 1fr;
-    gap: 16px;
   }
 
   .panel__issues-list {
@@ -2715,23 +2630,61 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .panel__section-label {
+    margin-top: 14px;
+  }
+
+  .panel__reasons-list {
+    gap: 10px;
+  }
+
+  .panel__reason {
+    gap: 6px;
+    border-width: 4px;
+    border-radius: 18px;
+    padding: 13px 14px 14px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .panel__reason::before {
+    height: 5px;
+  }
+
+  .panel__reason-head {
+    gap: 8px;
+    padding-top: 4px;
+  }
+
+  .panel__reason-num {
+    font-size: 20px;
+    letter-spacing: -0.06em;
+  }
+
+  .panel__reason-tag {
+    border-width: 2px;
+    padding: 3px 9px;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .panel__reason h3 {
+    margin-top: 1px;
+    font-size: 16px;
+    line-height: 1.32;
+  }
+
+  .panel__reason p {
+    margin-top: 0;
+    font-size: 13px;
+    line-height: 1.62;
+  }
+
+  .panel__reasons .panel__section-label {
+    margin-bottom: 12px;
+  }
+
   .panel__pricing-row-value {
     font-size: clamp(36px, 9vw, 52px);
-  }
-
-  .panel__voice {
-    padding: 22px 18px 22px;
-  }
-
-  .panel__voice-art {
-    right: -10px;
-    bottom: -16px;
-    width: 100px;
-    opacity: 0.7;
-  }
-
-  .panel__voice-art--study-parent-smile {
-    width: 90px;
   }
 
   .panel__faq-summary {
@@ -2833,14 +2786,6 @@ main {
     transform: scale(1);
   }
 }
-
-/* Voice cards: scale-in */
-.service:not([hidden]) .panel__voice {
-  animation: kawabit-card-pop 720ms cubic-bezier(0.34, 1.46, 0.64, 1) both;
-}
-
-.service:not([hidden]) .panel__voices-list .panel__voice:nth-child(1) { animation-delay: 560ms; }
-.service:not([hidden]) .panel__voices-list .panel__voice:nth-child(2) { animation-delay: 680ms; }
 
 @keyframes kawabit-card-pop {
   from {
