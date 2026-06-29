@@ -6,7 +6,6 @@ export default function ServicesSection({
   services,
   pricingByService,
   issuesByService,
-  voicesByService,
   faqsByService,
 }) {
   const [active, setActive] = useState(services[0].id);
@@ -27,20 +26,23 @@ export default function ServicesSection({
       setActive(serviceId);
 
       if (shouldScroll) {
-        scrollToServices();
+        scrollToServicesTabs();
       }
     };
 
-    const scrollToServices = () => {
-      const target = document.getElementById("services");
+    const scrollToServicesTabs = () => {
+      const target = document.querySelector(".services__tabs");
       const header = document.querySelector(".site-header");
 
       if (!target) {
         return;
       }
 
-      const headerHeight = header?.getBoundingClientRect().height ?? 0;
-      const breathingRoom = window.matchMedia("(max-width: 640px)").matches ? 24 : 64;
+      const isMobile = window.matchMedia("(max-width: 640px)").matches;
+      const settledHeaderHeight = isMobile ? 70 : 84;
+      const currentHeaderHeight = header?.getBoundingClientRect().height ?? 0;
+      const headerHeight = Math.max(currentHeaderHeight, settledHeaderHeight);
+      const breathingRoom = isMobile ? 34 : 40;
       const top =
         target.getBoundingClientRect().top +
         window.scrollY -
@@ -139,7 +141,6 @@ export default function ServicesSection({
       {services.map((service) => {
         const pricing = pricingByService[service.id];
         const issues = issuesByService[service.id];
-        const voices = voicesByService[service.id];
         const faqs = faqsByService[service.id];
         const phoneHref = `tel:${service.phone.replace(/-/g, "")}`;
         const reasonsLabel =
@@ -259,24 +260,6 @@ export default function ServicesSection({
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </section>
-
-            <section className="panel__voices">
-              <p className="panel__section-label">相談後のひとこと</p>
-              <div className="panel__voices-list">
-                {voices.map((voice) => (
-                  <article className="panel__voice" key={voice.body}>
-                    <img
-                      className={getIllustClass("panel__voice-art", voice.illust)}
-                      src={`/illustrations/used/${voice.illust}`}
-                      alt=""
-                      aria-hidden="true"
-                    />
-                    <p className="panel__voice-body">{voice.body}</p>
-                    <p className="panel__voice-attr">{voice.attr}</p>
-                  </article>
-                ))}
-              </div>
             </section>
 
             <section className="panel__faq">
