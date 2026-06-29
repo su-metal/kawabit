@@ -13,7 +13,7 @@ export default function ServicesSection({
   const serviceIds = useMemo(() => services.map((service) => service.id), [services]);
   const getIllustClass = (baseClass, fileName) =>
     `${baseClass} ${
-      fileName === "study-voice-parent-smile.png"
+      fileName.startsWith("study-voice-parent-smile")
         ? `${baseClass}--study-parent-smile`
         : ""
     }`;
@@ -176,7 +176,11 @@ export default function ServicesSection({
                       受験の相談まで
                     </>
                   ) : (
-                    service.lead
+                    <>
+                      パソコンの「困った！」を、
+                      <br className="panel__intro-title-break" />
+                      サクッと解決。
+                    </>
                   )}
                 </h2>
                 {service.tags && service.tags.length > 0 && (
