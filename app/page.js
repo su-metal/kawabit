@@ -275,7 +275,7 @@ function Hero() {
           serviceId="it"
         >
           <span className="hero__service-visual">
-            <span className="hero__service-label">パソコン修理の相談</span>
+            <span className="hero__service-label">修理の相談</span>
             <Spot name="repair" className="hero__service-spot" />
           </span>
           <div className="hero__service-copy">

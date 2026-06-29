@@ -28,25 +28,21 @@ export default function Header() {
         <a
           className="brand"
           href="#top"
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label="KAWABIT トップへ"
         >
           KAWABIT
         </a>
         <nav className="site-nav" aria-label="主要ナビゲーション">
-          <a href="#services" target="_blank" rel="noopener noreferrer">
+          <a href="#services">
             サービス
           </a>
-          <a href="#contact" target="_blank" rel="noopener noreferrer">
+          <a href="#contact">
             相談する
           </a>
         </nav>
         <a
           className="header-cta"
           href="#contact"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           相談する
         </a>

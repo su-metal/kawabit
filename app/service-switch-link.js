@@ -3,8 +3,6 @@ export default function ServiceSwitchLink({ serviceId, className, children }) {
     <a
       className={className}
       href={`#services-${serviceId}`}
-      target="_blank"
-      rel="noopener noreferrer"
     >
       {children}
     </a>

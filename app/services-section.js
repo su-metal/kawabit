@@ -142,6 +142,10 @@ export default function ServicesSection({
         const voices = voicesByService[service.id];
         const faqs = faqsByService[service.id];
         const phoneHref = `tel:${service.phone.replace(/-/g, "")}`;
+        const reasonsLabel =
+          service.id === "it" ? "相談しやすい理由" : "はじめやすい理由";
+        const pricingLabel =
+          service.id === "it" ? "料金の目安と流れ" : "料金とはじめ方";
 
         return (
           <article
@@ -207,7 +211,7 @@ export default function ServicesSection({
             </div>
 
             <section className="panel__reasons">
-              <p className="panel__section-label">わたしたちのこだわり</p>
+              <p className="panel__section-label">{reasonsLabel}</p>
               <ol className="panel__reasons-list">
                 {service.points.map((point, i) => (
                   <li className="panel__reason" key={point.title}>
@@ -225,7 +229,7 @@ export default function ServicesSection({
             </section>
 
             <section className="panel__pricing">
-              <p className="panel__section-label">料金とはじめ方</p>
+              <p className="panel__section-label">{pricingLabel}</p>
               <div className="panel__pricing-card">
                 <header className="panel__pricing-head">
                   <span className="panel__pricing-tag">{pricing.label}</span>
@@ -254,7 +258,7 @@ export default function ServicesSection({
             </section>
 
             <section className="panel__voices">
-              <p className="panel__section-label">相談してみた方の声</p>
+              <p className="panel__section-label">相談後のひとこと</p>
               <div className="panel__voices-list">
                 {voices.map((voice) => (
                   <article className="panel__voice" key={voice.body}>
