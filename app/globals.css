@@ -725,7 +725,9 @@ main {
   display: grid;
   gap: 0;
   scroll-margin-top: 148px;
-  padding: 28px 0 clamp(90px, 10vw, 150px);
+  margin-top: clamp(64px, 8vw, 108px);
+  padding: clamp(56px, 7vw, 96px) 0 clamp(90px, 10vw, 150px);
+  border-top: var(--line);
 }
 
 .services__intro {
@@ -971,7 +973,7 @@ main {
 
 .panel__intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(170px, 18vw, 240px);
+  grid-template-columns: minmax(0, 1fr) clamp(216px, 25vw, 324px);
   gap: clamp(28px, 4vw, 56px);
   align-items: center;
 }
@@ -983,6 +985,8 @@ main {
   font-weight: 950;
   letter-spacing: 0.04em;
   line-height: 1.15;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 .panel__intro-tags {
@@ -1084,8 +1088,9 @@ main {
 .panel__intro-stage {
   position: relative;
   width: 100%;
-  max-width: 320px;
-  justify-self: center;
+  max-width: 324px;
+  justify-self: start;
+  margin-left: -40px;
 }
 
 .panel__intro-spot {
@@ -1117,7 +1122,7 @@ main {
 
 .panel__intro-bubble--ask {
   top: -14px;
-  left: -22px;
+  right: -22px;
   background: var(--paper);
   color: var(--ink);
 }
@@ -1125,7 +1130,7 @@ main {
 .panel__intro-bubble--ask::after {
   content: "";
   position: absolute;
-  right: 28px;
+  left: 28px;
   bottom: -9px;
   width: 14px;
   height: 14px;
@@ -1136,7 +1141,7 @@ main {
 }
 
 .panel__intro-bubble--answer {
-  right: -24px;
+  left: -24px;
   bottom: -14px;
   background: var(--ink);
   color: var(--paper);
@@ -1145,7 +1150,7 @@ main {
 .panel__intro-bubble--answer::after {
   content: "";
   position: absolute;
-  left: 28px;
+  right: 28px;
   top: -9px;
   width: 14px;
   height: 14px;
@@ -2396,6 +2401,8 @@ main {
 
   .panel__intro-stage {
     max-width: 240px;
+    justify-self: center;
+    margin-left: 0;
   }
 
   .panel__intro-bubble {
@@ -2407,11 +2414,11 @@ main {
 
   .panel__intro-bubble--ask {
     top: -10px;
-    left: -14px;
+    right: -14px;
   }
 
   .panel__intro-bubble--answer {
-    right: -14px;
+    left: -14px;
     bottom: -10px;
   }
 
@@ -2480,6 +2487,12 @@ main {
   .services__intro-title,
   .contact h2 {
     font-size: clamp(28px, 7.6vw, 44px);
+  }
+
+  .panel__intro-copy h2 {
+    font-size: clamp(24px, 6.5vw, 40px);
+    word-break: normal;
+    overflow-wrap: break-word;
   }
 
   .panel__intro-title-break {
@@ -2673,6 +2686,8 @@ main {
 
   .services {
     scroll-margin-top: 96px;
+    margin-top: 46px;
+    padding-top: 68px;
   }
 
   .services__tab-spot,
