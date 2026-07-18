@@ -1262,8 +1262,16 @@ main {
 .panel__intro-bubble--answer {
   left: -24px;
   bottom: -14px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.service--study .panel__intro-bubble--answer {
+  background: var(--green-pale);
+}
+
+.service--it .panel__intro-bubble--answer {
+  background: var(--blue-pale);
 }
 
 .panel__intro-bubble--answer::after {
@@ -1273,10 +1281,18 @@ main {
   top: -9px;
   width: 14px;
   height: 14px;
-  background: var(--ink);
+  background: var(--paper);
   border-left: 3px solid var(--ink);
   border-top: 3px solid var(--ink);
   transform: rotate(45deg);
+}
+
+.service--study .panel__intro-bubble--answer::after {
+  background: var(--green-pale);
+}
+
+.service--it .panel__intro-bubble--answer::after {
+  background: var(--blue-pale);
 }
 
 .panel__intro-sticker {
@@ -1895,11 +1911,11 @@ main {
 
 .contact__access-summary h3 {
   margin: 0;
-  font-family: var(--display);
+  font-family: Arial, "Hiragino Kaku Gothic ProN", var(--sans);
   font-size: clamp(28px, 3vw, 42px);
-  font-weight: 900;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
+  font-weight: 950;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
 }
 
 .contact__access-summary > p:not(.contact__access-kicker):not(.contact__hours) {
