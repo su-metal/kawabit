@@ -160,7 +160,7 @@ function Hero() {
           ))}
         </h1>
         <p className="hero__lead">
-          家庭教師も、パソコンも。困ったときは、かわべにひと声。
+          家庭教師も、パソコンも。暮らしの近くに、かわべのサポートを。
         </p>
       </div>
       <div className="hero__art">
