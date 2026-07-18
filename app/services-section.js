@@ -96,12 +96,12 @@ export default function ServicesSection({
             <span className="services__intro-circle" />
             <span className="services__intro-label">サービスは、ふたつ</span>
           </div>
-          <h2 className="services__intro-title">学びと、パソコンの相談先。</h2>
+          <h2 className="services__intro-title">学びのことも、パソコンのことも。</h2>
           <p className="services__intro-tagline">学びもITも、同じ入口から。</p>
           <div className="services__intro-text">
             <p>勉強のことなら「かわべ家庭教師学院」。</p>
             <p>パソコンのことなら「川辺コンピューター」。</p>
-            <p>気になるタブをのぞいてみてください。</p>
+            <p>気になるほうから、のぞいてみてください。</p>
           </div>
         </div>
       </div>
@@ -130,8 +130,8 @@ export default function ServicesSection({
             <span className="services__tab-title">{service.title}へ</span>
             <span className="services__tab-text">
               {service.id === "study"
-                ? "勉強方法、成績、受験、学習習慣の相談はこちら。"
-                : "起動しない、遅い、データ復旧、設定の相談はこちら。"}
+                ? "勉強のこと、どこから話しても大丈夫です。"
+                : "急な困りごとも、まずは聞かせてください。"}
             </span>
           </button>
         ))}
