@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 
 export default function ServicesSection({
   services,
-  pricingByService,
   issuesByService,
   faqsByService,
 }) {
@@ -139,14 +138,11 @@ export default function ServicesSection({
       </div>
 
       {services.map((service) => {
-        const pricing = pricingByService[service.id];
         const issues = issuesByService[service.id];
         const faqs = faqsByService[service.id];
         const phoneHref = `tel:${service.phone.replace(/-/g, "")}`;
         const reasonsLabel =
           service.id === "it" ? "相談しやすい理由" : "はじめやすい理由";
-        const pricingLabel =
-          service.id === "it" ? "料金の目安と流れ" : "料金とはじめ方";
 
         return (
           <article
@@ -233,26 +229,6 @@ export default function ServicesSection({
               </ol>
             </section>
 
-            <section className="panel__pricing">
-              <p className="panel__section-label">{pricingLabel}</p>
-              <div className="panel__pricing-card">
-                <header className="panel__pricing-head">
-                  <span className="panel__pricing-tag">{pricing.label}</span>
-                  <p className="panel__pricing-name">{pricing.name}</p>
-                </header>
-                <ul className="panel__pricing-rows">
-                  {pricing.items.map((item) => (
-                    <li className="panel__pricing-row" key={item.title}>
-                      <p className="panel__pricing-row-title">{item.title}</p>
-                      <p className="panel__pricing-row-value">{item.value}</p>
-                      <p className="panel__pricing-row-note">{item.note}</p>
-                    </li>
-                  ))}
-                </ul>
-                <p className="panel__pricing-extra">{pricing.extra}</p>
-              </div>
-            </section>
-
             <section className="panel__issues">
               <p className="panel__section-label">{issues.title}</p>
               <ul className="panel__issues-list">
@@ -292,8 +268,20 @@ export default function ServicesSection({
               <p className="panel__section-label">相談はこちら</p>
               <dl className="panel__contact-info">
                 <div>
-                  <dt>専門サイト</dt>
-                  <dd>{service.name}</dd>
+                  <dt>公式サイト</dt>
+                  <dd className="panel__site-name">
+                    <a
+                      href={service.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${service.logoAlt}の公式サイトを開く`}
+                    >
+                      <img src={service.logo} alt={service.logoAlt} />
+                      <span className="panel__site-name-action" aria-hidden="true">
+                        ↗
+                      </span>
+                    </a>
+                  </dd>
                 </div>
                 <div>
                   <dt>電話</dt>
@@ -308,6 +296,13 @@ export default function ServicesSection({
                   </dd>
                 </div>
               </dl>
+              <a className="panel__access-link" href="#access">
+                <span>来訪のご相談</span>
+                <strong>{service.accessLabel}</strong>
+                <span>
+                  地図・アクセスを見る <b aria-hidden="true">↓</b>
+                </span>
+              </a>
               <a
                 className="panel__contact-cta"
                 href={service.href}

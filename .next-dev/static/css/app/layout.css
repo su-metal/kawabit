@@ -1,3 +1,6 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./app/globals.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
 @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&display=swap');
 
 :root {
@@ -71,6 +74,7 @@ main {
 }
 
 .site-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -94,12 +98,14 @@ main {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
+  grid-gap: 36px;
   gap: 36px;
   height: 84px;
   border-bottom: var(--line);
   background: rgba(251, 250, 245, 0.92);
   padding: 0 clamp(20px, 5vw, 64px);
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
 }
 
 /* ===== Ticker ===== */
@@ -203,6 +209,7 @@ main {
   grid-template-rows: auto minmax(0, 1fr) auto;
   justify-items: center;
   align-items: center;
+  grid-gap: clamp(6px, 1vw, 14px);
   gap: clamp(6px, 1vw, 14px);
   width: min(1480px, calc(100% - 40px));
   height: calc(100svh - 44px);
@@ -277,7 +284,9 @@ main {
   width: clamp(132px, 14vw, 226px);
   height: auto;
   pointer-events: none;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .hero__side-flow--study {
@@ -360,6 +369,7 @@ main {
   z-index: 4;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: clamp(18px, 2.2vw, 28px);
   gap: clamp(18px, 2.2vw, 28px);
   width: min(1180px, 100%);
   align-self: end;
@@ -368,6 +378,7 @@ main {
 .hero__service-card {
   display: grid;
   grid-template-columns: minmax(86px, 120px) minmax(0, 1fr);
+  grid-gap: clamp(14px, 1.8vw, 22px);
   gap: clamp(14px, 1.8vw, 22px);
   align-items: center;
   min-height: clamp(126px, 12.5svh, 154px);
@@ -412,6 +423,7 @@ main {
 
 .hero__service-copy {
   display: grid;
+  grid-gap: clamp(5px, 0.65vw, 8px);
   gap: clamp(5px, 0.65vw, 8px);
   min-width: 0;
 }
@@ -483,6 +495,7 @@ main {
 
 .scene__inner {
   display: grid;
+  grid-gap: clamp(28px, 4vw, 52px);
   gap: clamp(28px, 4vw, 52px);
 }
 
@@ -511,12 +524,14 @@ main {
 .scene__services {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: clamp(18px, 2.4vw, 28px);
   gap: clamp(18px, 2.4vw, 28px);
 }
 
 .scene__service {
   display: grid;
   grid-template-columns: minmax(96px, 132px) minmax(0, 1fr);
+  grid-gap: clamp(16px, 2vw, 24px);
   gap: clamp(16px, 2vw, 24px);
   align-items: center;
   border: var(--line);
@@ -552,6 +567,7 @@ main {
 
 .scene__service-copy {
   display: grid;
+  grid-gap: 8px;
   gap: 8px;
 }
 
@@ -621,6 +637,7 @@ main {
 
 .history__inner {
   display: grid;
+  grid-gap: clamp(24px, 3vw, 36px);
   gap: clamp(24px, 3vw, 36px);
 }
 
@@ -636,6 +653,7 @@ main {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: clamp(18px, 2.2vw, 28px);
   gap: clamp(18px, 2.2vw, 28px);
   margin: 0;
   padding: clamp(12px, 1.4vw, 18px) 0 0;
@@ -656,6 +674,7 @@ main {
 .history__item {
   position: relative;
   display: grid;
+  grid-gap: 14px;
   gap: 14px;
   align-content: start;
   border: var(--line);
@@ -736,6 +755,7 @@ main {
 
 .services {
   display: grid;
+  grid-gap: 0;
   gap: 0;
   scroll-margin-top: 148px;
   margin-top: clamp(64px, 8vw, 108px);
@@ -826,6 +846,7 @@ main {
 .services__tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 0;
   gap: 0;
   align-items: stretch;
   position: relative;
@@ -841,6 +862,7 @@ main {
     "spot label"
     "spot title"
     "spot text";
+  grid-gap: 8px clamp(16px, 2vw, 28px);
   gap: 8px clamp(16px, 2vw, 28px);
   align-items: center;
   padding: clamp(20px, 2.5vw, 30px);
@@ -940,6 +962,7 @@ main {
 .service {
   position: relative;
   display: grid;
+  grid-gap: clamp(48px, 6vw, 80px);
   gap: clamp(48px, 6vw, 80px);
   padding: clamp(72px, 8vw, 110px) clamp(28px, 4vw, 56px) clamp(48px, 6vw, 80px);
   border: var(--line);
@@ -987,6 +1010,7 @@ main {
 .panel__intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(216px, 25vw, 324px);
+  grid-gap: clamp(28px, 4vw, 56px);
   gap: clamp(28px, 4vw, 56px);
   align-items: center;
 }
@@ -1036,12 +1060,14 @@ main {
 
 .panel__contact {
   display: grid;
+  grid-gap: clamp(20px, 2.4vw, 28px);
   gap: clamp(20px, 2.4vw, 28px);
 }
 
 .panel__contact-info {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 12px;
   gap: 12px;
   margin: 0;
 }
@@ -1139,6 +1165,7 @@ main {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
+  grid-gap: 12px;
   gap: 12px;
   padding: 13px 16px;
   border: 3px solid var(--ink);
@@ -1310,6 +1337,7 @@ main {
 .panel__reasons-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: clamp(16px, 2vw, 24px);
   gap: clamp(16px, 2vw, 24px);
   margin: 0;
   padding: 0;
@@ -1319,6 +1347,7 @@ main {
 .panel__reason {
   position: relative;
   display: grid;
+  grid-gap: 10px;
   gap: 10px;
   border: var(--line);
   border-radius: var(--radius);
@@ -1394,6 +1423,7 @@ main {
 .panel__pricing-card {
   position: relative;
   display: grid;
+  grid-gap: clamp(22px, 2.6vw, 30px);
   gap: clamp(22px, 2.6vw, 30px);
   border: var(--line);
   border-radius: var(--radius);
@@ -1405,6 +1435,7 @@ main {
 
 .panel__pricing-head {
   display: grid;
+  grid-gap: 8px;
   gap: 8px;
   padding-bottom: 18px;
   border-bottom: 3px dashed var(--ink);
@@ -1433,6 +1464,7 @@ main {
 
 .panel__pricing-rows {
   display: grid;
+  grid-gap: clamp(22px, 2.6vw, 30px);
   gap: clamp(22px, 2.6vw, 30px);
   margin: 0;
   padding: 0;
@@ -1441,6 +1473,7 @@ main {
 
 .panel__pricing-row {
   display: grid;
+  grid-gap: 4px;
   gap: 4px;
   padding-bottom: clamp(18px, 2vw, 24px);
   border-bottom: 2px dashed rgba(5, 5, 5, 0.28);
@@ -1494,6 +1527,7 @@ main {
 .panel__issues-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 0 clamp(20px, 2.6vw, 32px);
   gap: 0 clamp(20px, 2.6vw, 32px);
   margin: 0;
   padding: clamp(24px, 2.8vw, 32px);
@@ -1541,6 +1575,7 @@ main {
 
 .panel__faq-list {
   display: grid;
+  grid-gap: 12px;
   gap: 12px;
 }
 
@@ -1558,6 +1593,7 @@ main {
 .panel__faq-summary {
   display: grid;
   grid-template-columns: 40px minmax(0, 1fr) 24px;
+  grid-gap: 16px;
   gap: 16px;
   align-items: center;
   padding: 16px clamp(18px, 2.2vw, 26px);
@@ -1628,6 +1664,7 @@ main {
 .panel__faq-body {
   display: grid;
   grid-template-columns: 40px minmax(0, 1fr);
+  grid-gap: 16px;
   gap: 16px;
   padding: 4px clamp(18px, 2.2vw, 26px) 20px;
   border-top: 2px dashed rgba(5, 5, 5, 0.22);
@@ -1656,6 +1693,7 @@ main {
 .contact__inner {
   position: relative;
   display: grid;
+  grid-gap: clamp(38px, 5vw, 60px);
   gap: clamp(38px, 5vw, 60px);
   width: min(var(--max), calc(100% - 44px));
   margin: 0 auto;
@@ -1682,6 +1720,7 @@ main {
 .contact__cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: clamp(20px, 2.6vw, 32px);
   gap: clamp(20px, 2.6vw, 32px);
 }
 
@@ -1702,12 +1741,14 @@ main {
 .contact-card__header {
   display: grid;
   grid-template-columns: clamp(140px, 17vw, 190px) minmax(0, 1fr);
+  grid-gap: clamp(16px, 2vw, 22px);
   gap: clamp(16px, 2vw, 22px);
   align-items: center;
 }
 
 .contact-card__heading {
   display: grid;
+  grid-gap: clamp(8px, 0.9vw, 12px);
   gap: clamp(8px, 0.9vw, 12px);
   min-width: 0;
 }
@@ -1767,6 +1808,7 @@ main {
 
 .contact-card__meta {
   display: grid;
+  grid-gap: 12px;
   gap: 12px;
   margin: 0;
   padding: 14px 18px;
@@ -1784,7 +1826,9 @@ main {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: start;
+  grid-column-gap: 14px;
   column-gap: 14px;
+  grid-row-gap: 2px;
   row-gap: 2px;
 }
 
@@ -1874,6 +1918,7 @@ main {
   scroll-margin-top: 112px;
   display: grid;
   grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+  grid-gap: clamp(22px, 3vw, 40px);
   gap: clamp(22px, 3vw, 40px);
   align-items: start;
   padding-top: clamp(26px, 3vw, 34px);
@@ -1956,6 +2001,7 @@ main {
 .contact__maps {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: clamp(16px, 2vw, 24px);
   gap: clamp(16px, 2vw, 24px);
   min-width: 0;
 }
@@ -1982,6 +2028,7 @@ main {
 
 .contact__map-body {
   display: grid;
+  grid-gap: 12px;
   gap: 12px;
   padding: 14px;
   border-top: 4px solid var(--ink);
@@ -3016,3 +3063,4 @@ main {
     animation-duration: 0s !important;
   }
 }
+

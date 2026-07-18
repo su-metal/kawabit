@@ -16,6 +16,9 @@ const services = [
       "今いる場所から、無理のないペースで一緒に進んでいきます。",
     href: "https://kawabegakuin.jp/",
     phone: "0120-777-697",
+    logo: "/logo/かわべ家庭教師学院logo.png",
+    logoAlt: "かわべ家庭教師学院",
+    accessLabel: "北山本部・牛川事務所",
     cta: "家庭教師に相談する",
     spot: "study",
     tabIllust: "study-tab-note.png",
@@ -53,6 +56,9 @@ const services = [
       "症状を一緒に確かめて、いちばん近い解決ルートをご案内します。",
     href: "https://kawabecom.jp/",
     phone: "0532-63-7717",
+    logo: "/logo/kawabe-com_logo.png",
+    logoAlt: "川辺コンピューター",
+    accessLabel: "牛川事務所",
     cta: "PC修理に相談する",
     spot: "repair",
     tabIllust: "it-tab-tools.png",
@@ -63,14 +69,14 @@ const services = [
     },
     points: [
       {
-        tag: "診断無料",
-        title: "まず症状をうかがいます",
-        text: "「動かない」「遅い」「変な画面が出る」——その症状を一緒に確認。原因を見立ててから手を動かします。",
+        tag: "まずは状況から",
+        title: "症状をうかがいます",
+        text: "「動かない」「遅い」「変な画面が出る」——その症状を一緒に確認し、次の進め方をご案内します。",
       },
       {
-        tag: "見積無料",
-        title: "費用は事前にお伝え",
-        text: "作業の前に内容と費用をきちんとご説明します。納得いただいてから進めるので、はじめての方も安心です。",
+        tag: "分かりやすく",
+        title: "対応の流れをご案内",
+        text: "ご相談の内容を整理して、必要な対応を分かりやすくご案内します。はじめての方も気軽にお声がけください。",
       },
       {
         tag: "幅広く対応",
@@ -80,43 +86,6 @@ const services = [
     ],
   },
 ];
-
-const pricingByService = {
-  study: {
-    label: "家庭教師",
-    name: "かわべ家庭教師学院",
-    items: [
-      {
-        title: "教材費",
-        value: "ゼロ",
-        note: "学校教材＋オリジナルプリントで進めます",
-      },
-      {
-        title: "月額",
-        value: "14,300円〜",
-        note: "小学生・週1回60分（税込）",
-      },
-    ],
-    extra: "＋ 年間契約なし、いつでもやめられます",
-  },
-  it: {
-    label: "PC修理",
-    name: "川辺コンピューター",
-    items: [
-      {
-        title: "初期診断",
-        value: "無料",
-        note: "症状を見立ててから作業を判断します",
-      },
-      {
-        title: "軽度トラブル",
-        value: "6,800円〜",
-        note: "症状によって料金は変わります",
-      },
-    ],
-    extra: "＋ データ復旧は最短24時間で対応",
-  },
-};
 
 const issuesByService = {
   study: {
@@ -142,8 +111,8 @@ const issuesByService = {
 const faqsByService = {
   study: [
     {
-      q: "料金は事前にわかりますか？",
-      a: "月額制で教材費や年間契約はありません。初回ご相談時にお子さまの状況と希望をうかがって、月額を明確にお伝えします。",
+      q: "はじめに何を相談すればよいですか？",
+      a: "お子さまの学年、気になっていること、目標など、分かる範囲でお聞かせください。状況に合う相談先をご案内します。",
     },
     {
       q: "オンラインでも受けられますか？",
@@ -156,8 +125,8 @@ const faqsByService = {
   ],
   it: [
     {
-      q: "料金は事前にわかりますか？",
-      a: "初期診断は無料で、作業の前にお見積りをお伝えします。納得いただいてから進めるので、追加費用の心配はありません。",
+      q: "相談するときは何を伝えればよいですか？",
+      a: "パソコンの機種や、いつから・どのような症状が起きているかを分かる範囲でお聞かせください。状況に合わせてご案内します。",
     },
     {
       q: "出張対応はしてもらえますか？",
@@ -174,15 +143,16 @@ const faqsByService = {
 
 function Hero() {
   const titleChars = "KAWABIT".split("");
+
   return (
     <section className="hero" id="top" aria-label="KAWABIT ファーストビュー">
       <div className="hero__copy">
         <h1 className="hero__title" aria-label="KAWABIT">
-          {titleChars.map((char, i) => (
+          {titleChars.map((char, index) => (
             <span
-              key={i}
+              key={index}
               className="hero__title-char"
-              style={{ "--i": i }}
+              style={{ "--i": index }}
               aria-hidden="true"
             >
               {char}
@@ -190,7 +160,7 @@ function Hero() {
           ))}
         </h1>
         <p className="hero__lead">
-          家庭教師も、パソコン修理も。暮らしの近くに、川辺の相談先を。
+          家庭教師も、パソコンも。暮らしの近くに、かわべのサポートを。
         </p>
       </div>
       <div className="hero__art">
@@ -307,11 +277,8 @@ function Contact() {
         </div>
 
         <div className="contact__cards reveal reveal-stagger">
-          <a
+          <article
             className="contact-card contact-card--study"
-            href="https://kawabegakuin.jp/"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <div className="contact-card__header">
               <Spot name="study" className="contact-card__spot" />
@@ -347,19 +314,21 @@ function Contact() {
                 </dd>
               </div>
             </dl>
-            <span className="contact-card__cta">
+            <a
+              className="contact-card__cta"
+              href="https://kawabegakuin.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               詳しく見る
               <span className="contact-card__cta-arrow" aria-hidden="true">
                 →
               </span>
-            </span>
-          </a>
+            </a>
+          </article>
 
-          <a
+          <article
             className="contact-card contact-card--it"
-            href="https://kawabecom.jp/"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <div className="contact-card__header">
               <Spot name="repair" className="contact-card__spot" />
@@ -386,20 +355,82 @@ function Contact() {
                 <dd>豊橋市南牛川1丁目1-7</dd>
               </div>
             </dl>
-            <span className="contact-card__cta">
+            <a
+              className="contact-card__cta"
+              href="https://kawabecom.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               詳しく見る
               <span className="contact-card__cta-arrow" aria-hidden="true">
                 →
               </span>
-            </span>
-          </a>
+            </a>
+          </article>
         </div>
 
-        <p className="contact__hours">
-          <span className="contact__hours-label">営業時間</span>
-          <span className="contact__hours-value">10:00 – 19:00 ／ 日曜休</span>
-          <span className="contact__hours-note">両店共通</span>
-        </p>
+        <section className="contact__access reveal" id="access" aria-label="拠点・アクセス">
+          <div className="contact__access-summary">
+            <p className="contact__access-kicker">ACCESS</p>
+            <h3>
+              どちらの相談も、
+              <br />
+              まずはこちらの拠点から。
+            </h3>
+            <p>
+              家庭教師学院は北山本部と牛川事務所、川辺コンピューターは牛川事務所でご案内しています。
+            </p>
+            <p className="contact__hours">
+              <span className="contact__hours-label">営業時間</span>
+              <span className="contact__hours-value">10:00 – 19:00 ／ 日曜休</span>
+              <span className="contact__hours-note">両店共通</span>
+            </p>
+          </div>
+
+          <div className="contact__maps">
+            <article className="contact__map">
+              <iframe
+                className="contact__map-frame"
+                title="かわべ家庭教師学院 北山本部のGoogleマップ"
+                src="https://www.google.com/maps?q=かわべ家庭教師学院+北山本部+愛知県豊橋市牧野町牧野26-80+北山ビル3F&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="contact__map-body">
+                <strong className="contact__map-name">北山本部｜かわべ家庭教師学院</strong>
+                <a
+                  className="contact__map-cta"
+                  href="https://www.google.com/maps/search/?api=1&query=かわべ家庭教師学院+北山本部+愛知県豊橋市牧野町牧野26-80+北山ビル3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Googleマップで開く <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+
+            <article className="contact__map">
+              <iframe
+                className="contact__map-frame"
+                title="牛川事務所・川辺コンピューターのGoogleマップ"
+                src="https://www.google.com/maps?q=川辺コンピューター+愛知県豊橋市南牛川1丁目1-7&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="contact__map-body">
+                <strong className="contact__map-name">牛川事務所｜家庭教師学院・川辺コンピューター</strong>
+                <a
+                  className="contact__map-cta"
+                  href="https://www.google.com/maps/search/?api=1&query=川辺コンピューター+愛知県豊橋市南牛川1丁目1-7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Googleマップで開く <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
   );
@@ -415,7 +446,6 @@ export default function Home() {
         <BrandHistory />
         <ServicesSection
           services={services}
-          pricingByService={pricingByService}
           issuesByService={issuesByService}
           faqsByService={faqsByService}
         />
@@ -423,7 +453,7 @@ export default function Home() {
       </main>
       <footer className="site-footer">
         <div className="site-footer__inner">
-          <strong>KAWABIT</strong>
+          <strong>株式会社カワビット</strong>
           <span>かわべ家庭教師学院 / 川辺コンピューター</span>
         </div>
       </footer>
