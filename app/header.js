@@ -2,6 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 
+const tickerItems = Array.from({ length: 8 });
+
+function TickerGroup({ ariaHidden = false }) {
+  return (
+    <div className="ticker-group" aria-hidden={ariaHidden}>
+      {tickerItems.map((_, index) => (
+        <React.Fragment key={index}>
+          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
+          <span className="ticker-separator">●</span>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -28,9 +43,10 @@ export default function Header() {
         <a
           className="brand"
           href="#top"
-          aria-label="KAWABIT トップへ"
+          aria-label="カワビット トップへ"
         >
-          KAWABIT
+          <img src="/logo/KAWABIT name.png" alt="カワビット" />
+          <span className="brand__company">株式会社カワビット</span>
         </a>
         <nav className="site-nav" aria-label="主要ナビゲーション">
           <a href="#services">
@@ -54,22 +70,8 @@ export default function Header() {
     <header className="site-header site-header--ticker">
       <div className="ticker-wrap">
         <div className="ticker-track">
-          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
-          <span className="ticker-separator">●</span>
-          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
-          <span className="ticker-separator">●</span>
-          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
-          <span className="ticker-separator">●</span>
-          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
-          <span className="ticker-separator">●</span>
-          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
-          <span className="ticker-separator">●</span>
-          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
-          <span className="ticker-separator">●</span>
-          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
-          <span className="ticker-separator">●</span>
-          <span className="ticker-item">KAWABIT — 学びもITも、ここから相談。</span>
-          <span className="ticker-separator">●</span>
+          <TickerGroup />
+          <TickerGroup ariaHidden />
         </div>
       </div>
     </header>
