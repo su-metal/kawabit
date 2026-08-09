@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "kawabit-kawabe-proxy",
+  "main": "worker/src/index.mjs",
+  "compatibility_date": "2026-07-26",
+  "routes": [
+    {
+      "pattern": "kawabit.jp/kawabe",
+      "zone_name": "kawabit.jp"
+    },
+    {
+      "pattern": "kawabit.jp/kawabe/*",
+      "zone_name": "kawabit.jp"
+    }
+  ],
+  "vars": {
+    "UPSTREAM_ORIGIN": "https://kawabit.sakura.ne.jp",
+    "PUBLIC_ORIGIN": "https://kawabit.jp"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
