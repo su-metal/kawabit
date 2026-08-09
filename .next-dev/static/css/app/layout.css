@@ -751,6 +751,15 @@ main {
   line-height: 1.8;
 }
 
+.history__item .history__brand-reading {
+  margin-top: 2px;
+  color: var(--ink);
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
 /* ===== Services intro & tabs ===== */
 
 .services {
@@ -1969,6 +1978,11 @@ main {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.8;
+}
+
+.contact__access-note {
+  display: inline-block;
+  margin-top: 2px;
 }
 
 .contact__hours {

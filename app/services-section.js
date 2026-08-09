@@ -162,7 +162,7 @@ export default function ServicesSection({
                 )}
                 {service.id === "it" && (
                   <span className="panel__intro-sticker panel__intro-sticker--it">
-                    修理♡ラブ
+                    修理♡愛
                   </span>
                 )}
                 <h2>

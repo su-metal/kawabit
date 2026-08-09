@@ -248,6 +248,7 @@ function BrandHistory() {
             <span className="history__year">NOW</span>
             <div>
               <h3>KAWABIT</h3>
+              <p className="history__brand-reading">カワビット</p>
               <p>KAWABEはこれからも、家庭教師とパソコン修理で。</p>
             </div>
           </li>
@@ -378,7 +379,11 @@ function Contact() {
               こちらです。
             </h3>
             <p>
-              お近くなら、どうぞ気軽にお立ち寄りください。家庭教師学院は北山本部と牛川事務所、川辺コンピューターは牛川事務所でご案内しています。
+              お近くなら、どうぞ気軽にお立ち寄りください。
+              <br />
+              <span className="contact__access-note">
+                ※かわべ家庭教師学院は、牛川事務所でも指導が受けられます。
+              </span>
             </p>
             <p className="contact__hours">
               <span className="contact__hours-label">営業時間</span>
@@ -397,7 +402,7 @@ function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="contact__map-body">
-                <strong className="contact__map-name">北山本部｜かわべ家庭教師学院</strong>
+                <strong className="contact__map-name">かわべ家庭教師学院</strong>
                 <a
                   className="contact__map-cta"
                   href="https://www.google.com/maps/search/?api=1&query=かわべ家庭教師学院+北山本部+愛知県豊橋市牧野町牧野26-80+北山ビル3F"
@@ -418,7 +423,7 @@ function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="contact__map-body">
-                <strong className="contact__map-name">牛川事務所｜家庭教師学院・川辺コンピューター</strong>
+                <strong className="contact__map-name">川辺コンピューター</strong>
                 <a
                   className="contact__map-cta"
                   href="https://www.google.com/maps/search/?api=1&query=川辺コンピューター+愛知県豊橋市南牛川1丁目1-7"

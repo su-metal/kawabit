@@ -5,6 +5,9 @@ export const metadata = {
   title: "KAWABIT | 学びとITの相談ナビ",
   description:
     "カワビットは、豊橋・豊川・田原エリアの家庭教師、学習相談、パソコン修理、データ復旧へつながる案内サイトです。",
+  icons: {
+    icon: "/logo/KAWABIT symbol mark 白背景.png",
+  },
 };
 
 export default function RootLayout({ children }) {
